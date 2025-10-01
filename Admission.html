@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Form - MD GURUKUL</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+        }
+
+        header {
+            background-color: #161b22;
+            padding: 10px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        header .logo img {
+            height: 50px;
+        }
+
+        header .logo h1 {
+            font-size: 1.8em;
+            color: #ffbf00;
+            margin: 0;
+        }
+
+        nav a {
+            color: #c9d1d9;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffbf00;
+        }
+
+        section {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #161b22, #0d1117);
+            border-radius: 15px;
+        }
+
+        .hero h2 {
+            font-size: 2.2em;
+            color: #ffbf00;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1em;
+            color: #c9d1d9;
+        }
+
+        form {
+            background-color: #161b22;
+            padding: 30px 25px;
+            border-radius: 12px;
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        form label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #c9d1d9;
+        }
+
+        form input, form select, form textarea {
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-size: 1em;
+        }
+
+        form input:focus, form select:focus, form textarea:focus {
+            outline: none;
+            border-color: #ffbf00;
+            box-shadow: 0 0 8px #ffbf00;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 6px;
+            background-color: #ffbf00;
+            color: #0d1117;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #e6ac00;
+        }
+
+        footer {
+            background-color: #161b22;
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 50px;
+            color: #8b949e;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="https://i.ibb.co/RG37LP73/apple-touch-icon.png" alt="MD GURUKUL Logo">
+        <h1>MD GURUKUL</h1>
+    </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="admission.html">Admission</a>
+        <a href="live-classes.html">Live Classes</a>
+        <a href="recorded-classes.html">Recorded Classes</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Admission Form</h2>
+    <p>Fill out the form below to apply for your desired class at MD GURUKUL.</p>
+</section>
+
+<section>
+    <form id="admissionForm">
+        <label for="studentName">Student Name</label>
+        <input type="text" id="studentName" name="studentName" placeholder="Enter student name" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Enter email" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+
+        <label for="class">Class Applying For</label>
+        <select id="class" name="class" required>
+            <option value="">Select Class</option>
+            <option value="6-8">Class 6-8</option>
+            <option value="9-10">Class 9-10</option>
+            <option value="11-12">Class 11-12</option>
+        </select>
+
+        <label for="message">Additional Information</label>
+        <textarea id="message" name="message" rows="4" placeholder="Any special requirements or notes"></textarea>
+
+        <button type="submit" class="btn">Submit Application</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2025 MD GURUKUL. All Rights Reserved.</p>
+</footer>
+
+<script>
+    // Simple form submission simulation
+    const form = document.getElementById('admissionForm');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert("Thank you! Your application has been submitted successfully.");
+        form.reset();
+    });
+</script>
+
+</body>
+</html>
