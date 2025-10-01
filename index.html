@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MD GURUKUL - Home</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #0d1117;
+        color: #c9d1d9;
+    }
+
+    header {
+        background-color: #161b22;
+        padding: 10px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+
+    header .logo {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    header .logo img {
+        height: 50px;
+    }
+
+    header .logo h1 {
+        font-size: 1.8em;
+        color: #ffbf00;
+        margin: 0;
+    }
+
+    nav a {
+        color: #c9d1d9;
+        text-decoration: none;
+        margin-left: 25px;
+        font-weight: 600;
+        transition: color 0.3s;
+    }
+
+    nav a:hover {
+        color: #ffbf00;
+    }
+
+    /* Slider Styles */
+    .slider {
+        position: relative;
+        max-width: 1200px;
+        margin: 40px auto 0;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .slides {
+        display: flex;
+        width: 400%;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .slides img {
+        width: 100%;
+        border-radius: 15px;
+    }
+
+    /* Slider Navigation */
+    .navigation-manual {
+        position: absolute;
+        width: 100%;
+        bottom: 10px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .manual-btn {
+        border: 2px solid #ffbf00;
+        padding: 5px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background 0.3s;
+        margin: 0 5px;
+    }
+
+    .manual-btn:hover {
+        background: #ffbf00;
+    }
+
+    /* Sections */
+    section {
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+
+    .welcome {
+        text-align: center;
+        padding: 40px 20px;
+        background-color: #161b22;
+        border-radius: 15px;
+    }
+
+    .welcome h2 {
+        font-size: 2.2em;
+        color: #ffbf00;
+        margin-bottom: 15px;
+    }
+
+    .welcome p {
+        font-size: 1.1em;
+        color: #c9d1d9;
+    }
+
+    .feature-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    .card {
+        background-color: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 12px;
+        width: 280px;
+        padding: 25px 15px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .card:hover {
+        border-color: #ffbf00;
+        box-shadow: 0 0 15px #ffbf00;
+    }
+
+    .card h3 {
+        color: #ffbf00;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        color: #c9d1d9;
+    }
+
+    footer {
+        background-color: #161b22;
+        text-align: center;
+        padding: 25px 20px;
+        margin-top: 50px;
+        color: #8b949e;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="https://i.ibb.co/RG37LP73/apple-touch-icon.png" alt="MD GURUKUL Logo">
+        <h1>MD GURUKUL</h1>
+    </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="admission.html">Admission</a>
+        <a href="live-classes.html">Live Classes</a>
+        <a href="recorded-classes.html">Recorded Classes</a>
+    </nav>
+</header>
+
+<!-- Image Slider -->
+<div class="slider">
+    <div class="slides">
+        <img src="https://via.placeholder.com/1200x400/ffbf00/0d1117?text=Welcome+to+MD+GURUKUL" alt="Slide1">
+        <img src="https://via.placeholder.com/1200x400/0d1117/ffbf00?text=Live+Classes" alt="Slide2">
+        <img src="https://via.placeholder.com/1200x400/161b22/ffbf00?text=Recorded+Classes" alt="Slide3">
+        <img src="https://via.placeholder.com/1200x400/0d1117/ffbf00?text=Admission+Open" alt="Slide4">
+    </div>
+    <div class="navigation-manual">
+        <div class="manual-btn" onclick="currentSlide(0)"></div>
+        <div class="manual-btn" onclick="currentSlide(1)"></div>
+        <div class="manual-btn" onclick="currentSlide(2)"></div>
+        <div class="manual-btn" onclick="currentSlide(3)"></div>
+    </div>
+</div>
+
+<section class="welcome">
+    <h2>Welcome to MD GURUKUL</h2>
+    <p>Providing professional and student-friendly education with live and recorded classes for all grades.</p>
+</section>
+
+<section class="feature-cards">
+    <div class="card">
+        <h3>Live Classes</h3>
+        <p>Join interactive live classes with our expert teachers and clear all your doubts.</p>
+    </div>
+    <div class="card">
+        <h3>Recorded Classes</h3>
+        <p>Access recorded lectures anytime and revise your lessons with ease.</p>
+    </div>
+    <div class="card">
+        <h3>Admission</h3>
+        <p>Apply for your desired class and start learning with MD GURUKUL today.</p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 MD GURUKUL. All Rights Reserved.</p>
+</footer>
+
+<script>
+    let index = 0;
+    const slides = document.querySelector('.slides');
+    const totalSlides = slides.children.length;
+
+    function showSlide(i){
+        slides.style.transform = `translateX(-${i * 100}%)`;
+    }
+
+    function nextSlide(){
+        index = (index + 1) % totalSlides;
+        showSlide(index);
+    }
+
+    function currentSlide(i){
+        index = i;
+        showSlide(index);
+    }
+
+    setInterval(nextSlide, 4000); // auto-slide every 4 seconds
+</script>
+
+</body>
+</html>
