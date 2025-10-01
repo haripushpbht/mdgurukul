@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - MD GURUKUL</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+        }
+
+        header {
+            background-color: #161b22;
+            padding: 10px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        header .logo img {
+            height: 50px;
+        }
+
+        header .logo h1 {
+            font-size: 1.8em;
+            color: #ffbf00;
+            margin: 0;
+        }
+
+        nav a {
+            color: #c9d1d9;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffbf00;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #161b22, #0d1117);
+            border-radius: 15px;
+        }
+
+        .hero h2 {
+            font-size: 2.2em;
+            color: #ffbf00;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1em;
+            color: #c9d1d9;
+        }
+
+        .about-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .about-text {
+            flex: 1 1 500px;
+        }
+
+        .about-text h3 {
+            color: #ffbf00;
+        }
+
+        .about-text p {
+            line-height: 1.7;
+            color: #c9d1d9;
+        }
+
+        .team {
+            flex: 1 1 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .team-member {
+            background-color: #161b22;
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            box-shadow: 0 0 15px #ffbf00;
+        }
+
+        .team-member img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        footer {
+            background-color: #161b22;
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 50px;
+            color: #8b949e;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="https://i.ibb.co/RG37LP73/apple-touch-icon.png" alt="MD GURUKUL Logo">
+        <h1>MD GURUKUL</h1>
+    </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="admission.html">Admission</a>
+        <a href="live-classes.html">Live Classes</a>
+        <a href="recorded-classes.html">Recorded Classes</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>About MD GURUKUL</h2>
+    <p>Providing professional and student-friendly learning with live and recorded classes for every grade.</p>
+</section>
+
+<section class="about-section">
+    <div class="about-text">
+        <h3>Our Mission</h3>
+        <p>To empower students with high-quality educational content and guidance, making learning accessible, interactive, and enjoyable for all.</p>
+        <h3>Our Vision</h3>
+        <p>To become a leading platform where students can achieve academic excellence while parents stay informed about their progress in a professional and user-friendly environment.</p>
+        <h3>Why Choose Us?</h3>
+        <p>MD GURUKUL combines experienced teachers, live classes, recorded resources, and continuous support to ensure every student succeeds. Our platform is designed for modern learning with simplicity and professionalism.</p>
+    </div>
+
+    <div class="team">
+        <h3>Meet Our Team</h3>
+        <div class="team-member">
+            <img src="teacher1.jpg" alt="Kapil Sir">
+            <div>
+                <strong>Kapil Sir</strong><br>
+                Mathematics Teacher & Founder
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="teacher2.jpg" alt="Neha Ma'am">
+            <div>
+                <strong>Neha Ma'am</strong><br>
+                Science Teacher
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="teacher3.jpg" alt="Ravi Sir">
+            <div>
+                <strong>Ravi Sir</strong><br>
+                English Teacher
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 MD GURUKUL. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
