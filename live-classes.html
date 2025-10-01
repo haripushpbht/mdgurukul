@@ -11,7 +11,6 @@
         background-color: #0d1117;
         color: #c9d1d9;
     }
-
     header {
         background-color: #161b22;
         padding: 10px 30px;
@@ -23,23 +22,19 @@
         z-index: 100;
         box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     }
-
     header .logo {
         display: flex;
         align-items: center;
         gap: 15px;
     }
-
     header .logo img {
         height: 50px;
     }
-
     header .logo h1 {
         font-size: 1.8em;
         color: #ffbf00;
         margin: 0;
     }
-
     nav a {
         color: #c9d1d9;
         text-decoration: none;
@@ -47,35 +42,25 @@
         font-weight: 600;
         transition: color 0.3s;
     }
-
     nav a:hover {
         color: #ffbf00;
     }
-
     section {
         max-width: 900px;
         margin: 50px auto;
         padding: 0 20px;
     }
-
     .hero {
         text-align: center;
         padding: 60px 20px;
         background: linear-gradient(135deg, #161b22, #0d1117);
         border-radius: 15px;
     }
-
     .hero h2 {
         font-size: 2.2em;
         color: #ffbf00;
         margin-bottom: 15px;
     }
-
-    .hero p {
-        font-size: 1.1em;
-        color: #c9d1d9;
-    }
-
     .live-form {
         background-color: #161b22;
         padding: 30px 25px;
@@ -85,12 +70,6 @@
         flex-direction: column;
         gap: 20px;
     }
-
-    .live-form label {
-        font-weight: 600;
-        color: #c9d1d9;
-    }
-
     .live-form input {
         padding: 12px 15px;
         border-radius: 8px;
@@ -99,13 +78,6 @@
         color: #c9d1d9;
         font-size: 1em;
     }
-
-    .live-form input:focus {
-        outline: none;
-        border-color: #ffbf00;
-        box-shadow: 0 0 8px #ffbf00;
-    }
-
     .btn {
         display: inline-block;
         padding: 12px 25px;
@@ -119,11 +91,9 @@
         border: none;
         transition: background-color 0.3s;
     }
-
     .btn:hover {
         background-color: #e6ac00;
     }
-
     .video-container {
         margin-top: 40px;
         width: 100%;
@@ -132,22 +102,12 @@
         border: 1px solid #30363d;
         border-radius: 12px;
     }
-
     iframe {
         width: 100%;
         height: 100%;
         border: none;
         border-radius: 12px;
     }
-
-    footer {
-        background-color: #161b22;
-        text-align: center;
-        padding: 25px 20px;
-        margin-top: 50px;
-        color: #8b949e;
-    }
-
 </style>
 </head>
 <body>
@@ -168,19 +128,17 @@
 
 <section class="hero">
     <h2>Join Live Class</h2>
-    <p>Enter Zoom or Google Meet ID below to join your class directly on this page.</p>
+    <p>Enter Zoom ID or Google Meet Link below to join your class.</p>
 </section>
 
 <section>
     <form class="live-form" id="liveClassForm">
-        <label for="meetingID">Enter Zoom/Meet ID</label>
-        <input type="text" id="meetingID" placeholder="e.g., Zoom Meeting ID or Google Meet Link" required>
+        <input type="text" id="meetingID" placeholder="Zoom ID or Google Meet Link" required>
         <button type="submit" class="btn">Join Class</button>
     </form>
 
     <div class="video-container" id="videoContainer">
-        <!-- Live video will appear here -->
-        <p style="text-align:center; padding-top:200px; color:#888;">Live class will appear here after entering ID.</p>
+        <p style="text-align:center; padding-top:200px; color:#888;">Live class will appear here or open in new tab.</p>
     </div>
 </section>
 
@@ -197,17 +155,18 @@ form.addEventListener('submit', function(e){
     const meetingID = document.getElementById('meetingID').value.trim();
 
     if(meetingID === '') {
-        alert("Please enter a valid Zoom or Meet ID");
+        alert("Please enter a valid Zoom ID or Meet link");
         return;
     }
 
-    // Check if Google Meet link or Zoom ID
     if(meetingID.startsWith("http")) {
-        // Assume Google Meet link
-        container.innerHTML = `<iframe src="${meetingID}" allow="camera; microphone; fullscreen" title="Live Class"></iframe>`;
+        // Google Meet (open in new tab)
+        container.innerHTML = `<p style="text-align:center; padding-top:200px; color:#ffbf00;">
+            Google Meet cannot be embedded.<br>
+            <a href="${meetingID}" target="_blank" class="btn">Click Here to Join Meet</a>
+        </p>`;
     } else {
-        // Assume Zoom ID
-        // Embed Zoom meeting via join link simulation
+        // Zoom ID (embed in iframe)
         const zoomLink = `https://zoom.us/wc/${meetingID}/join`;
         container.innerHTML = `<iframe src="${zoomLink}" allow="camera; microphone; fullscreen" title="Zoom Live Class"></iframe>`;
     }
