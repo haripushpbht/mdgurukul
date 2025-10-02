@@ -187,13 +187,47 @@
 </footer>
 
 <script>
-    // Simple form submission simulation
-    const form = document.getElementById('admissionForm');
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert("Thank you! Your application has been submitted successfully.");
-        form.reset();
+const form = document.getElementById('admissionForm');
+const scriptURL = "https://script.google.com/macros/s/AKfycbxWFjEVZswbSgy3WQw_r2xcOEXOnusQocxs-yHK7iu4rOaMT5LxLuBsykdIFf9FfPTE/exec";
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const data = {};
+    formData.forEach((value, key) => data[key] = value);
+
+    // Disable button to prevent multiple clicks
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting...";
+
+    fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(response => response.json())
+    .then(resp => {
+        if(resp.result === "success"){
+            alert("✅ Admission submitted successfully!");
+            form.reset();
+        } else {
+            alert("❌ Submission failed, try again.");
+            console.error(resp);
+        }
+    })
+    .catch(err => {
+        console.error(err);
+        alert("❌ Error submitting form: " + err.message);
+    })
+    .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit Application";
     });
+});
 </script>
 
 </body>
