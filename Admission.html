@@ -157,79 +157,9 @@
   <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSem745qvBB9p-g_1zOPJEvoTcipQBPTR8vcRO72QX5OesmJyg/viewform?embedded=true" width="640" height="915" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 </section>
 
-<section>
-    <form id="admissionForm">
-        <label for="studentName">Student Name</label>
-        <input type="text" id="studentName" name="studentName" placeholder="Enter student name" required>
-
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" placeholder="Enter email" required>
-
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
-
-        <label for="class">Class Applying For</label>
-        <select id="class" name="class" required>
-            <option value="">Select Class</option>
-            <option value="6-8">Class 6-8</option>
-            <option value="9-10">Class 9-10</option>
-            <option value="11-12">Class 11-12</option>
-        </select>
-
-        <label for="message">Additional Information</label>
-        <textarea id="message" name="message" rows="4" placeholder="Any special requirements or notes"></textarea>
-
-        <button type="submit" class="btn">Submit Application</button>
-    </form>
-</section>
-
 <footer>
     <p>&copy; 2025 MD GURUKUL. All Rights Reserved.</p>
 </footer>
-
-<script>
-const form = document.getElementById('admissionForm');
-const scriptURL = "https://script.google.com/macros/s/AKfycbz0qiz6o5-1Io6bH_nAtl7PrAUyDUidLLM9V7d7FLFt6Ytr6TyxXzN3Rn3IWWqZ-C99/exec";
-
-form.addEventListener('submit', e => {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-    const data = {};
-    formData.forEach((value, key) => data[key] = value);
-
-    // Disable button to prevent multiple clicks
-    const submitBtn = form.querySelector('button[type="submit"]');
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Submitting...";
-
-    fetch(scriptURL, {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-    .then(response => response.json())
-    .then(resp => {
-        if(resp.result === "success"){
-            alert("✅ Admission submitted successfully!");
-            form.reset();
-        } else {
-            alert("❌ Submission failed, try again.");
-            console.error(resp);
-        }
-    })
-    .catch(err => {
-        console.error(err);
-        alert("❌ Error submitting form: " + err.message);
-    })
-    .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Submit Application";
-    });
-});
-</script>
 
 </body>
 </html>
