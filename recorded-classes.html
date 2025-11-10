@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Recorded Classes - MD GURUKUL</title>
+<title>Donate - MD GURUKUL</title>
 <style>
     body {
         margin: 0;
@@ -53,20 +53,20 @@
     }
 
     section {
-        max-width: 1200px;
-        margin: 50px auto;
+        max-width: 900px;
+        margin: 60px auto;
         padding: 0 20px;
+        text-align: center;
     }
 
     .hero {
-        text-align: center;
-        padding: 60px 20px;
         background: linear-gradient(135deg, #161b22, #0d1117);
         border-radius: 15px;
+        padding: 60px 20px;
     }
 
     .hero h2 {
-        font-size: 2.2em;
+        font-size: 2.4em;
         color: #ffbf00;
         margin-bottom: 15px;
     }
@@ -74,66 +74,75 @@
     .hero p {
         font-size: 1.1em;
         color: #c9d1d9;
+        line-height: 1.6em;
     }
 
-    .video-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 25px;
-        justify-content: center;
-        margin-top: 40px;
-    }
-
-    .video-card {
+    .donate-box {
         background-color: #161b22;
         border: 1px solid #30363d;
-        border-radius: 12px;
-        width: 300px;
-        text-align: center;
-        padding: 20px 15px;
-        transition: all 0.3s ease;
+        border-radius: 15px;
+        padding: 40px 20px;
+        margin-top: 50px;
+        box-shadow: 0 0 20px rgba(255, 200, 0, 0.1);
     }
 
-    .video-card:hover {
-        border-color: #ffbf00;
-        box-shadow: 0 0 15px #ffbf00;
+    .donate-box img {
+        width: 220px;
+        height: 220px;
+        border: 2px solid #ffbf00;
+        border-radius: 20px;
+        margin: 20px 0;
     }
 
-    .video-card h3 {
+    .donate-box h3 {
         color: #ffbf00;
-        margin-top: 0;
-        font-size: 1.2em;
-    }
-
-    .video-card video {
-        width: 100%;
-        border-radius: 12px;
+        font-size: 1.5em;
         margin-top: 10px;
     }
 
     .btn {
         display: inline-block;
-        margin-top: 12px;
-        padding: 10px 20px;
-        border-radius: 6px;
+        margin-top: 20px;
+        padding: 14px 30px;
+        border-radius: 30px;
         background-color: #ffbf00;
         color: #0d1117;
         font-weight: 600;
         text-decoration: none;
         cursor: pointer;
         border: none;
-        transition: background-color 0.3s;
+        transition: all 0.3s ease;
+        font-size: 1.05em;
     }
 
     .btn:hover {
         background-color: #e6ac00;
     }
 
+    #thankYouMessage {
+        display: none;
+        background: rgba(0,255,150,0.1);
+        border: 1px solid #00ff99;
+        border-radius: 15px;
+        padding: 25px;
+        margin-top: 25px;
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    #thankYouMessage h3 {
+        color: #00ff99;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
     footer {
         background-color: #161b22;
         text-align: center;
         padding: 25px 20px;
-        margin-top: 50px;
+        margin-top: 60px;
         color: #8b949e;
     }
 </style>
@@ -151,47 +160,23 @@
         <a href="Admission.html">Admission</a>
         <a href="live-classes.html">Live Classes</a>
         <a href="recorded-classes.html">Recorded Classes</a>
+        <a href="donate.html" style="color:#ffbf00;">Donate</a>
     </nav>
 </header>
 
 <section class="hero">
-    <h2>Recorded Classes</h2>
-    <p>Watch recorded lectures of your favorite subjects anytime, anywhere.</p>
-</section>
+    <h2>Support Education at MD GURUKUL</h2>
+    <p>Your contribution helps us continue providing professional, affordable and accessible education to students of all grades.</p>
 
-<section>
-    <div class="video-grid">
-        <div class="video-card">
-            <h3>Mathematics - Class 6</h3>
-            <video controls>
-                <source src="https://youtu.be/EnrMbSIJGnY?si=xsPcT-2rjWtFLVkY" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <button class="btn">Watch Now</button>
-        </div>
-        <div class="video-card">
-            <h3>Science - Class 8</h3>
-            <video controls>
-                <source src="https://youtu.be/EnrMbSIJGnY?si=xsPcT-2rjWtFLVkY" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <button class="btn">Watch Now</button>
-        </div>
-        <div class="video-card">
-            <h3>English - Class 10</h3>
-            <video controls>
-                <source src="https://youtu.be/EnrMbSIJGnY?si=xsPcT-2rjWtFLVkY" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <button class="btn">Watch Now</button>
-        </div>
-        <div class="video-card">
-            <h3>Mathematics - Class 12</h3>
-            <video controls>
-                <source src="https://youtu.be/EnrMbSIJGnY?si=xsPcT-2rjWtFLVkY" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <button class="btn">Watch Now</button>
+    <div class="donate-box">
+        <h3>Scan to Donate 📱</h3>
+        <img src="qr-mdgurukul.png" alt="MD Gurukul Donation QR Code">
+        <p>Open any UPI app (Google Pay, PhonePe, Paytm) and scan this QR to contribute.</p>
+        <button class="btn" id="donateBtn">I Have Donated ✅</button>
+
+        <div id="thankYouMessage">
+            <h3>🎉 Thank You for Your Support!</h3>
+            <p>Your generosity fuels the dreams of students and helps MD Gurukul deliver quality education for everyone.</p>
         </div>
     </div>
 </section>
@@ -199,6 +184,13 @@
 <footer>
     <p>&copy; 2025 MD GURUKUL. All Rights Reserved.</p>
 </footer>
+
+<script>
+document.getElementById("donateBtn").addEventListener("click", function() {
+    document.getElementById("thankYouMessage").style.display = "block";
+    this.style.display = "none";
+});
+</script>
 
 </body>
 </html>
