@@ -164,34 +164,49 @@
     </div>
 
     <div class="team">
-        <h3>Meet Our Team</h3>
-        <div class="team-member">
-            <img src="author photo - Copy.jpeg" alt="Kapil Sir">
-            <div>
-                <strong>Kapil Sir</strong><br>
-                Mathematics & Science Teacher & Founder
-            </div>
-        </div>
-        <div class="team-member">
-            <img src="teacher2.jpg" alt="Sangeeta Ma'am">
-            <div>
-                <strong>Sangeeta Ma'am</strong><br>
-                English Teacher
-            </div>
-        </div>
-        <div class="team-member">
-            <img src="teacher3.jpg" alt="Ravi Sir">
-            <div>
-                <strong>Ravi Sir</strong><br>
-                GK/GS Teacher
-            </div>
+    <h3>Meet Our Team</h3>
+
+    <div class="team-member">
+        <img src="author-photo.jpeg" alt="Kapil Sir - Founder">
+        <div>
+            <strong>Kapil Sir</strong><br>
+            Mathematics & Science Teacher & Founder<br>
+            <em>"Education is not just teaching, it's creating a future."</em><br><br>
+            <button onclick="enterOffice()">Enter Office</button>
         </div>
     </div>
-</section>
 
-<footer>
-    <p>&copy; 2025 MD GURUKUL. All Rights Reserved.</p>
-</footer>
+    <div class="team-member">
+        <img src="teacher2.jpg" alt="Sangeeta Ma'am">
+        <div>
+            <strong>Sangeeta Ma'am</strong><br>
+            English Teacher<br>
+            <em>"Every child deserves to learn with love and joy."</em>
+        </div>
+    </div>
 
-</body>
-</html>
+    <div class="team-member">
+        <img src="teacher3.jpg" alt="Ravi Sir">
+        <div>
+            <strong>Ravi Sir</strong><br>
+            GS/GK Teacher<br>
+            <em>"Knowledge grows when we share it."</em>
+        </div>
+    </div>
+</div>
+
+<script>
+function enterOffice() {
+    let password = prompt("Enter Office Password:");
+
+    if(password === "Success2025") {
+        window.location.href = "office.html";
+    } 
+    else if(password === null) {
+        return;
+    }
+    else {
+        alert("Incorrect Password");
+    }
+}
+</script>
