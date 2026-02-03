@@ -3,203 +3,156 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MD GURUKUL - Home</title>
+<title>MD GURUKUL - Results</title>
+
 <style>
-    body {
-        margin: 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #0d1117;
-        color: #c9d1d9;
-    }
+/* ===== COMMON THEME (SAME AS HOME) ===== */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0d1117;
+    color: #c9d1d9;
+}
 
-    header {
-        background-color: #161b22;
-        padding: 10px 30px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-    }
-
-    header .logo {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-
-    header .logo img {
-        height: 50px;
-    }
-
-    header .logo h1 {
-        font-size: 1.8em;
-        color: #ffbf00;
-        margin: 0;
-    }
-
-    nav a {
-        color: #c9d1d9;
-        text-decoration: none;
-        margin-left: 25px;
-        font-weight: 600;
-        transition: color 0.3s;
-    }
-
-    nav a:hover {
-        color: #ffbf00;
-    }
-
-    /* Slider Styles */
-    .slider {
-        position: relative;
-        max-width: 1200px;
-        margin: 40px auto 0;
-        border-radius: 15px;
-        overflow: hidden;
-    }
-
-    .slides {
-        display: flex;
-        width: 400%;
-        transition: all 0.5s ease-in-out;
-    }
-
-    .slides img {
-        width: 100%;
-        border-radius: 15px;
-    }
-
-    /* Slider Navigation */
-    .navigation-manual {
-        position: absolute;
-        width: 100%;
-        bottom: 10px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .manual-btn {
-        border: 2px solid #ffbf00;
-        padding: 5px;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: background 0.3s;
-        margin: 0 5px;
-    }
-
-    .manual-btn:hover {
-        background: #ffbf00;
-    }
-
-    /* Sections */
-    section {
-        max-width: 1200px;
-        align-items: center;
-        margin: 50px auto;
-        padding: 0 20px;
-    }
-    .welcome {
-    text-align: center;
-    }
-    .welcome-content {
+header {
+    background-color: #161b22;
+    padding: 10px 30px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-top: 30px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
-.photo-box img {
-    width: 200px;
-    height: 200px;
+header .logo {
+    display: flex;
     align-items: center;
-    border-radius: 50%;
-    border: 4px solid #ffbf00;
-    box-shadow: 0 0 15px #ffbf00;
-    object-fit: cover;
+    gap: 15px;
 }
 
-.text-box {
-    max-width: 600px;
-    text-align: center;
+header .logo img {
+    height: 50px;
 }
 
-.note-box {
-    margin-top: 25px;
-    background-color: #0d1117;
-    border-left: 5px solid #ffbf00;
-    padding: 15px 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255,191,0,0.2);
+header .logo h1 {
+    font-size: 1.8em;
+    color: #ffbf00;
+    margin: 0;
 }
 
-.note-box h3 {
-    margin: 0 0 10px;
+nav a {
+    color: #c9d1d9;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 600;
+}
+
+nav a:hover {
     color: #ffbf00;
 }
 
-.note-box p {
+/* ===== RESULT PAGE STYLES ===== */
+.result-section{
+    max-width: 500px;
+    margin: 60px auto;
+    background: #161b22;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #30363d;
+    box-shadow: 0 0 20px rgba(255,191,0,0.15);
+}
+
+.result-section h2{
+    text-align: center;
+    color: #ffbf00;
+    margin-bottom: 25px;
+}
+
+input{
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 8px;
     color: #c9d1d9;
-    font-style: italic;
+    font-size: 15px;
 }
 
-@media (max-width: 768px) {
-    .welcome-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    .text-box {
-        text-align: center;
-    }
+button{
+    width: 100%;
+    padding: 12px;
+    background: #ffbf00;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #000;
+    margin-top: 10px;
 }
 
-    .feature-cards {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 25px;
-        justify-content: center;
-        margin-top: 40px;
-    }
+button:hover{
+    background: #e6ac00;
+}
 
-    .card {
-        background-color: #161b22;
-        border: 1px solid #30363d;
-        border-radius: 12px;
-        width: 280px;
-        padding: 25px 15px;
-        text-align: center;
-        transition: all 0.3s ease;
-    }
+.result-box{
+    margin-top: 25px;
+    background: #0d1117;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #ffbf00;
+}
 
-    .card:hover {
-        border-color: #ffbf00;
-        box-shadow: 0 0 15px #ffbf00;
-    }
+.result-box h3{
+    margin-top: 0;
+    color: #ffbf00;
+    text-align: center;
+}
 
-    .card h3 {
-        color: #ffbf00;
-        margin-bottom: 10px;
-    }
+.row{
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid #30363d;
+    font-size: 14px;
+}
 
-    .card p {
-        color: #c9d1d9;
-    }
+.summary{
+    margin-top: 12px;
+    text-align: center;
+    font-weight: bold;
+}
 
-    footer {
-        background-color: #161b22;
-        text-align: center;
-        padding: 25px 20px;
-        margin-top: 50px;
-        color: #8b949e;
-    }
+.pass{
+    color: #4caf50;
+}
+
+.fail{
+    color: #ff4d4d;
+}
+
+.error{
+    text-align: center;
+    color: #ff4d4d;
+    margin-top: 15px;
+}
+
+footer {
+    background-color: #161b22;
+    text-align: center;
+    padding: 25px 20px;
+    margin-top: 50px;
+    color: #8b949e;
+}
 </style>
 </head>
+
 <body>
 
+<!-- ===== HEADER SAME AS HOME ===== -->
 <header>
     <div class="logo">
         <img src="logo.png" alt="MD GURUKUL Logo">
@@ -215,65 +168,69 @@
         <a href="donate.html">Donate</a>
     </nav>
 </header>
-</style>
-</head>
 
-<body>
+<!-- ===== RESULT SECTION ===== -->
+<div class="result-section">
+    <h2>Student Result</h2>
 
-<div class="container">
-  <h2>Check Your Result</h2>
+    <input id="roll" placeholder="Enter Roll Number">
+    <input id="class" placeholder="Enter Class">
 
-  <input id="roll" placeholder="Enter Roll Number">
-  <input id="class" placeholder="Enter Class">
+    <button onclick="getResult()">View Result</button>
 
-  <button onclick="getResult()">View Result</button>
-
-  <div id="output"></div>
+    <div id="output"></div>
 </div>
+
+<footer>
+    © 2026 MD GURUKUL | All Rights Reserved
+</footer>
 
 <script>
 function getResult(){
 
-  let roll = document.getElementById("roll").value.trim();
-  let cls  = document.getElementById("class").value.trim();
-  let out  = document.getElementById("output");
+    let roll = document.getElementById("roll").value.trim();
+    let cls  = document.getElementById("class").value.trim();
+    let out  = document.getElementById("output");
 
-  if(!roll || !cls){
-    out.innerHTML = "<p class='error'>Please enter Roll No and Class</p>";
-    return;
-  }
-
-  fetch(`https://script.google.com/macros/s/XXXX/exec?roll=${roll}&class=${cls}`)
-  .then(res => res.json())
-  .then(data => {
-
-    if(data.status === "success"){
-
-      out.innerHTML = `
-      <div class="result-box">
-        <h3>${data.name} (Class ${data.class})</h3>
-
-        <div class="row"><span>Hindi</span><span>${data.hindi}</span></div>
-        <div class="row"><span>English</span><span>${data.english}</span></div>
-        <div class="row"><span>Maths</span><span>${data.maths}</span></div>
-        <div class="row"><span>Science</span><span>${data.science}</span></div>
-        <div class="row"><span>Reasoning</span><span>${data.reasoning}</span></div>
-        <div class="row"><span>G.K & G.S</span><span>${data.gk}</span></div>
-        <div class="row"><span>Writing</span><span>${data.writing}</span></div>
-
-        <div class="total">
-          Total: ${data.obtained} / ${data.maxMarks} <br>
-          Percentage: ${data.percentage}%
-        </div>
-      </div>`;
+    if(!roll || !cls){
+        out.innerHTML = "<p class='error'>Please enter Roll Number and Class</p>";
+        return;
     }
-    else{
-      out.innerHTML = "<p class='error'>Result not found</p>";
-    }
-  });
+
+    fetch(`https://script.google.com/macros/s/XXXX/exec?roll=${roll}&class=${cls}`)
+    .then(res => res.json())
+    .then(data => {
+
+        if(data.status === "success"){
+
+            let statusClass = data.percentage >= 33 ? "pass" : "fail";
+            let statusText  = data.percentage >= 33 ? "PASS" : "FAIL";
+
+            out.innerHTML = `
+            <div class="result-box">
+                <h3>${data.name} (Class ${data.class})</h3>
+
+                <div class="row"><span>Hindi</span><span>${data.hindi}</span></div>
+                <div class="row"><span>English</span><span>${data.english}</span></div>
+                <div class="row"><span>Maths</span><span>${data.maths}</span></div>
+                <div class="row"><span>Science</span><span>${data.science}</span></div>
+                <div class="row"><span>Reasoning</span><span>${data.reasoning}</span></div>
+                <div class="row"><span>G.K & G.S</span><span>${data.gk}</span></div>
+                <div class="row"><span>Writing</span><span>${data.writing}</span></div>
+
+                <div class="summary ${statusClass}">
+                    Total: ${data.obtained} / ${data.maxMarks}<br>
+                    Percentage: ${data.percentage}%<br>
+                    Result: ${statusText}
+                </div>
+            </div>`;
+        }
+        else{
+            out.innerHTML = "<p class='error'>Result not found</p>";
+        }
+    });
 }
 </script>
 
 </body>
 </html>
-
