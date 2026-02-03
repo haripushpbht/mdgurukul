@@ -2,90 +2,219 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Student Result | MD GURUKUL</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MD GURUKUL - Home</title>
 <style>
-body{
-  margin:0;
-  font-family: Arial, sans-serif;
-  background: #0b0f14;
-  color:#fff;
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #0d1117;
+        color: #c9d1d9;
+    }
+
+    header {
+        background-color: #161b22;
+        padding: 10px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+
+    header .logo {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    header .logo img {
+        height: 50px;
+    }
+
+    header .logo h1 {
+        font-size: 1.8em;
+        color: #ffbf00;
+        margin: 0;
+    }
+
+    nav a {
+        color: #c9d1d9;
+        text-decoration: none;
+        margin-left: 25px;
+        font-weight: 600;
+        transition: color 0.3s;
+    }
+
+    nav a:hover {
+        color: #ffbf00;
+    }
+
+    /* Slider Styles */
+    .slider {
+        position: relative;
+        max-width: 1200px;
+        margin: 40px auto 0;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .slides {
+        display: flex;
+        width: 400%;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .slides img {
+        width: 100%;
+        border-radius: 15px;
+    }
+
+    /* Slider Navigation */
+    .navigation-manual {
+        position: absolute;
+        width: 100%;
+        bottom: 10px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .manual-btn {
+        border: 2px solid #ffbf00;
+        padding: 5px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background 0.3s;
+        margin: 0 5px;
+    }
+
+    .manual-btn:hover {
+        background: #ffbf00;
+    }
+
+    /* Sections */
+    section {
+        max-width: 1200px;
+        align-items: center;
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+    .welcome {
+    text-align: center;
+    }
+    .welcome-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 30px;
 }
 
-.container{
-  max-width: 420px;
-  margin: 60px auto;
-  padding: 25px;
-  background: #111820;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(255,193,7,0.15);
+.photo-box img {
+    width: 200px;
+    height: 200px;
+    align-items: center;
+    border-radius: 50%;
+    border: 4px solid #ffbf00;
+    box-shadow: 0 0 15px #ffbf00;
+    object-fit: cover;
 }
 
-h2{
-  text-align:center;
-  color:#ffc107;
-  margin-bottom:20px;
+.text-box {
+    max-width: 600px;
+    text-align: center;
 }
 
-input{
-  width:100%;
-  padding:12px;
-  margin:10px 0;
-  border:none;
-  border-radius:6px;
-  background:#1c2530;
-  color:#fff;
-  font-size:15px;
+.note-box {
+    margin-top: 25px;
+    background-color: #0d1117;
+    border-left: 5px solid #ffbf00;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255,191,0,0.2);
 }
 
-button{
-  width:100%;
-  padding:12px;
-  background:#ffc107;
-  border:none;
-  border-radius:6px;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
+.note-box h3 {
+    margin: 0 0 10px;
+    color: #ffbf00;
 }
 
-button:hover{
-  background:#ffb300;
+.note-box p {
+    color: #c9d1d9;
+    font-style: italic;
 }
 
-.result-box{
-  margin-top:25px;
-  padding:15px;
-  background:#0f141b;
-  border-left:4px solid #ffc107;
-  border-radius:8px;
+@media (max-width: 768px) {
+    .welcome-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .text-box {
+        text-align: center;
+    }
 }
 
-.result-box h3{
-  margin-top:0;
-  color:#ffc107;
-}
+    .feature-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        justify-content: center;
+        margin-top: 40px;
+    }
 
-.row{
-  display:flex;
-  justify-content:space-between;
-  padding:6px 0;
-  border-bottom:1px solid #222;
-  font-size:14px;
-}
+    .card {
+        background-color: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 12px;
+        width: 280px;
+        padding: 25px 15px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
 
-.total{
-  margin-top:10px;
-  font-weight:bold;
-  color:#4caf50;
-}
+    .card:hover {
+        border-color: #ffbf00;
+        box-shadow: 0 0 15px #ffbf00;
+    }
 
-.error{
-  color:#ff5252;
-  text-align:center;
-  margin-top:15px;
-}
+    .card h3 {
+        color: #ffbf00;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        color: #c9d1d9;
+    }
+
+    footer {
+        background-color: #161b22;
+        text-align: center;
+        padding: 25px 20px;
+        margin-top: 50px;
+        color: #8b949e;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="MD GURUKUL Logo">
+        <h1>MD GURUKUL</h1>
+    </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="results.html">Results</a>
+        <a href="About-us.html">About Us</a>
+        <a href="Admission.html">Admission</a>
+        <a href="live-classes.html">Live Classes</a>
+        <a href="ourtools.html">Our Tools</a>
+        <a href="donate.html">Donate</a>
+    </nav>
+</header>
 </style>
 </head>
 
@@ -147,3 +276,4 @@ function getResult(){
 
 </body>
 </html>
+
