@@ -3,294 +3,343 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MD GURUKUL - Home</title>
+
+<title>Mala Devi Gurukul | Rural Education Mission</title>
+
 <style>
-    body {
-        margin: 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #0d1117;
-        color: #c9d1d9;
-    }
 
-    header {
-        background-color: #161b22;
-        padding: 10px 30px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-    }
-
-    header .logo {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-
-    header .logo img {
-        height: 50px;
-    }
-
-    header .logo h1 {
-        font-size: 1.8em;
-        color: #ffbf00;
-        margin: 0;
-    }
-
-    nav a {
-        color: #c9d1d9;
-        text-decoration: none;
-        margin-left: 25px;
-        font-weight: 600;
-        transition: color 0.3s;
-    }
-
-    nav a:hover {
-        color: #ffbf00;
-    }
-
-    /* Slider Styles */
-    .slider {
-        position: relative;
-        max-width: 1200px;
-        margin: 40px auto 0;
-        border-radius: 15px;
-        overflow: hidden;
-    }
-
-    .slides {
-        display: flex;
-        width: 40%;
-        transition: all 0.5s ease-in-out;
-    }
-
-    .slides img {
-        width: 100%;
-        border-radius: 15px;
-    }
-
-    /* Slider Navigation */
-    .navigation-manual {
-        position: absolute;
-        width: 100%;
-        bottom: 10px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .manual-btn {
-        border: 2px solid #ffbf00;
-        padding: 5px;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: background 0.3s;
-        margin: 0 5px;
-    }
-
-    .manual-btn:hover {
-        background: #ffbf00;
-    }
-
-    /* Sections */
-    section {
-        max-width: 1200px;
-        align-items: center;
-        margin: 50px auto;
-        padding: 0 20px;
-    }
-    .welcome {
-    text-align: center;
-    }
-    .welcome-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-top: 30px;
+body{
+margin:0;
+font-family:Segoe UI;
+background:#0d1117;
+color:#c9d1d9;
 }
 
-.photo-box img {
-    width: 200px;
-    height: 200px;
-    align-items: center;
-    border-radius: 50%;
-    border: 4px solid #ffbf00;
-    box-shadow: 0 0 15px #ffbf00;
-    object-fit: cover;
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 30px;
+background:#161b22;
+position:sticky;
+top:0;
 }
 
-.text-box {
-    max-width: 600px;
-    text-align: center;
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
 }
 
-.note-box {
-    margin-top: 25px;
-    background-color: #0d1117;
-    border-left: 5px solid #ffbf00;
-    padding: 15px 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255,191,0,0.2);
+.logo img{
+height:45px;
 }
 
-.note-box h3 {
-    margin: 0 0 10px;
-    color: #ffbf00;
+.logo h2{
+color:#ffbf00;
 }
 
-.note-box p {
-    color: #c9d1d9;
-    font-style: italic;
+nav a{
+margin-left:20px;
+color:#c9d1d9;
+text-decoration:none;
+font-weight:600;
 }
 
-@media (max-width: 768px) {
-    .welcome-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    .text-box {
-        text-align: center;
-    }
+nav a:hover{
+color:#ffbf00;
 }
 
-    .feature-cards {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 25px;
-        justify-content: center;
-        margin-top: 40px;
-    }
+/* HERO */
 
-    .card {
-        background-color: #161b22;
-        border: 1px solid #30363d;
-        border-radius: 12px;
-        width: 280px;
-        padding: 25px 15px;
-        text-align: center;
-        transition: all 0.3s ease;
-    }
+.hero{
+text-align:center;
+padding:80px 20px;
+background:linear-gradient(#0d1117,#000);
+}
 
-    .card:hover {
-        border-color: #ffbf00;
-        box-shadow: 0 0 15px #ffbf00;
-    }
+.hero h1{
+font-size:42px;
+color:#ffbf00;
+}
 
-    .card h3 {
-        color: #ffbf00;
-        margin-bottom: 10px;
-    }
+.hero p{
+font-size:18px;
+max-width:700px;
+margin:auto;
+}
 
-    .card p {
-        color: #c9d1d9;
-    }
+.hero button{
+margin-top:30px;
+padding:15px 30px;
+font-size:18px;
+border:none;
+background:#ffbf00;
+color:#000;
+font-weight:bold;
+border-radius:8px;
+cursor:pointer;
+}
 
-    footer {
-        background-color: #161b22;
-        text-align: center;
-        padding: 25px 20px;
-        margin-top: 50px;
-        color: #8b949e;
-    }
+/* STORY */
+
+.story{
+display:flex;
+flex-wrap:wrap;
+align-items:center;
+justify-content:center;
+gap:40px;
+padding:70px 20px;
+}
+
+.story img{
+width:200px;
+height:200px;
+border-radius:50%;
+border:4px solid #ffbf00;
+}
+
+.story-text{
+max-width:600px;
+}
+
+/* STATS */
+
+.stats{
+display:flex;
+justify-content:center;
+gap:40px;
+padding:50px;
+flex-wrap:wrap;
+background:#161b22;
+}
+
+.stat{
+text-align:center;
+}
+
+.stat h2{
+color:#ffbf00;
+font-size:40px;
+}
+
+/* GALLERY */
+
+.gallery{
+text-align:center;
+padding:70px 20px;
+}
+
+.gallery img{
+width:250px;
+border-radius:10px;
+margin:10px;
+}
+
+/* DONATION PURPOSE */
+
+.donation{
+text-align:center;
+padding:80px 20px;
+background:#161b22;
+}
+
+.donation h2{
+color:#ffbf00;
+}
+
+.donation-cards{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+margin-top:30px;
+}
+
+.d-card{
+background:#0d1117;
+padding:20px;
+border-radius:10px;
+width:220px;
+border:1px solid #30363d;
+}
+
+/* YOUTUBER SECTION */
+
+.creators{
+padding:70px 20px;
+text-align:center;
+}
+
+.creators h2{
+color:#ffbf00;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:30px;
+background:#161b22;
+margin-top:50px;
+}
+
 </style>
 </head>
+
 <body>
 
 <header>
-    <div class="logo">
-        <img src="logo.png" alt="MD GURUKUL Logo">
-        <h1>MD GURUKUL</h1>
-    </div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="results.html">Results</a>
-        <a href="About-us.html">About Us</a>
-        <a href="Admission.html">Admission</a>
-        <a href="live-classes.html">Live Classes</a>
-        <a href="ourtools.html">Our Tools</a>
-        <a href="donate.html">Donate</a>
-    </nav>
-</header>
 
-<!-- Image Slider -->
-<div class="slider">
-    <div class="slides">
-        <img src="" alt="Slide1">
-        <img src="" alt="Slide2">
-        <img src="" alt="Slide3">
-        <img src="" alt="Slide4">
-    </div>
-    <div class="navigation-manual">
-        <div class="manual-btn" onclick="currentSlide(0)"></div>
-        <div class="manual-btn" onclick="currentSlide(1)"></div>
-        <div class="manual-btn" onclick="currentSlide(2)"></div>
-        <div class="manual-btn" onclick="currentSlide(3)"></div>
-    </div>
+<div class="logo">
+<img src="logo.png">
+<h2>MD GURUKUL</h2>
 </div>
 
-<section class="welcome">
-  <div class="welcome-content">
-    <div class="photo-box">
-      <img src="kapilsir.png" alt="Kapil Sir Photo">
-    </div>
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Results</a>
+<a href="#">Admission</a>
+<a href="#">Donate</a>
+</nav>
 
-    <div class="text-box">
-      <h2>Welcome to MD GURUKUL</h2>
-      <p>Providing professional and student-friendly education with live and recorded classes for all grades.</p>
+</header>
 
-      <div class="note-box">
-        <h3>📘 A Note from Kapil Sir</h3>
-        <p>"At MD GURUKUL, our mission is to make learning enjoyable, practical, and accessible for every student.  
-        Education is not just about books — it’s about building confidence, curiosity, and character."</p>
-      </div>
-    </div>
-  </div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>Help Educate Rural Students</h1>
+
+<p>Mala Devi Gurukul is a mission to provide quality education to talented village students who cannot afford expensive coaching.</p>
+
+<button>Donate Now</button>
+
 </section>
 
-<section class="feature-cards">
-    <div class="card">
-        <h3>Live Classes</h3>
-        <p>Join interactive live classes with our expert teachers and clear all your doubts.</p>
-    </div>
-    <div class="card">
-        <h3>Recorded Classes</h3>
-        <p>Access recorded lectures anytime and revise your lessons with ease.</p>
-    </div>
-    <div class="card">
-        <h3>Admission</h3>
-        <p>Apply for your desired class and start learning with MD GURUKUL today.</p>
-    </div>
+
+<!-- STORY -->
+
+<section class="story">
+
+<img src="kapilsir.png">
+
+<div class="story-text">
+
+<h2>Message from Kapil Sir</h2>
+
+<p>
+
+I am Kapil Gangwar, a teacher who has been teaching students for the last 9 years.
+
+My dream is simple: no child in our village should remain uneducated because of money.
+
+Mala Devi Gurukul was started with this mission to provide quality education, practical learning and confidence to rural students.
+
+</p>
+
+</div>
+
 </section>
+
+
+<!-- STATS -->
+
+<section class="stats">
+
+<div class="stat">
+<h2>300+</h2>
+<p>Students Taught</p>
+</div>
+
+<div class="stat">
+<h2>9</h2>
+<p>Years Teaching</p>
+</div>
+
+<div class="stat">
+<h2>100+</h2>
+<p>Free Doubt Classes</p>
+</div>
+
+<div class="stat">
+<h2>50+</h2>
+<p>Science Experiments</p>
+</div>
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section class="gallery">
+
+<h2>Classroom Moments</h2>
+
+<img src="class1.jpg">
+<img src="class2.jpg">
+<img src="class3.jpg">
+
+</section>
+
+
+<!-- DONATION -->
+
+<section class="donation">
+
+<h2>Where Your Donation Will Help</h2>
+
+<div class="donation-cards">
+
+<div class="d-card">
+📚 Books for Students
+</div>
+
+<div class="d-card">
+🪑 Classroom Setup
+</div>
+
+<div class="d-card">
+💻 Digital Learning
+</div>
+
+<div class="d-card">
+🎥 Educational Content
+</div>
+
+</div>
+
+<br><br>
+
+<button>Donate Now</button>
+
+</section>
+
+
+<!-- YOUTUBERS -->
+
+<section class="creators">
+
+<h2>Message to YouTubers & Creators</h2>
+
+<p>
+
+If you are a YouTuber, trader, entrepreneur or educator who believes in education, you can support Mala Devi Gurukul and help build a better future for rural students.
+
+</p>
+
+</section>
+
 
 <footer>
-    <p>&copy; 2025 MD GURUKUL. All Rights Reserved.</p>
+
+<p>© 2025 Mala Devi Gurukul</p>
+
 </footer>
-
-<script>
-    let index = 0;
-    const slides = document.querySelector('.slides');
-    const totalSlides = slides.children.length;
-
-    function showSlide(i){
-        slides.style.transform = `translateX(-${i * 100}%)`;
-    }
-
-    function nextSlide(){
-        index = (index + 1) % totalSlides;
-        showSlide(index);
-    }
-
-    function currentSlide(i){
-        index = i;
-        showSlide(index);
-    }
-
-    setInterval(nextSlide, 4000); // auto-slide every 4 seconds
-</script>
 
 </body>
 </html>
