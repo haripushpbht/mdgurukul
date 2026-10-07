@@ -1,1498 +1,1018 @@
 <!DOCTYPE html>
 <html lang="hi">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Mala Devi Gurukul | ग्रामीण विद्यार्थियों के लिए शिक्षा</title>
-
-<meta name="description"
-content="Mala Devi Gurukul ग्रामीण और कस्बाई विद्यार्थियों के लिए शिक्षा, अध्ययन सामग्री और अच्छे learning resources तक आसान पहुंच बनाने का प्रयास है।">
-
-
-<style>
-
-/* =========================
-   BASIC
-========================= */
-
-:root{
-    --bg:#0d1117;
-    --card:#161b22;
-    --accent:#ffbf00;
-    --text:#c9d1d9;
-    --muted:#8b949e;
-    --border:#30363d;
-    --white:#ffffff;
-}
-
-*{
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
-
-body{
-    margin:0;
-    font-family:"Segoe UI",Arial,sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.7;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-img{
-    max-width:100%;
-    display:block;
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    padding:10px 4%;
-
-    background:rgba(22,27,34,.97);
-
-    border-bottom:1px solid var(--border);
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
-
-.logo img{
-    width:45px;
-    height:45px;
-    object-fit:contain;
-}
-
-.logo h2{
-    margin:0;
-    color:var(--accent);
-    font-size:21px;
-}
-
-nav{
-    display:flex;
-    align-items:center;
-    gap:20px;
-}
-
-nav a{
-    color:var(--text);
-    font-size:14px;
-    font-weight:600;
-}
-
-nav a:hover{
-    color:var(--accent);
-}
-
-.menu-btn{
-    display:none;
-
-    background:none;
-
-    border:1px solid var(--border);
-
-    border-radius:7px;
-
-    color:var(--accent);
-
-    font-size:23px;
-
-    padding:4px 10px;
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-    text-align:center;
-
-    padding:90px 20px 80px;
-
-    background:
-    radial-gradient(
-        circle at 50% 15%,
-        rgba(255,191,0,.10),
-        transparent 38%
-    ),
-    linear-gradient(#0d1117,#090c10);
-}
-
-.hero h1{
-    max-width:850px;
-
-    margin:0 auto 20px;
-
-    color:var(--white);
-
-    font-size:clamp(37px,6vw,58px);
-
-    line-height:1.2;
-}
-
-.hero h1 span{
-    color:var(--accent);
-}
-
-.hero p{
-    max-width:700px;
-
-    margin:auto;
-
-    color:var(--muted);
-
-    font-size:18px;
-}
-
-.hero-buttons{
-    display:flex;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:13px;
-
-    margin-top:30px;
-}
-
-.btn{
-    display:inline-block;
-
-    padding:12px 23px;
-
-    border-radius:8px;
-
-    font-weight:700;
-
-    transition:.2s;
-}
-
-.btn-primary{
-    background:var(--accent);
-
-    color:#000;
-}
-
-.btn-primary:hover{
-    transform:translateY(-2px);
-}
-
-.btn-outline{
-    background:var(--card);
-
-    border:1px solid var(--border);
-
-    color:var(--text);
-}
-
-.btn-outline:hover{
-    border-color:var(--accent);
-
-    color:var(--accent);
-}
-
-
-/* =========================
-   COMMON
-========================= */
-
-section{
-    padding:70px 20px;
-}
-
-.container{
-    width:92%;
-
-    max-width:1100px;
-
-    margin:auto;
-}
-
-.heading{
-    text-align:center;
-
-    margin-bottom:40px;
-}
-
-.heading h2{
-    margin:0 0 10px;
-
-    color:var(--white);
-
-    font-size:31px;
-}
-
-.heading h2 span{
-    color:var(--accent);
-}
-
-.heading p{
-    max-width:650px;
-
-    margin:auto;
-
-    color:var(--muted);
-}
-
-
-/* =========================
-   FREE EDUCATION
-========================= */
-
-.education{
-    background:var(--card);
-}
-
-.education-box{
-    max-width:950px;
-
-    margin:auto;
-
-    padding:35px;
-
-    background:var(--bg);
-
-    border:1px solid var(--border);
-
-    border-radius:14px;
-}
-
-.education-box h3{
-    margin-top:0;
-
-    color:var(--accent);
-
-    font-size:27px;
-}
-
-.education-box p{
-    color:var(--muted);
-
-    font-size:16px;
-}
-
-.points{
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:12px;
-
-    margin:25px 0;
-}
-
-.point{
-    padding:14px;
-
-    background:var(--card);
-
-    border:1px solid var(--border);
-
-    border-radius:9px;
-}
-
-.point strong{
-    color:var(--accent);
-}
-
-
-/* =========================
-   CLASSES
-========================= */
-
-.classes-grid{
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:20px;
-}
-
-.class-card{
-    padding:25px;
-
-    background:var(--card);
-
-    border:1px solid var(--border);
-
-    border-radius:12px;
-
-    transition:.2s;
-}
-
-.class-card:hover{
-    border-color:var(--accent);
-
-    transform:translateY(-3px);
-}
-
-.class-card .icon{
-    font-size:30px;
-}
-
-.class-card h3{
-    color:var(--white);
-
-    margin:12px 0 8px;
-}
-
-.class-card p{
-    color:var(--muted);
-
-    font-size:14px;
-
-    margin-bottom:18px;
-}
-
-
-/* =========================
-   HOW IT WORKS
-========================= */
-
-.steps{
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:18px;
-}
-
-.step{
-    text-align:center;
-
-    padding:25px 15px;
-
-    background:var(--card);
-
-    border:1px solid var(--border);
-
-    border-radius:12px;
-}
-
-.number{
-    width:45px;
-    height:45px;
-
-    margin:0 auto 12px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    border-radius:50%;
-
-    background:var(--accent);
-
-    color:#000;
-
-    font-weight:800;
-}
-
-.step h3{
-    color:var(--white);
-
-    margin:0 0 6px;
-}
-
-.step p{
-    color:var(--muted);
-
-    font-size:13px;
-
-    margin:0;
-}
-
-
-/* =========================
-   WHY
-========================= */
-
-.why{
-    background:var(--card);
-}
-
-.why-grid{
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:18px;
-}
-
-.why-card{
-    text-align:center;
-
-    padding:25px 18px;
-
-    background:var(--bg);
-
-    border:1px solid var(--border);
-
-    border-radius:12px;
-}
-
-.why-card .icon{
-    font-size:29px;
-}
-
-.why-card h3{
-    color:var(--white);
-
-    font-size:17px;
-}
-
-.why-card p{
-    color:var(--muted);
-
-    font-size:13px;
-
-    margin:0;
-}
-
-
-/* =========================
-   KAPIL SIR
-========================= */
-
-.teacher{
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:50px;
-
-    max-width:950px;
-
-    margin:auto;
-}
-
-.teacher-photo img{
-    width:210px;
-    height:210px;
-
-    object-fit:cover;
-
-    border-radius:50%;
-
-    border:4px solid var(--accent);
-}
-
-.teacher-text{
-    max-width:600px;
-}
-
-.teacher-text h2{
-    color:var(--white);
-
-    font-size:30px;
-
-    margin:0 0 15px;
-}
-
-.teacher-text p{
-    color:var(--muted);
-
-    font-size:16px;
-}
-
-
-/* =========================
-   GALLERY
-========================= */
-
-.gallery{
-    background:var(--card);
-}
-
-.gallery-grid{
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:18px;
-
-    max-width:950px;
-
-    margin:auto;
-}
-
-.gallery-item{
-    overflow:hidden;
-
-    border-radius:12px;
-
-    border:1px solid var(--border);
-}
-
-.gallery-item img{
-    width:100%;
-
-    height:230px;
-
-    object-fit:cover;
-
-    transition:.3s;
-}
-
-.gallery-item:hover img{
-    transform:scale(1.03);
-}
-
-
-/* =========================
-   DONATION
-========================= */
-
-.support{
-    text-align:center;
-
-    padding:70px 20px;
-
-    background:
-    radial-gradient(
-        circle at center,
-        rgba(255,191,0,.07),
-        transparent 45%
-    );
-}
-
-.support h2{
-    color:var(--white);
-
-    font-size:31px;
-}
-
-.support p{
-    max-width:650px;
-
-    margin:0 auto 25px;
-
-    color:var(--muted);
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    padding:35px 20px;
-
-    text-align:center;
-
-    background:#080b0f;
-
-    border-top:1px solid var(--border);
-}
-
-.footer-logo{
-    color:var(--accent);
-
-    font-size:20px;
-
-    font-weight:800;
-}
-
-.footer-links{
-    display:flex;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:18px;
-
-    margin:15px 0;
-}
-
-.footer-links a{
-    color:var(--muted);
-
-    font-size:13px;
-}
-
-.footer-links a:hover{
-    color:var(--accent);
-}
-
-footer p{
-    color:#6e7681;
-
-    font-size:12px;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:900px){
-
-    .classes-grid{
-        grid-template-columns:repeat(2,1fr);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Free Education Hub | Mala Devi Gurukul</title>
+  <meta name="description" content="Mala Devi Gurukul का Free Education Hub — कक्षा, विषय और अध्याय के अनुसार अच्छी पढ़ाई की सामग्री।">
+
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --accent: #ffbf00;
+      --text: #c9d1d9;
+      --white: #f0f6fc;
+      --border: #30363d;
+      --muted: #8b949e;
+      --green: #3fb950;
     }
 
-    .why-grid{
-        grid-template-columns:repeat(2,1fr);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .steps{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-
-@media(max-width:700px){
-
-    header{
-        padding:10px 18px;
+    html {
+      scroll-behavior: smooth;
     }
 
-    .menu-btn{
-        display:block;
+    body {
+      font-family: Arial, "Noto Sans Devanagari", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
 
-    nav{
-        display:none;
-
-        position:absolute;
-
-        top:66px;
-
-        left:0;
-        right:0;
-
-        padding:15px 20px;
-
-        background:var(--card);
-
-        border-bottom:1px solid var(--border);
-
-        flex-direction:column;
-
-        align-items:flex-start;
-
-        gap:13px;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    nav.active{
-        display:flex;
+    /* ================= HEADER ================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(22, 27, 34, 0.97);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
     }
 
-    nav a{
-        width:100%;
-
-        padding:5px 0;
+    .nav-container {
+      max-width: 1100px;
+      margin: auto;
+      height: 68px;
+      padding: 0 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .hero{
-        padding:70px 18px;
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .hero h1{
-        font-size:38px;
+    .logo-area img {
+      width: 43px;
+      height: 43px;
+      object-fit: contain;
+      border-radius: 50%;
     }
 
-    .hero p{
-        font-size:16px;
+    .logo-text {
+      color: var(--white);
+      font-size: 19px;
+      font-weight: bold;
     }
 
-    section{
-        padding:60px 18px;
+    .logo-text span {
+      color: var(--accent);
     }
 
-    .heading h2{
-        font-size:27px;
+    nav {
+      display: flex;
+      gap: 20px;
+      align-items: center;
     }
 
-    .education-box{
-        padding:23px;
+    nav a {
+      color: var(--text);
+      font-size: 14px;
+      transition: 0.2s;
     }
 
-    .points{
-        grid-template-columns:1fr;
+    nav a:hover,
+    nav a.active {
+      color: var(--accent);
     }
 
-    .classes-grid,
-    .why-grid,
-    .steps,
-    .gallery-grid{
-        grid-template-columns:1fr;
+    .menu-btn {
+      display: none;
+      font-size: 27px;
+      color: var(--white);
+      cursor: pointer;
     }
 
-    .teacher{
-        flex-direction:column;
+    /* ================= HERO ================= */
 
-        text-align:center;
-
-        gap:28px;
+    .hero {
+      max-width: 1000px;
+      margin: auto;
+      padding: 55px 18px 35px;
+      text-align: center;
     }
 
-    .teacher-text h2{
-        font-size:27px;
+    .hero-label {
+      display: inline-block;
+      color: var(--accent);
+      border: 1px solid rgba(255, 191, 0, 0.4);
+      background: rgba(255, 191, 0, 0.06);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      margin-bottom: 17px;
     }
 
-    .gallery-item img{
-        height:auto;
+    .hero h1 {
+      color: var(--white);
+      font-size: clamp(30px, 5vw, 46px);
+      line-height: 1.25;
+      margin-bottom: 15px;
     }
-}
 
-</style>
+    .hero h1 span {
+      color: var(--accent);
+    }
 
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    /* ================= MAIN ================= */
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 10px 18px 60px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 30px 0 25px;
+    }
+
+    .section-title h2 {
+      color: var(--white);
+      font-size: 28px;
+      margin-bottom: 7px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ================= CLASS CARDS ================= */
+
+    .class-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .class-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 25px 20px;
+      cursor: pointer;
+      transition: 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .class-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .class-number {
+      color: var(--accent);
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .class-card h3 {
+      color: var(--white);
+      font-size: 21px;
+      margin-bottom: 7px;
+    }
+
+    .class-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .arrow {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      color: var(--accent);
+      font-size: 22px;
+    }
+
+    /* ================= SUBJECT AREA ================= */
+
+    #subjectSection,
+    #chapterSection {
+      display: none;
+      margin-top: 45px;
+    }
+
+    .back-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 7px;
+      cursor: pointer;
+      margin-bottom: 18px;
+      font-size: 13px;
+    }
+
+    .back-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .selected-info {
+      color: var(--accent);
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .subject-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .subject-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .subject-card:hover {
+      border-color: var(--accent);
+    }
+
+    .subject-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .subject-card h3 {
+      color: var(--white);
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .subject-card p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* ================= CHAPTERS ================= */
+
+    .chapter-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .chapter-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 17px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .chapter-left {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .chapter-number {
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      background: rgba(255, 191, 0, 0.1);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .chapter-info h3 {
+      color: var(--white);
+      font-size: 16px;
+      margin-bottom: 3px;
+    }
+
+    .chapter-info p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .study-btn {
+      background: var(--accent);
+      color: #111;
+      border: none;
+      padding: 9px 15px;
+      border-radius: 7px;
+      font-weight: bold;
+      cursor: pointer;
+      white-space: nowrap;
+      font-size: 12px;
+    }
+
+    .study-btn:hover {
+      opacity: 0.9;
+    }
+
+    /* ================= RESOURCE POPUP ================= */
+
+    .resource-box {
+      display: none;
+      background: #10151c;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 15px;
+    }
+
+    .resource-box h3 {
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+
+    .resource-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .resource-btn {
+      display: inline-block;
+      border: 1px solid var(--border);
+      padding: 9px 13px;
+      border-radius: 7px;
+      font-size: 13px;
+      color: var(--text);
+      transition: 0.2s;
+    }
+
+    .resource-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .resource-btn.video {
+      color: var(--accent);
+    }
+
+    /* ================= NOTE ================= */
+
+    .note-box {
+      max-width: 850px;
+      margin: 55px auto 0;
+      padding: 22px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: 13px;
+      text-align: center;
+    }
+
+    .note-box h3 {
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .note-box p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: #0a0e13;
+      text-align: center;
+      padding: 28px 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: var(--accent);
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 750px) {
+
+      .menu-btn {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        width: 100%;
+        background: var(--card);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 0;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav a {
+        width: 100%;
+        padding: 12px 5px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .class-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .subject-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero {
+        padding-top: 40px;
+      }
+
+      .chapter-card {
+        align-items: flex-start;
+      }
+
+      .chapter-left {
+        align-items: flex-start;
+      }
+
+      .study-btn {
+        padding: 8px 11px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .subject-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .chapter-card {
+        flex-direction: column;
+      }
+
+      .study-btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
-
-<!-- =========================
-     HEADER
-========================= -->
+<!-- ================= HEADER ================= -->
 
 <header>
+  <div class="nav-container">
 
-<div class="logo">
+    <a href="index.html" class="logo-area">
+      <img src="logo.png" alt="Mala Devi Gurukul">
+      <div class="logo-text">
+        Mala Devi <span>Gurukul</span>
+      </div>
+    </a>
 
-<img src="logo.png" alt="Mala Devi Gurukul">
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-<h2>MD GURUKUL</h2>
+    <nav id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="About-us.html">About</a>
+      <a href="free-education.html" class="active">Free Education</a>
+      <a href="live-classes.html">Live Classes</a>
+      <a href="results.html">Results</a>
+      <a href="Admission.html">Admission</a>
+      <a href="donate.html">Donate</a>
+    </nav>
 
-</div>
-
-
-<button
-class="menu-btn"
-onclick="toggleMenu()">
-
-☰
-
-</button>
-
-
-<nav id="mainNav">
-
-<a href="index.html">Home</a>
-
-<a href="About-us.html">About</a>
-
-<a href="free-education.html">Free Education</a>
-
-<a href="live-classes.html">Live Classes</a>
-
-<a href="results.html">Results</a>
-
-<a href="Admission.html">Admission</a>
-
-<a href="donate.html">Donate</a>
-
-</nav>
-
+  </div>
 </header>
 
 
-
-<!-- =========================
-     HERO
-========================= -->
+<!-- ================= HERO ================= -->
 
 <section class="hero">
 
-<h1>
+  <div class="hero-label">
+    📚 Free Education Hub
+  </div>
 
-गांव और कस्बे के बच्चों के लिए
-<br>
+  <h1>
+    पढ़ाई को थोड़ा <span>आसान</span> बनाते हैं
+  </h1>
 
-<span>अच्छी पढ़ाई की एक आसान कोशिश</span>
-
-</h1>
-
-
-<p>
-
-हर बच्चे के पास महंगी coaching या बड़े शहर जैसी सुविधाएं नहीं होतीं।
-इसलिए हमारा प्रयास है कि पढ़ाई के अच्छे साधन उसे आसानी से मिल सकें।
-
-</p>
-
-
-<div class="hero-buttons">
-
-<a
-href="free-education.html"
-class="btn btn-primary">
-
-📚 Free Education
-
-</a>
-
-
-<a
-href="live-classes.html"
-class="btn btn-outline">
-
-▶ Live Classes
-
-</a>
-
-</div>
+  <p>
+    अपनी कक्षा चुनिए, फिर विषय और अध्याय चुनिए।
+    हमारी कोशिश है कि अच्छी पढ़ाई की सामग्री आपको एक ही जगह आसानी से मिल जाए।
+  </p>
 
 </section>
 
 
+<!-- ================= MAIN ================= -->
 
-<!-- =========================
-     OUR IDEA
-========================= -->
+<main class="container">
 
-<section class="education">
+  <!-- CLASS -->
 
-<div class="container">
+  <section id="classSection">
 
-<div class="heading">
+    <div class="section-title">
+      <h2>अपनी कक्षा चुनें</h2>
+      <p>जिस कक्षा में आप पढ़ रहे हैं, उसे चुनिए</p>
+    </div>
 
-<h2>
-हमारी <span>सोच</span>
-</h2>
+    <div class="class-grid">
 
-<p>
-पढ़ने वाले बच्चे को सही दिशा और अच्छे साधन मिलें — बस यही कोशिश है।
-</p>
+      <div class="class-card" onclick="selectClass('6-8')">
+        <div class="class-number">कक्षा</div>
+        <h3>6 – 8</h3>
+        <p>मिडिल स्कूल की पढ़ाई</p>
+        <div class="arrow">→</div>
+      </div>
 
-</div>
+      <div class="class-card" onclick="selectClass('9-10')">
+        <div class="class-number">कक्षा</div>
+        <h3>9 – 10</h3>
+        <p>बोर्ड परीक्षा की तैयारी</p>
+        <div class="arrow">→</div>
+      </div>
 
+      <div class="class-card" onclick="selectClass('11-12')">
+        <div class="class-number">कक्षा</div>
+        <h3>11 – 12</h3>
+        <p>इंटरमीडिएट की पढ़ाई</p>
+        <div class="arrow">→</div>
+      </div>
 
-<div class="education-box">
+    </div>
 
-<h3>
-Free Education Hub
-</h3>
+  </section>
 
 
-<p>
+  <!-- SUBJECT -->
 
-कई बार बच्चा पढ़ना तो चाहता है, लेकिन उसे समझ नहीं आता कि
-किस chapter को कहाँ से पढ़े, कौन सा lecture उसके लिए ठीक रहेगा
-या किससे मदद मिलेगी।
+  <section id="subjectSection">
 
-</p>
+    <button class="back-btn" onclick="backToClasses()">
+      ← कक्षा बदलें
+    </button>
 
+    <div class="selected-info" id="selectedClassText"></div>
 
-<p>
+    <div class="section-title">
+      <h2>विषय चुनें</h2>
+      <p>जिस विषय को पढ़ना है, उसे चुनिए</p>
+    </div>
 
-हम अलग-अलग जगह उपलब्ध अच्छे educational resources को
-class और chapter के हिसाब से एक जगह रखने की कोशिश करेंगे,
-ताकि बच्चे को इधर-उधर भटकना न पड़े।
+    <div class="subject-grid" id="subjectGrid"></div>
 
-</p>
+  </section>
 
 
-<div class="points">
+  <!-- CHAPTER -->
 
-<div class="point">
-<strong>✓</strong> कक्षा के अनुसार सामग्री
-</div>
+  <section id="chapterSection">
 
-<div class="point">
-<strong>✓</strong> विषय के अनुसार सामग्री
-</div>
+    <button class="back-btn" onclick="backToSubjects()">
+      ← विषय बदलें
+    </button>
 
-<div class="point">
-<strong>✓</strong> Chapter के अनुसार पढ़ाई
-</div>
+    <div class="selected-info" id="selectedSubjectText"></div>
 
-<div class="point">
-<strong>✓</strong> अच्छे शिक्षकों तक पहुंच
-</div>
+    <div class="section-title">
+      <h2>अध्याय चुनें</h2>
+      <p>जिस अध्याय को पढ़ना है, उसे चुनिए</p>
+    </div>
 
-</div>
+    <div class="chapter-list" id="chapterList"></div>
 
+  </section>
 
-<a
-href="free-education.html"
-class="btn btn-primary">
 
-Free Education Hub देखें →
+  <!-- NOTE -->
 
-</a>
+  <div class="note-box">
 
-</div>
+    <h3>हमारी एक छोटी सी कोशिश</h3>
 
-</div>
+    <p>
+      हर बच्चे के पास अलग-अलग जगह जाकर पढ़ने की सुविधा नहीं होती।
+      इसलिए हम अच्छी पढ़ाई की सामग्री को कक्षा और अध्याय के अनुसार
+      एक जगह उपलब्ध कराने की कोशिश कर रहे हैं।
+    </p>
 
-</section>
+  </div>
 
+</main>
 
 
-<!-- =========================
-     CLASSES
-========================= -->
-
-<section>
-
-<div class="container">
-
-<div class="heading">
-
-<h2>
-किसके लिए <span>है?</span>
-</h2>
-
-<p>
-अभी शुरुआत इन कक्षाओं से करने का हमारा विचार है।
-</p>
-
-</div>
-
-
-<div class="classes-grid">
-
-
-<div class="class-card">
-
-<div class="icon">
-📚
-</div>
-
-<h3>
-Class 6–8
-</h3>
-
-<p>
-बुनियादी concepts मजबूत करने और आगे की पढ़ाई के लिए तैयारी।
-</p>
-
-<a
-href="free-education.html"
-class="btn btn-outline">
-
-पढ़ाई देखें →
-
-</a>
-
-</div>
-
-
-<div class="class-card">
-
-<div class="icon">
-📝
-</div>
-
-<h3>
-Class 9–10
-</h3>
-
-<p>
-Board की तैयारी, chapter-wise study और practice material।
-</p>
-
-<a
-href="free-education.html"
-class="btn btn-outline">
-
-पढ़ाई देखें →
-
-</a>
-
-</div>
-
-
-<div class="class-card">
-
-<div class="icon">
-🎓
-</div>
-
-<h3>
-Class 11–12
-</h3>
-
-<p>
-Senior classes के subjects और आगे की पढ़ाई के लिए useful resources।
-</p>
-
-<a
-href="free-education.html"
-class="btn btn-outline">
-
-पढ़ाई देखें →
-
-</a>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================
-     HOW
-========================= -->
-
-<section class="why">
-
-<div class="container">
-
-<div class="heading">
-
-<h2>
-बच्चे को क्या <span>मिलेगा?</span>
-</h2>
-
-<p>
-हम चीजों को जितना हो सके सरल रखना चाहते हैं।
-</p>
-
-</div>
-
-
-<div class="steps">
-
-
-<div class="step">
-
-<div class="number">
-1
-</div>
-
-<h3>
-कक्षा चुनें
-</h3>
-
-<p>
-अपनी class चुनें।
-</p>
-
-</div>
-
-
-<div class="step">
-
-<div class="number">
-2
-</div>
-
-<h3>
-विषय चुनें
-</h3>
-
-<p>
-जिस subject में पढ़ना है उसे चुनें।
-</p>
-
-</div>
-
-
-<div class="step">
-
-<div class="number">
-3
-</div>
-
-<h3>
-Chapter चुनें
-</h3>
-
-<p>
-जिस chapter को समझना है उसे चुनें।
-</p>
-
-</div>
-
-
-<div class="step">
-
-<div class="number">
-4
-</div>
-
-<h3>
-पढ़ें और अभ्यास करें
-</h3>
-
-<p>
-Lecture देखें और questions हल करें।
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================
-     WHY
-========================= -->
-
-<section>
-
-<div class="container">
-
-<div class="heading">
-
-<h2>
-हमारी <span>कोशिश</span>
-</h2>
-
-<p>
-गांव के बच्चे को वही अवसर मिले जो किसी बड़े शहर के बच्चे को मिलता है।
-</p>
-
-</div>
-
-
-<div class="why-grid">
-
-
-<div class="why-card">
-
-<div class="icon">
-📖
-</div>
-
-<h3>
-आसान पढ़ाई
-</h3>
-
-<p>
-मुश्किल चीजों को सरल तरीके से समझने की कोशिश।
-</p>
-
-</div>
-
-
-<div class="why-card">
-
-<div class="icon">
-💰
-</div>
-
-<h3>
-कम खर्च
-</h3>
-
-<p>
-जहाँ संभव हो, free resources का इस्तेमाल।
-</p>
-
-</div>
-
-
-<div class="why-card">
-
-<div class="icon">
-🏠
-</div>
-
-<h3>
-घर से पढ़ाई
-</h3>
-
-<p>
-मोबाइल से घर बैठे पढ़ने की सुविधा।
-</p>
-
-</div>
-
-
-<div class="why-card">
-
-<div class="icon">
-🤝
-</div>
-
-<h3>
-साथ और मार्गदर्शन
-</h3>
-
-<p>
-बच्चे को सही दिशा दिखाने की कोशिश।
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================
-     KAPIL SIR
-========================= -->
-
-<section class="education">
-
-<div class="teacher">
-
-
-<div class="teacher-photo">
-
-<img
-src="kapilsir.png"
-alt="Kapil Sir">
-
-</div>
-
-
-<div class="teacher-text">
-
-<h2>
-Kapil Sir की ओर से
-</h2>
-
-
-<p>
-
-गांव में पढ़ाने के दौरान मैंने महसूस किया कि
-बच्चों में पढ़ने की इच्छा बहुत है, लेकिन हर बच्चे को
-सही resources और guidance नहीं मिल पाती।
-
-</p>
-
-
-<p>
-
-हम कोई बहुत बड़ा दावा नहीं कर रहे हैं।
-बस एक छोटी सी कोशिश है कि जो अच्छा material
-हमें मिले, उसे बच्चों तक पहुंचाने का रास्ता आसान किया जाए।
-
-</p>
-
-
-<p>
-
-अगर इससे किसी एक बच्चे की पढ़ाई भी थोड़ी आसान होती है,
-तो यह प्रयास सफल है।
-
-</p>
-
-
-<p style="color:#ffbf00;font-weight:bold;">
-— Kapil Sir
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================
-     CLASSROOM
-========================= -->
-
-<section class="gallery">
-
-<div class="container">
-
-<div class="heading">
-
-<h2>
-हमारी <span>Classroom Journey</span>
-</h2>
-
-<p>
-यहीं से Mala Devi Gurukul की शुरुआत हुई।
-</p>
-
-</div>
-
-
-<div class="gallery-grid">
-
-
-<div class="gallery-item">
-
-<img
-src="class1.jpg"
-alt="Mala Devi Gurukul Classroom">
-
-</div>
-
-
-<div class="gallery-item">
-
-<img
-src="class2.jpg"
-alt="Students in Classroom">
-
-</div>
-
-
-<div class="gallery-item">
-
-<img
-src="class3.jpg"
-alt="Classroom Activity">
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================
-     FINAL CTA
-========================= -->
-
-<section class="support">
-
-<h2>
-चलो पढ़ाई को थोड़ा आसान बनाते हैं।
-</h2>
-
-
-<p>
-
-अगर आप विद्यार्थी हैं तो Free Education Hub देखें।
-अगर आप teacher हैं और अच्छा content बनाते हैं,
-तो आप भी इस प्रयास से जुड़ सकते हैं।
-
-</p>
-
-
-<div class="hero-buttons">
-
-<a
-href="free-education.html"
-class="btn btn-primary">
-
-📚 Free Education Hub
-
-</a>
-
-
-<a
-href="donate.html"
-class="btn btn-outline">
-
-❤️ सहयोग करें
-
-</a>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
-<div class="footer-logo">
-MD GURUKUL
-</div>
+  <p>
+    © 2026 <strong>Mala Devi Gurukul</strong>
+  </p>
 
-
-<div class="footer-links">
-
-<a href="index.html">Home</a>
-
-<a href="About-us.html">About</a>
-
-<a href="free-education.html">Free Education</a>
-
-<a href="live-classes.html">Live Classes</a>
-
-<a href="results.html">Results</a>
-
-<a href="Admission.html">Admission</a>
-
-<a href="donate.html">Donate</a>
-
-</div>
-
-
-<p>
-© 2026 Mala Devi Gurukul
-</p>
+  <p style="margin-top:6px;">
+    पढ़ाई सबके लिए — सरल, उपयोगी और सुलभ
+  </p>
 
 </footer>
 
 
+<!-- ================= JAVASCRIPT ================= -->
 
 <script>
 
-function toggleMenu(){
+  /* ============================================
+     TEMPORARY EDUCATION DATA
 
-    const nav =
-    document.getElementById("mainNav");
+     बाद में यही data Google Sheet से आएगा।
+     Admin Panel इसी structure में data manage करेगा।
+  ============================================ */
 
-    nav.classList.toggle("active");
+  const educationData = {
 
-}
+    "6-8": {
+
+      "गणित": [
+        {
+          chapter: "अध्याय 1 — पूर्णांक",
+          teacher: "अच्छा Lecture",
+          video: "https://www.youtube.com/"
+        },
+        {
+          chapter: "अध्याय 2 — भिन्न",
+          teacher: "अच्छा Lecture",
+          video: "https://www.youtube.com/"
+        },
+        {
+          chapter: "अध्याय 3 — दशमलव",
+          teacher: "अच्छा Lecture",
+          video: "https://www.youtube.com/"
+        }
+      ],
+
+      "विज्ञान": [
+        {
+          chapter: "अध्याय 1 — हमारे आसपास के पदार्थ",
+          teacher: "अच्छा Lecture",
+          video: "https://www.youtube.com/"
+        },
+        {
+          chapter: "अध्याय 2 — पदार्थों में परिवर्तन",
+          teacher: "अच्छा Lecture",
+          video: "https://www.youtube.com/"
+        }
+      ],
+
+      "हिंदी": [
+        {
+          chapter: "पाठ 1 — भाषा और साहित्य",
+          teacher: "अच्छा Lecture",
+          video: "https://www.youtube.com/"
+        }
+      ]
+
+    },
 
 
-document.querySelectorAll("#mainNav a")
-.forEach(function(link){
+    "9-10": {
 
-    link.addEventListener("click",function(){
+      "गणित": [
+        {
+          chapter: "अध्याय 1 — वास्तविक संख्याएँ",
+          teacher: "अच्छा Lecture",
+          video: "https://www.youtube.com/"
+        },
+        {
+          chapter: "अध्याय 2 — बहुपद",
+          teacher: "अच्छा Lecture",
+          video: "https://www.youtube.com/"
+        },
+        {
+          chapter: "अध्याय 3 — दो चर वाले रैखिक समीकरण",
+          teacher: "अच्छा Lecture",
+          video: "https://www.youtube.com/"
+        },
+        {
+          chapter: "अध्याय 4 — द्विघात समीकरण",
+          teacher: "अच्छा Lecture",
+          video: "https://www.youtube.com/"
+        }
+      ],
 
-        document
-        .getElementById("mainNav")
-        .classList
-        .remove("active");
+      "विज्ञान": [
+        {
+          chapter: "अध्याय 1 — रासायनिक अभिक्रियाएँ",
+          teacher: "अच्छा Lecture",
+          video: "https://www.youtube.com/"
+        },
+        {
+          chapter: "अध्याय 2 — अम्ल, क्षार और लवण",
+          teacher: "अच्छा Lecture",
+          video: "https://www.youtube.com/"
+        }
+      ],
+
+      "हिंदी": [
+        {
+          chapter: "गद्य खंड",
+          teacher: "अच्छा Lecture",
+          video: "https://www.youtube.com/"
+        },
+        {
+          chapter: "काव्य खंड",
+          teacher: "अच्छा Lecture",
+          video: "https://www.youtube.com/"
+        }
+      ],
+
+      "सामाजिक विज्ञान": [
+        {
+          chapter: "इतिहास — भारत और समकालीन विश्व",
+          teacher: "अच्छा Lecture",
+          video: "https://www.youtube.com/"
+        },
+        {
+          chapter: "भूगोल — भारत: संसाधन एवं उपयोग",
+          teacher: "अच्छा Lecture",
+          video: "https://www.youtube.com/"
+        }
+      ]
+
+    },
+
+
+    "11-12": {
+
+      "गणित": [
+        {
+          chapter: "समुच्चय",
+          teacher: "अच्छा Lecture",
+          video: "https://www.youtube.com/"
+        },
+        {
+          chapter: "संबंध एवं फलन",
+          teacher: "अच्छा Lecture",
+          video: "https://www.youtube.com/"
+        },
+        {
+          chapter: "आव्यूह एवं सारणिक",
+          teacher: "अच्छा Lecture",
+          video: "https://www.youtube.com/"
+        }
+      ],
+
+      "भौतिक विज्ञान": [
+        {
+          chapter: "इकाई एवं मापन",
+          teacher: "अच्छा Lecture",
+          video: "https://www.youtube.com/"
+        },
+        {
+          chapter: "गति",
+          teacher: "अच्छा Lecture",
+          video: "https://www.youtube.com/"
+        },
+        {
+          chapter: "गति के नियम",
+          teacher: "अच्छा Lecture",
+          video: "https://www.youtube.com/"
+        }
+      ],
+
+      "रसायन विज्ञान": [
+        {
+          chapter: "परमाणु की संरचना",
+          teacher: "अच्छा Lecture",
+          video: "https://www.youtube.com/"
+        }
+      ]
+
+    }
+
+  };
+
+
+  let selectedClass = "";
+  let selectedSubject = "";
+
+
+  /* ================= MENU ================= */
+
+  function toggleMenu() {
+    document.getElementById("mainNav").classList.toggle("show");
+  }
+
+
+  /* ================= SELECT CLASS ================= */
+
+  function selectClass(className) {
+
+    selectedClass = className;
+
+    document.getElementById("classSection").style.display = "none";
+    document.getElementById("subjectSection").style.display = "block";
+    document.getElementById("chapterSection").style.display = "none";
+
+    document.getElementById("selectedClassText").innerText =
+      "आपने चुना: कक्षा " + className;
+
+    const subjectGrid =
+      document.getElementById("subjectGrid");
+
+    subjectGrid.innerHTML = "";
+
+    const subjects = educationData[className];
+
+    for (const subject in subjects) {
+
+      const card = document.createElement("div");
+
+      card.className = "subject-card";
+
+      let icon = "📘";
+
+      if (subject.includes("गणित")) icon = "📐";
+      if (subject.includes("विज्ञान")) icon = "🔬";
+      if (subject.includes("भौतिक")) icon = "⚡";
+      if (subject.includes("रसायन")) icon = "🧪";
+      if (subject.includes("हिंदी")) icon = "📖";
+      if (subject.includes("सामाजिक")) icon = "🌍";
+
+      card.innerHTML = `
+        <div class="subject-icon">${icon}</div>
+        <h3>${subject}</h3>
+        <p>${subjects[subject].length} अध्याय उपलब्ध</p>
+      `;
+
+      card.onclick = function () {
+        selectSubject(subject);
+      };
+
+      subjectGrid.appendChild(card);
+    }
+
+    window.scrollTo({
+      top: document.getElementById("subjectSection").offsetTop - 80,
+      behavior: "smooth"
+    });
+  }
+
+
+  /* ================= SELECT SUBJECT ================= */
+
+  function selectSubject(subject) {
+
+    selectedSubject = subject;
+
+    document.getElementById("subjectSection").style.display = "none";
+    document.getElementById("chapterSection").style.display = "block";
+
+    document.getElementById("selectedSubjectText").innerText =
+      "कक्षा " + selectedClass + "  •  " + selectedSubject;
+
+    const chapterList =
+      document.getElementById("chapterList");
+
+    chapterList.innerHTML = "";
+
+    const chapters =
+      educationData[selectedClass][selectedSubject];
+
+    chapters.forEach((item, index) => {
+
+      const card = document.createElement("div");
+
+      card.className = "chapter-card";
+
+      card.innerHTML = `
+
+        <div class="chapter-left">
+
+          <div class="chapter-number">
+            ${index + 1}
+          </div>
+
+          <div class="chapter-info">
+
+            <h3>${item.chapter}</h3>
+
+            <p>${item.teacher}</p>
+
+          </div>
+
+        </div>
+
+        <button class="study-btn"
+          onclick="openLecture('${item.video}')">
+          🎥 पढ़ना शुरू करें
+        </button>
+
+      `;
+
+      chapterList.appendChild(card);
 
     });
 
-});
+    window.scrollTo({
+      top: document.getElementById("chapterSection").offsetTop - 80,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  /* ================= OPEN LECTURE ================= */
+
+  function openLecture(url) {
+
+    if (!url || url === "https://www.youtube.com/") {
+
+      alert(
+        "इस अध्याय का Lecture अभी जोड़ा नहीं गया है।"
+      );
+
+      return;
+    }
+
+    window.open(url, "_blank");
+
+  }
+
+
+  /* ================= BACK ================= */
+
+  function backToClasses() {
+
+    document.getElementById("subjectSection").style.display = "none";
+    document.getElementById("chapterSection").style.display = "none";
+    document.getElementById("classSection").style.display = "block";
+
+    window.scrollTo({
+      top: document.getElementById("classSection").offsetTop - 80,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  function backToSubjects() {
+
+    document.getElementById("chapterSection").style.display = "none";
+    document.getElementById("subjectSection").style.display = "block";
+
+    window.scrollTo({
+      top: document.getElementById("subjectSection").offsetTop - 80,
+      behavior: "smooth"
+    });
+
+  }
 
 </script>
 
-
 </body>
-
 </html>
