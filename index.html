@@ -1,347 +1,1367 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mala Devi Gurukul | Rural Education Mission</title>
+<title>Mala Devi Gurukul | Free Education Hub</title>
+
+<meta name="description"
+content="Mala Devi Gurukul - ग्रामीण विद्यार्थियों के लिए Free Education Hub. Class 1 से 12 तक अच्छे educational resources और trusted YouTube teachers तक आसान पहुंच।">
 
 <style>
 
-body{
-margin:0;
-font-family:Segoe UI;
-background:#0d1117;
-color:#c9d1d9;
+:root{
+    --bg:#0d1117;
+    --card:#161b22;
+    --card2:#11161d;
+    --accent:#ffbf00;
+    --text:#c9d1d9;
+    --muted:#8b949e;
+    --border:#30363d;
+    --white:#ffffff;
 }
 
-/* HEADER */
+*{
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+/* ================= HEADER ================= */
 
 header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:12px 30px;
-background:#161b22;
-position:sticky;
-top:0;
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:10px 4%;
+
+    background:rgba(22,27,34,.97);
+    border-bottom:1px solid var(--border);
+
+    backdrop-filter:blur(10px);
 }
 
 .logo{
-display:flex;
-align-items:center;
-gap:10px;
+    display:flex;
+    align-items:center;
+    gap:10px;
 }
 
 .logo img{
-height:45px;
+    width:45px;
+    height:45px;
+    object-fit:contain;
 }
 
 .logo h2{
-color:#ffbf00;
+    margin:0;
+    color:var(--accent);
+    font-size:21px;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:20px;
 }
 
 nav a{
-margin-left:20px;
-color:#c9d1d9;
-text-decoration:none;
-font-weight:600;
+    color:var(--text);
+    font-size:14px;
+    font-weight:600;
+    transition:.2s;
 }
 
 nav a:hover{
-color:#ffbf00;
+    color:var(--accent);
 }
 
-/* HERO */
+.menu-btn{
+    display:none;
+
+    background:none;
+    border:1px solid var(--border);
+    border-radius:7px;
+
+    color:var(--accent);
+    font-size:23px;
+
+    padding:4px 10px;
+}
+
+/* ================= HERO ================= */
 
 .hero{
-text-align:center;
-padding:80px 20px;
-background:linear-gradient(#0d1117,#000);
+    text-align:center;
+
+    padding:95px 20px 85px;
+
+    background:
+    radial-gradient(
+        circle at 50% 10%,
+        rgba(255,191,0,.13),
+        transparent 38%
+    ),
+    linear-gradient(#0d1117,#090c10);
+}
+
+.badge{
+    display:inline-block;
+
+    padding:7px 15px;
+    margin-bottom:20px;
+
+    border:1px solid rgba(255,191,0,.4);
+    border-radius:30px;
+
+    color:var(--accent);
+
+    background:rgba(255,191,0,.06);
+
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.7px;
 }
 
 .hero h1{
-font-size:42px;
-color:#ffbf00;
+    max-width:900px;
+
+    margin:0 auto 18px;
+
+    font-size:clamp(38px,6vw,62px);
+
+    line-height:1.12;
+
+    color:var(--white);
+}
+
+.hero h1 span{
+    color:var(--accent);
 }
 
 .hero p{
-font-size:18px;
-max-width:700px;
-margin:auto;
+    max-width:720px;
+
+    margin:auto;
+
+    color:var(--muted);
+
+    font-size:18px;
 }
 
-.hero button{
-margin-top:30px;
-padding:15px 30px;
-font-size:18px;
-border:none;
-background:#ffbf00;
-color:#000;
-font-weight:bold;
-border-radius:8px;
-cursor:pointer;
+.buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+
+    gap:13px;
+
+    margin-top:30px;
 }
 
-/* STORY */
+.btn{
+    display:inline-block;
 
-.story{
-display:flex;
-flex-wrap:wrap;
-align-items:center;
-justify-content:center;
-gap:40px;
-padding:70px 20px;
+    padding:13px 24px;
+
+    border-radius:8px;
+
+    font-weight:700;
+
+    transition:.25s;
 }
 
-.story img{
-width:200px;
-height:200px;
-border-radius:50%;
-border:4px solid #ffbf00;
+.btn-primary{
+    background:var(--accent);
+    color:#000;
 }
 
-.story-text{
-max-width:600px;
+.btn-primary:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 25px rgba(255,191,0,.18);
 }
 
-/* STATS */
-
-.stats{
-display:flex;
-justify-content:center;
-gap:40px;
-padding:50px;
-flex-wrap:wrap;
-background:#161b22;
+.btn-outline{
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
 }
 
-.stat{
-text-align:center;
+.btn-outline:hover{
+    border-color:var(--accent);
+    color:var(--accent);
 }
 
-.stat h2{
-color:#ffbf00;
-font-size:40px;
+.hero-note{
+    margin-top:20px !important;
+
+    color:#6e7681 !important;
+
+    font-size:13px !important;
 }
 
-/* GALLERY */
+/* ================= COMMON ================= */
+
+section{
+    padding:75px 20px;
+}
+
+.container{
+    width:92%;
+    max-width:1150px;
+    margin:auto;
+}
+
+.heading{
+    text-align:center;
+
+    margin-bottom:42px;
+}
+
+.heading h2{
+    margin:0 0 10px;
+
+    color:var(--white);
+
+    font-size:32px;
+}
+
+.heading h2 span{
+    color:var(--accent);
+}
+
+.heading p{
+    max-width:680px;
+
+    margin:auto;
+
+    color:var(--muted);
+}
+
+/* ================= FREE EDUCATION ================= */
+
+.education{
+    background:var(--card);
+}
+
+.education-box{
+    max-width:1050px;
+
+    margin:auto;
+
+    padding:35px;
+
+    background:var(--bg);
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    display:grid;
+
+    grid-template-columns:1.1fr .9fr;
+
+    gap:35px;
+
+    align-items:center;
+}
+
+.education-text h3{
+    margin:0 0 12px;
+
+    color:var(--accent);
+
+    font-size:27px;
+}
+
+.education-text p{
+    color:var(--muted);
+}
+
+.education-points{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
+
+    margin:20px 0;
+}
+
+.point{
+    padding:13px;
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:9px;
+
+    font-size:14px;
+}
+
+.point span{
+    color:var(--accent);
+}
+
+.education-preview{
+    padding:25px;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    background:#080b0f;
+}
+
+.search-box{
+    padding:14px;
+
+    border:1px solid var(--border);
+
+    border-radius:8px;
+
+    color:#6e7681;
+
+    margin-bottom:12px;
+}
+
+.class-row{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:13px;
+
+    margin-top:8px;
+
+    border:1px solid var(--border);
+
+    border-radius:8px;
+
+    background:var(--card);
+}
+
+.class-row span:last-child{
+    color:var(--accent);
+}
+
+/* ================= HOW IT WORKS ================= */
+
+.steps{
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:18px;
+
+    max-width:1000px;
+
+    margin:auto;
+}
+
+.step{
+    text-align:center;
+
+    padding:25px 15px;
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+}
+
+.number{
+    width:48px;
+    height:48px;
+
+    margin:0 auto 13px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:50%;
+
+    background:var(--accent);
+
+    color:#000;
+
+    font-weight:800;
+
+    font-size:19px;
+}
+
+.step h3{
+    margin:0 0 6px;
+
+    color:var(--white);
+}
+
+.step p{
+    margin:0;
+
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+/* ================= WHY ================= */
+
+.why{
+    background:var(--card);
+}
+
+.why-grid{
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:18px;
+}
+
+.why-card{
+    text-align:center;
+
+    padding:25px 18px;
+
+    background:var(--bg);
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    transition:.25s;
+}
+
+.why-card:hover{
+    transform:translateY(-4px);
+
+    border-color:var(--accent);
+}
+
+.icon{
+    font-size:30px;
+}
+
+.why-card h3{
+    color:var(--white);
+
+    font-size:17px;
+}
+
+.why-card p{
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin:0;
+}
+
+/* ================= TEACHER ================= */
+
+.teacher{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:55px;
+
+    max-width:950px;
+
+    margin:auto;
+}
+
+.teacher-photo img{
+    width:210px;
+    height:210px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:4px solid var(--accent);
+
+    box-shadow:0 0 0 8px rgba(255,191,0,.06);
+}
+
+.teacher-text{
+    max-width:600px;
+}
+
+.small-title{
+    color:var(--accent);
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+}
+
+.teacher-text h2{
+    margin:7px 0 15px;
+
+    color:var(--white);
+
+    font-size:31px;
+}
+
+.teacher-text p{
+    color:var(--muted);
+}
+
+/* ================= GALLERY ================= */
 
 .gallery{
-text-align:center;
-padding:70px 20px;
+    background:var(--card);
 }
 
-.gallery img{
-width:250px;
-border-radius:10px;
-margin:10px;
+.gallery-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:18px;
+
+    max-width:950px;
+
+    margin:auto;
 }
 
-/* DONATION PURPOSE */
+.gallery-item{
+    overflow:hidden;
 
-.donation{
-text-align:center;
-padding:80px 20px;
-background:#161b22;
+    border:1px solid var(--border);
+
+    border-radius:12px;
 }
 
-.donation h2{
-color:#ffbf00;
+.gallery-item img{
+    width:100%;
+
+    height:230px;
+
+    object-fit:cover;
+
+    transition:.4s;
 }
 
-.donation-cards{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:30px;
-margin-top:30px;
+.gallery-item:hover img{
+    transform:scale(1.04);
 }
 
-.d-card{
-background:#0d1117;
-padding:20px;
-border-radius:10px;
-width:220px;
-border:1px solid #30363d;
+/* ================= SUPPORT ================= */
+
+.support{
+    text-align:center;
+
+    padding:70px 20px;
+
+    background:
+    radial-gradient(
+        circle at center,
+        rgba(255,191,0,.08),
+        transparent 45%
+    );
 }
 
-/* YOUTUBER SECTION */
+.support h2{
+    color:var(--white);
 
-.creators{
-padding:70px 20px;
-text-align:center;
+    font-size:32px;
 }
 
-.creators h2{
-color:#ffbf00;
+.support p{
+    max-width:650px;
+
+    margin:0 auto 25px;
+
+    color:var(--muted);
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
-text-align:center;
-padding:30px;
-background:#161b22;
-margin-top:50px;
+    text-align:center;
+
+    padding:35px 20px;
+
+    background:#080b0f;
+
+    border-top:1px solid var(--border);
+}
+
+.footer-logo{
+    color:var(--accent);
+
+    font-size:20px;
+
+    font-weight:800;
+}
+
+.footer-links{
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    margin:15px 0;
+}
+
+.footer-links a{
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+.footer-links a:hover{
+    color:var(--accent);
+}
+
+footer p{
+    color:#6e7681;
+
+    font-size:12px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+    nav{
+        gap:12px;
+    }
+
+    nav a{
+        font-size:13px;
+    }
+
+    .education-box{
+        grid-template-columns:1fr;
+    }
+
+    .why-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .steps{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:700px){
+
+    header{
+        padding:10px 18px;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    nav{
+        display:none;
+
+        position:absolute;
+
+        top:66px;
+        left:0;
+        right:0;
+
+        padding:15px 20px;
+
+        background:var(--card);
+
+        border-bottom:1px solid var(--border);
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:14px;
+    }
+
+    nav.active{
+        display:flex;
+    }
+
+    nav a{
+        width:100%;
+
+        padding:5px 0;
+    }
+
+    .hero{
+        padding:70px 18px;
+    }
+
+    .hero h1{
+        font-size:39px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    section{
+        padding:60px 18px;
+    }
+
+    .heading h2{
+        font-size:27px;
+    }
+
+    .education-box{
+        padding:22px;
+    }
+
+    .education-points{
+        grid-template-columns:1fr;
+    }
+
+    .why-grid,
+    .steps,
+    .gallery-grid{
+        grid-template-columns:1fr;
+    }
+
+    .teacher{
+        flex-direction:column;
+
+        text-align:center;
+
+        gap:28px;
+    }
+
+    .teacher-text h2{
+        font-size:27px;
+    }
+
+    .gallery-item img{
+        height:auto;
+    }
 }
 
 </style>
 </head>
 
+
 <body>
+
+
+<!-- ================= HEADER ================= -->
 
 <header>
 
 <div class="logo">
-<img src="logo.png">
+
+<img src="logo.png" alt="MD Gurukul Logo">
+
 <h2>MD GURUKUL</h2>
+
 </div>
 
-<nav>
+
+<button
+class="menu-btn"
+onclick="toggleMenu()"
+aria-label="Open menu">
+☰
+</button>
+
+
+<nav id="mainNav">
+
 <a href="index.html">Home</a>
+
 <a href="About-us.html">About</a>
+
+<a href="free-education.html">Free Education</a>
+
+<a href="live-classes.html">Live Classes</a>
+
 <a href="results.html">Results</a>
+
 <a href="Admission.html">Admission</a>
+
 <a href="donate.html">Donate</a>
+
 </nav>
 
 </header>
 
 
-<!-- HERO -->
+
+<!-- ================= HERO ================= -->
 
 <section class="hero">
 
-<h1>Help Educate Rural Students</h1>
+<div class="badge">
+MALA DEVI GURUKUL • FREE EDUCATION HUB
+</div>
 
-<p>Mala Devi Gurukul is a mission to provide quality education to talented village students who cannot afford expensive coaching.</p>
 
-<button onclick="window.location.href='donate.html'">
-Donate Now
-</button>
+<h1>
+सही शिक्षा तक
+<span>सही रास्ता</span>
+</h1>
+
+
+<p>
+YouTube पर educational videos की कोई कमी नहीं है।
+समस्या है — सही video और सही teacher को ढूँढना।
+MD Gurukul का उद्देश्य विद्यार्थियों को अच्छे learning resources तक आसान पहुँच देना है।
+</p>
+
+
+<div class="buttons">
+
+<a href="free-education.html"
+class="btn btn-primary">
+
+🎓 Free Education Hub
+
+</a>
+
+
+<a href="live-classes.html"
+class="btn btn-outline">
+
+▶ Live Classes
+
+</a>
+
+</div>
+
+
+<p class="hero-note">
+Class 1–12 • Chapter-wise Learning • Carefully Selected Resources
+</p>
 
 </section>
 
 
-<!-- STORY -->
 
-<section class="story">
+<!-- ================= FREE EDUCATION HUB ================= -->
 
-<img src="kapilsir.png">
+<section class="education">
 
-<div class="story-text">
+<div class="container">
 
-<h2>Message from Kapil Sir</h2>
+<div class="heading">
+
+<h2>
+Welcome to <span>Free Education Hub</span>
+</h2>
 
 <p>
-
-I am Kapil Gangwar, a teacher who has been teaching students for the last 9 years.
-
-My dream is simple: no child in our village should remain uneducated because of money.
-
-Mala Devi Gurukul was started with this mission to provide quality education, practical learning and confidence to rural students.
-
+हमारा उद्देश्य content बनाना ही नहीं, बल्कि विद्यार्थियों को सही content तक पहुँचाना है।
 </p>
 
 </div>
 
+
+<div class="education-box">
+
+
+<div class="education-text">
+
+<h3>
+YouTube का ज्ञान — एक जगह व्यवस्थित
+</h3>
+
+<p>
+हम अलग-अलग educational creators के अच्छे videos को
+class, subject और chapter के अनुसार व्यवस्थित करने की दिशा में काम कर रहे हैं।
+</p>
+
+
+<div class="education-points">
+
+<div class="point">
+<span>✓</span> Class-wise
+</div>
+
+<div class="point">
+<span>✓</span> Subject-wise
+</div>
+
+<div class="point">
+<span>✓</span> Chapter-wise
+</div>
+
+<div class="point">
+<span>✓</span> Teacher-wise
+</div>
+
+</div>
+
+
+<a href="free-education.html"
+class="btn btn-primary">
+
+Open Free Education Hub →
+
+</a>
+
+</div>
+
+
+
+<div class="education-preview">
+
+<div class="search-box">
+🔎 Search your chapter...
+</div>
+
+
+<div class="class-row">
+<span>📘 Class 10 Mathematics</span>
+<span>→</span>
+</div>
+
+
+<div class="class-row">
+<span>🔬 Class 10 Science</span>
+<span>→</span>
+</div>
+
+
+<div class="class-row">
+<span>📐 Class 12 Mathematics</span>
+<span>→</span>
+</div>
+
+
+<div class="class-row">
+<span>⚡ Class 12 Physics</span>
+<span>→</span>
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
 </section>
 
 
-<!-- STATS -->
 
-<section class="stats">
+<!-- ================= HOW IT WORKS ================= -->
 
-<div class="stat">
-<h2>300+</h2>
-<p>Students Taught</p>
+<section>
+
+<div class="container">
+
+<div class="heading">
+
+<h2>
+यह कैसे <span>काम करेगा?</span>
+</h2>
+
+<p>
+विद्यार्थी के लिए process बिल्कुल simple रहेगा।
+</p>
+
 </div>
 
-<div class="stat">
-<h2>9</h2>
-<p>Years Teaching</p>
+
+<div class="steps">
+
+
+<div class="step">
+
+<div class="number">1</div>
+
+<h3>Class चुनें</h3>
+
+<p>
+अपनी class select करें।
+</p>
+
 </div>
 
-<div class="stat">
-<h2>100+</h2>
-<p>Free Doubt Classes</p>
+
+<div class="step">
+
+<div class="number">2</div>
+
+<h3>Chapter चुनें</h3>
+
+<p>
+जिस chapter को पढ़ना है उसे चुनें।
+</p>
+
 </div>
 
-<div class="stat">
-<h2>50+</h2>
-<p>Science Experiments</p>
+
+<div class="step">
+
+<div class="number">3</div>
+
+<h3>Recommended Video</h3>
+
+<p>
+चुना हुआ अच्छा learning resource देखें।
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">4</div>
+
+<h3>Practice करें</h3>
+
+<p>
+सीखने के बाद questions और tests से practice करें।
+</p>
+
+</div>
+
+
+</div>
+
 </div>
 
 </section>
 
 
-<!-- GALLERY -->
+
+<!-- ================= WHY ================= -->
+
+<section class="why">
+
+<div class="container">
+
+<div class="heading">
+
+<h2>
+हमारा <span>उद्देश्य</span>
+</h2>
+
+<p>
+हम विद्यार्थी और अच्छे शिक्षक के बीच एक सरल connection बनाना चाहते हैं।
+</p>
+
+</div>
+
+
+<div class="why-grid">
+
+
+<div class="why-card">
+
+<div class="icon">🎯</div>
+
+<h3>Right Content</h3>
+
+<p>
+अनावश्यक videos में समय बर्बाद न हो।
+</p>
+
+</div>
+
+
+<div class="why-card">
+
+<div class="icon">👨‍🏫</div>
+
+<h3>Good Teachers</h3>
+
+<p>
+अच्छे educational creators तक students पहुँचें।
+</p>
+
+</div>
+
+
+<div class="why-card">
+
+<div class="icon">📚</div>
+
+<h3>Organised Learning</h3>
+
+<p>
+Class और chapter के अनुसार resources।
+</p>
+
+</div>
+
+
+<div class="why-card">
+
+<div class="icon">🆓</div>
+
+<h3>Free Access</h3>
+
+<p>
+Learning resources तक आसान और free पहुँच।
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= KAPIL SIR ================= -->
+
+<section>
+
+<div class="teacher">
+
+
+<div class="teacher-photo">
+
+<img
+src="kapilsir.png"
+alt="Kapil Sir - Mala Devi Gurukul">
+
+</div>
+
+
+<div class="teacher-text">
+
+<div class="small-title">
+FOUNDER • TEACHER • EDUCATOR
+</div>
+
+
+<h2>
+एक शिक्षक का छोटा सा प्रयास
+</h2>
+
+
+<p>
+YouTube पर आज education का बहुत बड़ा खजाना उपलब्ध है,
+लेकिन एक विद्यार्थी के लिए सही teacher और सही video चुनना आसान नहीं है।
+</p>
+
+
+<p>
+Mala Devi Gurukul का प्रयास है कि विद्यार्थियों को अच्छे learning resources
+तक पहुँचने में मदद मिले और educational creators का अच्छा content
+ज्यादा से ज्यादा विद्यार्थियों तक पहुँचे।
+</p>
+
+
+<p>
+<strong style="color:#ffbf00;">
+हमारा काम ज्ञान को रोकना नहीं, सही विद्यार्थी तक पहुँचाना है।
+</strong>
+</p>
+
+
+<p>
+— Kapil Sir
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= GALLERY ================= -->
 
 <section class="gallery">
 
-<h2>Classroom Moments</h2>
+<div class="container">
 
-<img src="class1.jpg">
-<img src="class2.jpg">
-<img src="class3.jpg">
+<div class="heading">
 
-</section>
-
-
-<!-- DONATION -->
-
-<section class="donation">
-
-<h2>Where Your Donation Will Help</h2>
-
-<div class="donation-cards">
-
-<div class="d-card">
-📚 Books for Students
-</div>
-
-<div class="d-card">
-🪑 Classroom Setup
-</div>
-
-<div class="d-card">
-💻 Digital Learning
-</div>
-
-<div class="d-card">
-🎥 Educational Content
-</div>
-
-</div>
-
-<br><br>
-
-<a href="donate.html">Donate</a>
-
-</section>
-
-
-<!-- YOUTUBERS -->
-
-<section class="creators">
-
-<h2>Message to YouTubers & Creators</h2>
+<h2>
+Mala Devi Gurukul के <span>कुछ पल</span>
+</h2>
 
 <p>
-
-If you are a YouTuber, trader, entrepreneur or educator who believes in education, you can support Mala Devi Gurukul and help build a better future for rural students.
-
+हमारी journey classroom से digital learning की ओर।
 </p>
+
+</div>
+
+
+<div class="gallery-grid">
+
+
+<div class="gallery-item">
+
+<img
+src="class1.jpg"
+alt="Mala Devi Gurukul Classroom">
+
+</div>
+
+
+<div class="gallery-item">
+
+<img
+src="class2.jpg"
+alt="Students Learning">
+
+</div>
+
+
+<div class="gallery-item">
+
+<img
+src="class3.jpg"
+alt="Classroom Activity">
+
+</div>
+
+
+</div>
+
+</div>
 
 </section>
 
+
+
+<!-- ================= SUPPORT ================= -->
+
+<section class="support">
+
+<h2>
+क्या आप भी इस mission का हिस्सा बनना चाहते हैं?
+</h2>
+
+
+<p>
+यदि आप teacher, YouTuber, educator या education supporter हैं,
+तो अच्छे educational resources को ज्यादा विद्यार्थियों तक पहुँचाने में हमारा साथ दें।
+</p>
+
+
+<div class="buttons">
+
+<a href="free-education.html"
+class="btn btn-primary">
+
+🎓 Explore Free Education
+
+</a>
+
+
+<a href="donate.html"
+class="btn btn-outline">
+
+❤️ Support Mission
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
-<p>© 2025 Mala Devi Gurukul</p>
+<div class="footer-logo">
+MD GURUKUL
+</div>
+
+
+<div class="footer-links">
+
+<a href="index.html">Home</a>
+
+<a href="About-us.html">About</a>
+
+<a href="free-education.html">Free Education</a>
+
+<a href="live-classes.html">Live Classes</a>
+
+<a href="results.html">Results</a>
+
+<a href="Admission.html">Admission</a>
+
+<a href="donate.html">Donate</a>
+
+</div>
+
+
+<p>
+© 2026 Mala Devi Gurukul • Free Education Mission
+</p>
 
 </footer>
+
+
+
+<script>
+
+function toggleMenu(){
+
+    const nav = document.getElementById("mainNav");
+
+    nav.classList.toggle("active");
+
+}
+
+
+document.querySelectorAll("#mainNav a").forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        document
+        .getElementById("mainNav")
+        .classList
+        .remove("active");
+
+    });
+
+});
+
+</script>
+
 
 </body>
 </html>
