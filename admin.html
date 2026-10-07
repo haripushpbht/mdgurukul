@@ -4,465 +4,306 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MD Gurukul Admin Panel</title>
+<title>Mala Devi Gurukul - Admin Panel</title>
 
 <style>
-:root{
-  --bg:#0d1117;
-  --card:#161b22;
-  --accent:#ffbf00;
-  --text:#c9d1d9;
-  --white:#f0f6fc;
-  --border:#30363d;
-  --danger:#f85149;
-  --green:#3fb950;
-}
 
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+    box-sizing:border-box;
 }
 
 body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:Arial,"Noto Sans Devanagari",sans-serif;
-  min-height:100vh;
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0d1117;
+    color:#c9d1d9;
 }
-
-/* HEADER */
 
 header{
-  background:var(--card);
-  border-bottom:1px solid var(--border);
-  position:sticky;
-  top:0;
-  z-index:100;
+    background:#161b22;
+    padding:18px;
+    border-bottom:1px solid #30363d;
+    text-align:center;
 }
 
-.header-inner{
-  max-width:900px;
-  margin:auto;
-  padding:15px 18px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+header h1{
+    margin:0;
+    color:#ffbf00;
+    font-size:22px;
 }
-
-.logo{
-  color:var(--white);
-  font-size:19px;
-  font-weight:bold;
-}
-
-.logo span{
-  color:var(--accent);
-}
-
-.admin-label{
-  font-size:12px;
-  color:var(--muted);
-}
-
-/* MAIN */
 
 .container{
-  max-width:900px;
-  margin:auto;
-  padding:25px 16px 60px;
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
 }
 
-.page-title{
-  margin-bottom:25px;
+.class-buttons{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
 }
 
-.page-title h1{
-  color:var(--white);
-  font-size:28px;
-  margin-bottom:5px;
+.class-buttons button{
+    flex:1;
+    min-width:100px;
+    padding:12px;
+    border:1px solid #30363d;
+    border-radius:8px;
+    background:#161b22;
+    color:#c9d1d9;
+    cursor:pointer;
 }
 
-.page-title p{
-  color:#8b949e;
-  font-size:14px;
+.class-buttons button.active{
+    background:#ffbf00;
+    color:#000;
+    font-weight:bold;
 }
 
-/* CLASS */
-
-.class-box{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  margin-bottom:25px;
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
 }
 
-.class-btn{
-  background:var(--card);
-  color:var(--white);
-  border:1px solid var(--border);
-  padding:17px 10px;
-  border-radius:10px;
-  cursor:pointer;
-  font-size:16px;
-  font-weight:bold;
+h2{
+    color:#ffbf00;
+    margin:0;
 }
 
-.class-btn:hover,
-.class-btn.active{
-  border-color:var(--accent);
-  color:var(--accent);
+button{
+    cursor:pointer;
 }
 
-/* SECTION */
-
-.section{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:18px;
-  margin-bottom:18px;
+.add-btn{
+    background:#ffbf00;
+    border:0;
+    padding:10px 14px;
+    border-radius:7px;
+    font-weight:bold;
 }
-
-.section-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  margin-bottom:15px;
-}
-
-.section-header h2{
-  color:var(--white);
-  font-size:19px;
-}
-
-/* BUTTON */
-
-.btn{
-  border:none;
-  border-radius:7px;
-  padding:9px 13px;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-.btn-add{
-  background:var(--accent);
-  color:#111;
-}
-
-.btn-edit{
-  background:#21262d;
-  color:var(--accent);
-  border:1px solid var(--border);
-}
-
-.btn-delete{
-  background:#21262d;
-  color:var(--danger);
-  border:1px solid var(--border);
-}
-
-/* SUBJECT */
 
 .subject{
-  border:1px solid var(--border);
-  border-radius:9px;
-  margin-bottom:12px;
-  overflow:hidden;
+    background:#161b22;
+    border:1px solid #30363d;
+    border-radius:10px;
+    margin-bottom:15px;
+    overflow:hidden;
 }
 
-.subject-header{
-  padding:13px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  background:#11161d;
+.subject-head{
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    border-bottom:1px solid #30363d;
 }
 
 .subject-name{
-  color:var(--white);
-  font-weight:bold;
+    font-size:18px;
+    font-weight:bold;
+    color:#fff;
 }
 
-.subject-actions{
-  display:flex;
-  gap:7px;
+.actions{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
 }
 
-/* CHAPTER */
+.actions button{
+    padding:7px 9px;
+    border:1px solid #30363d;
+    background:#0d1117;
+    color:#c9d1d9;
+    border-radius:6px;
+}
 
-.chapter-list{
-  padding:10px;
+.actions .danger{
+    color:#ff6b6b;
 }
 
 .chapter{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:7px;
-  padding:12px;
-  margin-bottom:8px;
+    padding:13px 15px;
+    border-bottom:1px solid #21262d;
 }
 
 .chapter:last-child{
-  margin-bottom:0;
+    border-bottom:0;
 }
 
-.chapter-top{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  align-items:center;
+.chapter-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
 }
 
 .chapter-name{
-  color:var(--text);
-  font-size:14px;
+    color:#fff;
 }
 
-.chapter-buttons{
-  display:flex;
-  gap:6px;
+.status{
+    font-size:12px;
+    padding:4px 7px;
+    border-radius:5px;
+    background:#238636;
+    color:white;
 }
 
-.chapter-info{
-  margin-top:6px;
-  color:#8b949e;
-  font-size:12px;
+.status.hidden{
+    background:#6e7681;
+}
+
+.empty{
+    padding:30px;
+    text-align:center;
+    color:#8b949e;
 }
 
 /* MODAL */
 
 .modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.75);
-  z-index:500;
-  padding:20px;
-  overflow-y:auto;
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    z-index:1000;
+    padding:20px;
+    overflow:auto;
 }
 
 .modal-box{
-  max-width:500px;
-  margin:40px auto;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:20px;
+    max-width:600px;
+    margin:30px auto;
+    background:#161b22;
+    border:1px solid #30363d;
+    border-radius:12px;
+    padding:20px;
 }
 
-.modal-box h2{
-  color:var(--white);
-  margin-bottom:18px;
+.modal-box h3{
+    color:#ffbf00;
+    margin-top:0;
 }
 
 label{
-  display:block;
-  color:var(--text);
-  font-size:13px;
-  margin:13px 0 6px;
+    display:block;
+    margin-top:12px;
+    margin-bottom:5px;
 }
 
-input,
-textarea,
-select{
-  width:100%;
-  padding:11px;
-  background:#0d1117;
-  color:var(--white);
-  border:1px solid var(--border);
-  border-radius:7px;
-  outline:none;
-  font-size:14px;
-}
-
-input:focus,
-textarea:focus,
-select:focus{
-  border-color:var(--accent);
-}
-
-textarea{
-  min-height:75px;
-  resize:vertical;
+input, select{
+    width:100%;
+    padding:11px;
+    border-radius:7px;
+    border:1px solid #30363d;
+    background:#0d1117;
+    color:#fff;
 }
 
 .modal-buttons{
-  display:flex;
-  gap:10px;
-  margin-top:20px;
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+.modal-buttons button{
+    flex:1;
+    padding:12px;
+    border:0;
+    border-radius:7px;
 }
 
 .save-btn{
-  flex:1;
-  background:var(--accent);
-  color:#111;
-  padding:11px;
+    background:#ffbf00;
+    color:#000;
+    font-weight:bold;
 }
 
 .cancel-btn{
-  flex:1;
-  background:#21262d;
-  color:var(--text);
-  padding:11px;
+    background:#30363d;
+    color:#fff;
 }
 
-/* EMPTY */
-
-.empty{
-  text-align:center;
-  color:#8b949e;
-  padding:25px 10px;
-  font-size:14px;
+.loading{
+    text-align:center;
+    padding:30px;
+    color:#ffbf00;
 }
 
-/* MOBILE */
-
-@media(max-width:600px){
-
-  .class-box{
-    grid-template-columns:1fr;
-  }
-
-  .section-header{
-    align-items:flex-start;
-  }
-
-  .subject-header{
-    align-items:flex-start;
-  }
-
-  .chapter-top{
-    align-items:flex-start;
-  }
-
-  .chapter-buttons{
-    flex-shrink:0;
-  }
-
-  .btn{
-    padding:8px 10px;
-    font-size:12px;
-  }
-}
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="header-inner">
-
-    <div class="logo">
-      Mala Devi <span>Gurukul</span>
-    </div>
-
-    <div class="admin-label">
-      Admin Panel
-    </div>
-
-  </div>
+    <h1>📚 Mala Devi Gurukul — Admin Panel</h1>
 </header>
 
+<div class="container">
 
-<main class="container">
-
-  <div class="page-title">
-
-    <h1>📚 Free Education</h1>
-
-    <p>
-      यहां से अपनी पढ़ाई की सामग्री आसानी से manage करें।
-    </p>
-
-  </div>
-
-
-  <!-- CLASS -->
-
-  <div class="class-box">
-
-    <button class="class-btn active"
-      onclick="selectClass('6-8',this)">
-      कक्षा 6–8
-    </button>
-
-    <button class="class-btn"
-      onclick="selectClass('9-10',this)">
-      कक्षा 9–10
-    </button>
-
-    <button class="class-btn"
-      onclick="selectClass('11-12',this)">
-      कक्षा 11–12
-    </button>
-
-  </div>
-
-
-  <!-- SUBJECTS -->
-
-  <div class="section">
-
-    <div class="section-header">
-
-      <h2>
-        विषय
-      </h2>
-
-      <button class="btn btn-add"
-        onclick="openSubjectModal()">
-        + नया विषय
-      </button>
-
+    <div class="class-buttons">
+        <button onclick="selectClass('6-8')" id="btn-6-8">Class 6–8</button>
+        <button onclick="selectClass('9-10')" id="btn-9-10">Class 9–10</button>
+        <button onclick="selectClass('11-12')" id="btn-11-12">Class 11–12</button>
     </div>
 
-    <div id="subjectContainer"></div>
+    <div class="topbar">
+        <h2 id="classTitle">Class 6–8</h2>
 
-  </div>
+        <button class="add-btn" onclick="openSubjectModal()">
+            + नया विषय
+        </button>
+    </div>
 
-</main>
+    <div id="content">
+        <div class="loading">
+            Data लोड हो रहा है...
+        </div>
+    </div>
+
+</div>
 
 
 <!-- SUBJECT MODAL -->
 
 <div class="modal" id="subjectModal">
 
-  <div class="modal-box">
+    <div class="modal-box">
 
-    <h2 id="subjectModalTitle">
-      नया विषय
-    </h2>
+        <h3 id="subjectModalTitle">नया विषय</h3>
 
-    <label>
-      विषय का नाम
-    </label>
+        <label>विषय का नाम</label>
 
-    <input
-      type="text"
-      id="subjectName"
-      placeholder="जैसे गणित">
+        <input
+            type="text"
+            id="subjectName"
+            placeholder="जैसे Mathematics"
+        >
 
-    <div class="modal-buttons">
+        <div class="modal-buttons">
 
-      <button
-        class="btn cancel-btn"
-        onclick="closeModal('subjectModal')">
-        Cancel
-      </button>
+            <button
+                class="cancel-btn"
+                onclick="closeSubjectModal()">
+                Cancel
+            </button>
 
-      <button
-        class="btn save-btn"
-        onclick="saveSubject()">
-        Save
-      </button>
+            <button
+                class="save-btn"
+                onclick="saveSubject()">
+                Save
+            </button>
+
+        </div>
 
     </div>
-
-  </div>
 
 </div>
 
@@ -471,218 +312,86 @@ textarea{
 
 <div class="modal" id="chapterModal">
 
-  <div class="modal-box">
+    <div class="modal-box">
 
-    <h2 id="chapterModalTitle">
-      नया अध्याय
-    </h2>
+        <h3 id="chapterModalTitle">नया अध्याय</h3>
 
-    <label>
-      अध्याय का नाम
-    </label>
+        <label>अध्याय का नाम</label>
 
-    <input
-      type="text"
-      id="chapterName"
-      placeholder="जैसे द्विघात समीकरण">
+        <input
+            type="text"
+            id="chapterName"
+            placeholder="जैसे वास्तविक संख्याएँ"
+        >
 
-    <label>
-      Teacher का नाम
-    </label>
+        <label>Teacher का नाम</label>
 
-    <input
-      type="text"
-      id="teacherName"
-      placeholder="जैसे Kapil Sir">
+        <input
+            type="text"
+            id="teacherName"
+            placeholder="Teacher का नाम"
+        >
 
-    <label>
-      YouTube Lecture Link
-    </label>
+        <label>YouTube Lecture Link</label>
 
-    <input
-      type="url"
-      id="videoLink"
-      placeholder="https://youtube.com/...">
+        <input
+            type="url"
+            id="videoLink"
+            placeholder="https://youtube.com/watch?v=..."
+        >
 
-    <label>
-      Notes Link
-    </label>
+        <label>Notes Link</label>
 
-    <input
-      type="url"
-      id="notesLink"
-      placeholder="अगर Notes हैं तो link डालें">
+        <input
+            type="url"
+            id="notesLink"
+            placeholder="Notes का link"
+        >
 
-    <label>
-      Questions / Practice Link
-    </label>
+        <label>Questions / Practice Link</label>
 
-    <input
-      type="url"
-      id="questionsLink"
-      placeholder="अगर Questions हैं तो link डालें">
+        <input
+            type="url"
+            id="questionsLink"
+            placeholder="Practice questions link"
+        >
 
-    <label>
-      Test Link
-    </label>
+        <label>Test Link</label>
 
-    <input
-      type="url"
-      id="testLink"
-      placeholder="अगर Test है तो link डालें">
+        <input
+            type="url"
+            id="testLink"
+            placeholder="Test link"
+        >
 
-    <div class="modal-buttons">
+        <div class="modal-buttons">
 
-      <button
-        class="btn cancel-btn"
-        onclick="closeModal('chapterModal')">
-        Cancel
-      </button>
+            <button
+                class="cancel-btn"
+                onclick="closeChapterModal()">
+                Cancel
+            </button>
 
-      <button
-        class="btn save-btn"
-        onclick="saveChapter()">
-        Save
-      </button>
+            <button
+                class="save-btn"
+                onclick="saveChapter()">
+                Save
+            </button>
+
+        </div>
 
     </div>
-
-  </div>
 
 </div>
 
 
 <script>
 
-/* ==================================================
-   TEMPORARY DATA
-
-   बाद में यही data Google Sheet से आएगा।
-================================================== */
-
-let data = {
-
-  "6-8": {
-
-    "गणित": [
-
-      {
-        name:"पूर्णांक",
-        teacher:"Kapil Sir",
-        video:"",
-        notes:"",
-        questions:"",
-        test:""
-      },
-
-      {
-        name:"भिन्न",
-        teacher:"",
-        video:"",
-        notes:"",
-        questions:"",
-        test:""
-      }
-
-    ],
-
-    "विज्ञान":[
-
-      {
-        name:"हमारे आसपास के पदार्थ",
-        teacher:"",
-        video:"",
-        notes:"",
-        questions:"",
-        test:""
-      }
-
-    ]
-
-  },
+const API_URL =
+"https://script.google.com/macros/s/AKfycbzHLheN3Pirer7F6F9XstSt4qC7i9tBp1zl2ZUS5pg8doy_XzYmYMClfukulCOtye_bAw/exec";
 
 
-  "9-10": {
-
-    "गणित":[
-
-      {
-        name:"वास्तविक संख्याएँ",
-        teacher:"",
-        video:"",
-        notes:"",
-        questions:"",
-        test:""
-      },
-
-      {
-        name:"बहुपद",
-        teacher:"",
-        video:"",
-        notes:"",
-        questions:"",
-        test:""
-      },
-
-      {
-        name:"द्विघात समीकरण",
-        teacher:"",
-        video:"",
-        notes:"",
-        questions:"",
-        test:""
-      }
-
-    ],
-
-    "विज्ञान":[
-
-      {
-        name:"रासायनिक अभिक्रियाएँ",
-        teacher:"",
-        video:"",
-        notes:"",
-        questions:"",
-        test:""
-      }
-
-    ]
-
-  },
-
-
-  "11-12": {
-
-    "गणित":[
-
-      {
-        name:"समुच्चय",
-        teacher:"",
-        video:"",
-        notes:"",
-        questions:"",
-        test:""
-      }
-
-    ],
-
-    "भौतिक विज्ञान":[
-
-      {
-        name:"इकाई एवं मापन",
-        teacher:"",
-        video:"",
-        notes:"",
-        questions:"",
-        test:""
-      }
-
-    ]
-
-  }
-
-};
-
+let allData = [];
 
 let selectedClass = "6-8";
 
@@ -690,461 +399,681 @@ let editingSubject = null;
 
 let editingChapter = null;
 
-let editingChapterSubject = null;
+let currentSubject = null;
 
 
-/* ================================
-   SHOW DATA
-================================ */
+/* LOAD DATA */
+
+async function loadData(){
+
+    try{
+
+        document.getElementById("content").innerHTML =
+        `<div class="loading">Data लोड हो रहा है...</div>`;
+
+        const response =
+        await fetch(API_URL);
+
+        const result =
+        await response.json();
+
+        if(!result.success){
+
+            throw new Error(result.message);
+
+        }
+
+        allData = result.data || [];
+
+        render();
+
+    }catch(error){
+
+        console.error(error);
+
+        document.getElementById("content").innerHTML =
+        `<div class="empty">
+            ❌ Data load नहीं हो पाया।<br><br>
+            ${error.message}
+        </div>`;
+
+    }
+
+}
+
+
+/* CLASS */
+
+function selectClass(className){
+
+    selectedClass = className;
+
+    document
+    .querySelectorAll(".class-buttons button")
+    .forEach(btn => btn.classList.remove("active"));
+
+    document
+    .getElementById("btn-" + className)
+    .classList.add("active");
+
+    document.getElementById("classTitle").innerText =
+    "Class " + className;
+
+    render();
+
+}
+
+
+/* RENDER */
 
 function render(){
 
-  const container =
-    document.getElementById("subjectContainer");
+    const container =
+    document.getElementById("content");
 
-  container.innerHTML = "";
+    const classData =
+    allData.filter(item =>
+        String(item.Class) === String(selectedClass)
+    );
 
-  const subjects = data[selectedClass];
+    if(classData.length === 0){
 
-  const subjectNames =
-    Object.keys(subjects);
+        container.innerHTML =
+        `<div class="empty">
+            अभी इस class में कोई subject नहीं है।
+        </div>`;
 
-  if(subjectNames.length === 0){
+        return;
 
-    container.innerHTML =
-      `<div class="empty">
-        अभी कोई विषय नहीं है।
-      </div>`;
-
-    return;
-  }
-
-
-  subjectNames.forEach(subject => {
-
-    const subjectBox =
-      document.createElement("div");
-
-    subjectBox.className = "subject";
+    }
 
 
-    let chaptersHTML = "";
+    const subjects = {};
 
+    classData.forEach(item => {
 
-    subjects[subject].forEach((chapter,index)=>{
+        const subject =
+        item.Subject || "Unknown";
 
-      chaptersHTML += `
-
-        <div class="chapter">
-
-          <div class="chapter-top">
-
-            <div class="chapter-name">
-              ${index+1}. ${chapter.name}
-            </div>
-
-            <div class="chapter-buttons">
-
-              <button
-                class="btn btn-edit"
-                onclick="editChapter('${escapeQuotes(subject)}',${index})">
-                ✏️
-              </button>
-
-              <button
-                class="btn btn-delete"
-                onclick="deleteChapter('${escapeQuotes(subject)}',${index})">
-                🗑️
-              </button>
-
-            </div>
-
-          </div>
-
-          ${
-            chapter.teacher
-            ? `<div class="chapter-info">
-                👨‍🏫 ${chapter.teacher}
-               </div>`
-            : ""
-          }
-
-        </div>
-      `;
-    });
-
-
-    subjectBox.innerHTML = `
-
-      <div class="subject-header">
-
-        <div class="subject-name">
-          📘 ${subject}
-        </div>
-
-        <div class="subject-actions">
-
-          <button
-            class="btn btn-add"
-            onclick="openChapterModal('${escapeQuotes(subject)}')">
-            + अध्याय
-          </button>
-
-          <button
-            class="btn btn-edit"
-            onclick="editSubject('${escapeQuotes(subject)}')">
-            ✏️
-          </button>
-
-          <button
-            class="btn btn-delete"
-            onclick="deleteSubject('${escapeQuotes(subject)}')">
-            🗑️
-          </button>
-
-        </div>
-
-      </div>
-
-      <div class="chapter-list">
-
-        ${
-          chaptersHTML ||
-          `<div class="empty">
-             अभी कोई अध्याय नहीं है।
-             <br>
-             ऊपर + अध्याय दबाकर जोड़ें।
-           </div>`
+        if(!subjects[subject]){
+            subjects[subject] = [];
         }
 
-      </div>
-    `;
+        subjects[subject].push(item);
 
-
-    container.appendChild(subjectBox);
-
-  });
-
-}
-
-
-/* ================================
-   CLASS
-================================ */
-
-function selectClass(className,button){
-
-  selectedClass = className;
-
-  document
-    .querySelectorAll(".class-btn")
-    .forEach(btn=>{
-      btn.classList.remove("active");
     });
 
-  button.classList.add("active");
 
-  render();
+    let html = "";
+
+
+    Object.keys(subjects).forEach(subject => {
+
+        const chapters = subjects[subject];
+
+        html += `
+
+        <div class="subject">
+
+            <div class="subject-head">
+
+                <div class="subject-name">
+                    📘 ${escapeHtml(subject)}
+                </div>
+
+                <div class="actions">
+
+                    <button
+                    onclick="addChapter('${escapeAttr(subject)}')">
+                    + अध्याय
+                    </button>
+
+                    <button
+                    onclick="editSubject('${escapeAttr(subject)}')">
+                    ✏️ Edit
+                    </button>
+
+                    <button
+                    class="danger"
+                    onclick="deleteSubject('${escapeAttr(subject)}')">
+                    🗑️ Delete
+                    </button>
+
+                </div>
+
+            </div>
+        `;
+
+
+        chapters.forEach(chapter => {
+
+            const hidden =
+            String(chapter.Status).toLowerCase() === "hidden";
+
+            html += `
+
+            <div class="chapter">
+
+                <div class="chapter-row">
+
+                    <div>
+
+                        <div class="chapter-name">
+                            📖 ${escapeHtml(chapter.Chapter)}
+                        </div>
+
+                        ${
+                            chapter.Teacher
+                            ?
+                            `<small>
+                                Teacher: ${escapeHtml(chapter.Teacher)}
+                            </small>`
+                            :
+                            ""
+                        }
+
+                    </div>
+
+
+                    <div class="actions">
+
+                        <span class="status ${hidden ? "hidden" : ""}">
+                            ${hidden ? "Hidden" : "Published"}
+                        </span>
+
+                        <button
+                        onclick="editChapter('${escapeAttr(chapter.ID)}')">
+                        ✏️
+                        </button>
+
+                        <button
+                        onclick="toggleStatus('${escapeAttr(chapter.ID)}')">
+                        ${hidden ? "👁️" : "🙈"}
+                        </button>
+
+                        <button
+                        class="danger"
+                        onclick="deleteChapter('${escapeAttr(chapter.ID)}')">
+                        🗑️
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            `;
+
+        });
+
+
+        html += `</div>`;
+
+    });
+
+
+    container.innerHTML = html;
 
 }
 
 
-/* ================================
-   SUBJECT MODAL
-================================ */
+/* SUBJECT MODAL */
 
 function openSubjectModal(){
 
-  editingSubject = null;
+    editingSubject = null;
 
-  document.getElementById("subjectModalTitle")
-    .innerText = "नया विषय";
+    document.getElementById("subjectModalTitle").innerText =
+    "नया विषय";
 
-  document.getElementById("subjectName")
-    .value = "";
+    document.getElementById("subjectName").value = "";
 
-  document.getElementById("subjectModal")
-    .style.display = "block";
+    document.getElementById("subjectModal").style.display =
+    "block";
 
 }
 
 
-function editSubject(subject){
+function closeSubjectModal(){
 
-  editingSubject = subject;
-
-  document.getElementById("subjectModalTitle")
-    .innerText = "विषय बदलें";
-
-  document.getElementById("subjectName")
-    .value = subject;
-
-  document.getElementById("subjectModal")
-    .style.display = "block";
+    document.getElementById("subjectModal").style.display =
+    "none";
 
 }
 
 
 function saveSubject(){
 
-  const name =
-    document.getElementById("subjectName")
-      .value.trim();
+    const name =
+    document.getElementById("subjectName").value.trim();
 
-  if(!name){
+    if(!name){
 
-    alert("विषय का नाम लिखिए।");
+        alert("विषय का नाम लिखिए।");
 
-    return;
-  }
+        return;
 
-
-  if(editingSubject){
-
-    const chapters =
-      data[selectedClass][editingSubject];
-
-    delete data[selectedClass][editingSubject];
-
-    data[selectedClass][name] = chapters;
-
-  }else{
-
-    if(data[selectedClass][name]){
-
-      alert("यह विषय पहले से मौजूद है।");
-
-      return;
     }
 
-    data[selectedClass][name] = [];
 
-  }
+    if(editingSubject){
 
+        const oldName = editingSubject;
 
-  closeModal("subjectModal");
+        const chapters =
+        allData.filter(item =>
+            String(item.Class) === String(selectedClass) &&
+            String(item.Subject) === String(oldName)
+        );
 
-  render();
+        if(chapters.length === 0){
+
+            alert("Subject में कोई chapter नहीं मिला।");
+
+            return;
+
+        }
+
+        updateSubjectChapters(
+            chapters,
+            name
+        );
+
+    }else{
+
+        alert(
+            "Subject बनाने के लिए कम से कम एक chapter जोड़ना होगा।"
+        );
+
+        closeSubjectModal();
+
+        addChapter(name);
+
+    }
 
 }
 
 
-/* ================================
-   DELETE SUBJECT
-================================ */
+async function updateSubjectChapters(chapters,newName){
 
-function deleteSubject(subject){
+    closeSubjectModal();
 
-  const yes =
-    confirm(
-      "क्या आप \"" +
-      subject +
-      "\" विषय को हटाना चाहते हैं?\n\n" +
-      "इसके सभी अध्याय भी हट जाएंगे।"
+    for(const item of chapters){
+
+        item.Subject = newName;
+
+        await apiRequest("update",item);
+
+    }
+
+    await loadData();
+
+}
+
+
+/* EDIT SUBJECT */
+
+function editSubject(subject){
+
+    editingSubject = subject;
+
+    document.getElementById("subjectModalTitle").innerText =
+    "विषय Edit करें";
+
+    document.getElementById("subjectName").value =
+    subject;
+
+    document.getElementById("subjectModal").style.display =
+    "block";
+
+}
+
+
+/* DELETE SUBJECT */
+
+async function deleteSubject(subject){
+
+    const chapters =
+    allData.filter(item =>
+        String(item.Class) === String(selectedClass) &&
+        String(item.Subject) === String(subject)
     );
 
-  if(!yes) return;
-
-  delete data[selectedClass][subject];
-
-  render();
-
-}
+    if(!chapters.length){
+        return;
+    }
 
 
-/* ================================
-   CHAPTER MODAL
-================================ */
+    if(!confirm(
+        `"${subject}" और उसके सभी chapters delete करें?`
+    )){
+        return;
+    }
 
-function openChapterModal(subject){
 
-  editingChapter = null;
+    for(const item of chapters){
 
-  editingChapterSubject = subject;
+        await apiRequest(
+            "delete",
+            {
+                ID:item.ID
+            }
+        );
 
-  document.getElementById("chapterModalTitle")
-    .innerText = "नया अध्याय";
+    }
 
-  clearChapterForm();
-
-  document.getElementById("chapterModal")
-    .style.display = "block";
+    await loadData();
 
 }
 
 
-function editChapter(subject,index){
+/* ADD CHAPTER */
 
-  editingChapter = index;
+function addChapter(subject){
 
-  editingChapterSubject = subject;
+    currentSubject = subject;
 
-  const chapter =
-    data[selectedClass][subject][index];
+    editingChapter = null;
 
+    document.getElementById("chapterModalTitle").innerText =
+    "नया अध्याय — " + subject;
 
-  document.getElementById("chapterModalTitle")
-    .innerText = "अध्याय बदलें";
+    document.getElementById("chapterName").value = "";
 
+    document.getElementById("teacherName").value = "";
 
-  document.getElementById("chapterName")
-    .value = chapter.name || "";
+    document.getElementById("videoLink").value = "";
 
-  document.getElementById("teacherName")
-    .value = chapter.teacher || "";
+    document.getElementById("notesLink").value = "";
 
-  document.getElementById("videoLink")
-    .value = chapter.video || "";
+    document.getElementById("questionsLink").value = "";
 
-  document.getElementById("notesLink")
-    .value = chapter.notes || "";
+    document.getElementById("testLink").value = "";
 
-  document.getElementById("questionsLink")
-    .value = chapter.questions || "";
-
-  document.getElementById("testLink")
-    .value = chapter.test || "";
-
-
-  document.getElementById("chapterModal")
-    .style.display = "block";
+    document.getElementById("chapterModal").style.display =
+    "block";
 
 }
 
 
-function clearChapterForm(){
+/* EDIT CHAPTER */
 
-  document.getElementById("chapterName").value = "";
+function editChapter(id){
 
-  document.getElementById("teacherName").value = "";
+    const item =
+    allData.find(x =>
+        String(x.ID) === String(id)
+    );
 
-  document.getElementById("videoLink").value = "";
+    if(!item){
+        return;
+    }
 
-  document.getElementById("notesLink").value = "";
+    editingChapter = item;
 
-  document.getElementById("questionsLink").value = "";
+    currentSubject = item.Subject;
 
-  document.getElementById("testLink").value = "";
+    document.getElementById("chapterModalTitle").innerText =
+    "अध्याय Edit करें";
 
-}
+    document.getElementById("chapterName").value =
+    item.Chapter || "";
 
+    document.getElementById("teacherName").value =
+    item.Teacher || "";
 
-/* ================================
-   SAVE CHAPTER
-================================ */
+    document.getElementById("videoLink").value =
+    item.Video || "";
 
-function saveChapter(){
+    document.getElementById("notesLink").value =
+    item.Notes || "";
 
-  const name =
-    document.getElementById("chapterName")
-      .value.trim();
+    document.getElementById("questionsLink").value =
+    item.Questions || "";
 
-  if(!name){
+    document.getElementById("testLink").value =
+    item.Test || "";
 
-    alert("अध्याय का नाम लिखिए।");
-
-    return;
-  }
-
-
-  const chapter = {
-
-    name:name,
-
-    teacher:
-      document.getElementById("teacherName")
-        .value.trim(),
-
-    video:
-      document.getElementById("videoLink")
-        .value.trim(),
-
-    notes:
-      document.getElementById("notesLink")
-        .value.trim(),
-
-    questions:
-      document.getElementById("questionsLink")
-        .value.trim(),
-
-    test:
-      document.getElementById("testLink")
-        .value.trim()
-
-  };
-
-
-  if(editingChapter === null){
-
-    data[selectedClass]
-      [editingChapterSubject]
-      .push(chapter);
-
-  }else{
-
-    data[selectedClass]
-      [editingChapterSubject]
-      [editingChapter] = chapter;
-
-  }
-
-
-  closeModal("chapterModal");
-
-  render();
+    document.getElementById("chapterModal").style.display =
+    "block";
 
 }
 
 
-/* ================================
-   DELETE CHAPTER
-================================ */
+function closeChapterModal(){
 
-function deleteChapter(subject,index){
+    document.getElementById("chapterModal").style.display =
+    "none";
 
-  const chapter =
-    data[selectedClass][subject][index];
+}
 
 
-  const yes =
-    confirm(
-      "क्या आप \"" +
-      chapter.name +
-      "\" अध्याय को हटाना चाहते हैं?"
+/* SAVE CHAPTER */
+
+async function saveChapter(){
+
+    const chapter =
+    document.getElementById("chapterName").value.trim();
+
+    if(!chapter){
+
+        alert("अध्याय का नाम लिखिए।");
+
+        return;
+
+    }
+
+
+    const item = {
+
+        ID:
+        editingChapter
+        ?
+        editingChapter.ID
+        :
+        "",
+
+        Class:selectedClass,
+
+        Subject:currentSubject,
+
+        Chapter:chapter,
+
+        Teacher:
+        document.getElementById("teacherName").value.trim(),
+
+        Video:
+        document.getElementById("videoLink").value.trim(),
+
+        Notes:
+        document.getElementById("notesLink").value.trim(),
+
+        Questions:
+        document.getElementById("questionsLink").value.trim(),
+
+        Test:
+        document.getElementById("testLink").value.trim(),
+
+        Status:
+        editingChapter
+        ?
+        editingChapter.Status || "published"
+        :
+        "published"
+
+    };
+
+
+    const action =
+    editingChapter
+    ?
+    "update"
+    :
+    "add";
+
+
+    const result =
+    await apiRequest(
+        action,
+        item
     );
 
 
-  if(!yes) return;
+    if(result.success){
 
+        closeChapterModal();
 
-  data[selectedClass][subject]
-    .splice(index,1);
+        await loadData();
 
+        alert("✅ Successfully saved!");
 
-  render();
+    }else{
 
-}
+        alert(
+            "❌ Error: " +
+            result.message
+        );
 
-
-/* ================================
-   CLOSE MODAL
-================================ */
-
-function closeModal(id){
-
-  document.getElementById(id)
-    .style.display = "none";
+    }
 
 }
 
 
-/* ================================
-   ESCAPE QUOTES
-================================ */
+/* DELETE CHAPTER */
 
-function escapeQuotes(text){
+async function deleteChapter(id){
 
-  return text
+    if(!confirm(
+        "क्या आप यह chapter delete करना चाहते हैं?"
+    )){
+        return;
+    }
+
+
+    const result =
+    await apiRequest(
+        "delete",
+        {
+            ID:id
+        }
+    );
+
+
+    if(result.success){
+
+        await loadData();
+
+    }else{
+
+        alert(
+            "❌ " + result.message
+        );
+
+    }
+
+}
+
+
+/* HIDE / PUBLISH */
+
+async function toggleStatus(id){
+
+    const item =
+    allData.find(x =>
+        String(x.ID) === String(id)
+    );
+
+    if(!item){
+        return;
+    }
+
+
+    item.Status =
+    String(item.Status).toLowerCase() === "hidden"
+    ?
+    "published"
+    :
+    "hidden";
+
+
+    const result =
+    await apiRequest(
+        "update",
+        item
+    );
+
+
+    if(result.success){
+
+        await loadData();
+
+    }else{
+
+        alert(
+            "❌ " + result.message
+        );
+
+    }
+
+}
+
+
+/* API */
+
+async function apiRequest(action,data){
+
+    try{
+
+        const response =
+        await fetch(
+            API_URL,
+            {
+                method:"POST",
+
+                headers:{
+                    "Content-Type":"text/plain;charset=utf-8"
+                },
+
+                body:JSON.stringify({
+                    action:action,
+                    data:data
+                })
+            }
+        );
+
+
+        return await response.json();
+
+    }catch(error){
+
+        return {
+            success:false,
+            message:error.toString()
+        };
+
+    }
+
+}
+
+
+/* SECURITY HELPERS */
+
+function escapeHtml(text){
+
+    return String(text ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeAttr(text){
+
+    return String(text ?? "")
     .replace(/\\/g,"\\\\")
     .replace(/'/g,"\\'")
     .replace(/"/g,'&quot;');
@@ -1152,11 +1081,11 @@ function escapeQuotes(text){
 }
 
 
-/* ================================
-   START
-================================ */
+/* START */
 
-render();
+selectClass("6-8");
+
+loadData();
 
 </script>
 
