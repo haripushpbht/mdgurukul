@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="hi">
 <head>
@@ -237,6 +238,34 @@ input, select{
     color:#ffbf00;
 }
 
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .container{
+        padding:12px;
+    }
+
+    .topbar{
+        align-items:flex-start;
+    }
+
+    .subject-head{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .chapter-row{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .actions{
+        width:100%;
+    }
+
+}
+
 </style>
 </head>
 
@@ -249,23 +278,47 @@ input, select{
 <div class="container">
 
     <div class="class-buttons">
-        <button onclick="selectClass('6-8')" id="btn-6-8">Class 6–8</button>
-        <button onclick="selectClass('9-10')" id="btn-9-10">Class 9–10</button>
-        <button onclick="selectClass('11-12')" id="btn-11-12">Class 11–12</button>
+
+        <button
+            onclick="selectClass('6-8')"
+            id="btn-6-8">
+            Class 6–8
+        </button>
+
+        <button
+            onclick="selectClass('9-10')"
+            id="btn-9-10">
+            Class 9–10
+        </button>
+
+        <button
+            onclick="selectClass('11-12')"
+            id="btn-11-12">
+            Class 11–12
+        </button>
+
     </div>
 
     <div class="topbar">
-        <h2 id="classTitle">Class 6–8</h2>
 
-        <button class="add-btn" onclick="openSubjectModal()">
+        <h2 id="classTitle">
+            Class 6–8
+        </h2>
+
+        <button
+            class="add-btn"
+            onclick="openSubjectModal()">
             + नया विषय
         </button>
+
     </div>
 
     <div id="content">
+
         <div class="loading">
             Data लोड हो रहा है...
         </div>
+
     </div>
 
 </div>
@@ -277,9 +330,13 @@ input, select{
 
     <div class="modal-box">
 
-        <h3 id="subjectModalTitle">नया विषय</h3>
+        <h3 id="subjectModalTitle">
+            नया विषय
+        </h3>
 
-        <label>विषय का नाम</label>
+        <label>
+            विषय का नाम
+        </label>
 
         <input
             type="text"
@@ -314,9 +371,13 @@ input, select{
 
     <div class="modal-box">
 
-        <h3 id="chapterModalTitle">नया अध्याय</h3>
+        <h3 id="chapterModalTitle">
+            नया अध्याय
+        </h3>
 
-        <label>अध्याय का नाम</label>
+        <label>
+            अध्याय का नाम
+        </label>
 
         <input
             type="text"
@@ -324,7 +385,9 @@ input, select{
             placeholder="जैसे वास्तविक संख्याएँ"
         >
 
-        <label>Teacher का नाम</label>
+        <label>
+            Teacher का नाम
+        </label>
 
         <input
             type="text"
@@ -332,7 +395,9 @@ input, select{
             placeholder="Teacher का नाम"
         >
 
-        <label>YouTube Lecture Link</label>
+        <label>
+            YouTube Lecture Link
+        </label>
 
         <input
             type="url"
@@ -340,7 +405,9 @@ input, select{
             placeholder="https://youtube.com/watch?v=..."
         >
 
-        <label>Notes Link</label>
+        <label>
+            Notes Link
+        </label>
 
         <input
             type="url"
@@ -348,7 +415,9 @@ input, select{
             placeholder="Notes का link"
         >
 
-        <label>Questions / Practice Link</label>
+        <label>
+            Questions / Practice Link
+        </label>
 
         <input
             type="url"
@@ -356,7 +425,9 @@ input, select{
             placeholder="Practice questions link"
         >
 
-        <label>Test Link</label>
+        <label>
+            Test Link
+        </label>
 
         <input
             type="url"
@@ -402,39 +473,119 @@ let editingChapter = null;
 let currentSubject = null;
 
 
-/* LOAD DATA */
+/* =====================================================
+   CLASS SAFE STORAGE
+   Google Sheets में 6-8 को date बनने से रोकता है
+===================================================== */
+
+function classToStorage(className){
+
+    const map = {
+
+        "6-8": "CLASS_6_8",
+
+        "9-10": "CLASS_9_10",
+
+        "11-12": "CLASS_11_12"
+
+    };
+
+    return map[className] || className;
+
+}
+
+
+function classFromStorage(value){
+
+    const map = {
+
+        "CLASS_6_8": "6-8",
+
+        "CLASS_9_10": "9-10",
+
+        "CLASS_11_12": "11-12"
+
+    };
+
+    return map[String(value)] || String(value);
+
+}
+
+
+/* =====================================================
+   LOAD DATA
+===================================================== */
 
 async function loadData(){
 
     try{
 
         document.getElementById("content").innerHTML =
-        `<div class="loading">Data लोड हो रहा है...</div>`;
+        `<div class="loading">
+            Data लोड हो रहा है...
+        </div>`;
+
 
         const response =
-        await fetch(API_URL);
+        await fetch(
+            API_URL,
+            {
+                cache:"no-store"
+            }
+        );
+
 
         const result =
         await response.json();
 
+
         if(!result.success){
 
-            throw new Error(result.message);
+            throw new Error(
+                result.message
+            );
 
         }
 
-        allData = result.data || [];
+
+        /*
+         API से आने वाले Class codes को
+         वापस normal Class में बदलना
+        */
+
+        allData =
+        (result.data || []).map(item => {
+
+            return {
+
+                ...item,
+
+                Class:
+                classFromStorage(item.Class)
+
+            };
+
+        });
+
 
         render();
+
 
     }catch(error){
 
         console.error(error);
 
+
         document.getElementById("content").innerHTML =
+
         `<div class="empty">
-            ❌ Data load नहीं हो पाया।<br><br>
-            ${error.message}
+
+            ❌ Data load नहीं हो पाया।
+
+            <br><br>
+
+            ${escapeHtml(error.message)}
+
         </div>`;
 
     }
@@ -442,45 +593,67 @@ async function loadData(){
 }
 
 
-/* CLASS */
+/* =====================================================
+   CLASS SELECT
+===================================================== */
 
 function selectClass(className){
 
     selectedClass = className;
 
+
     document
     .querySelectorAll(".class-buttons button")
-    .forEach(btn => btn.classList.remove("active"));
+    .forEach(btn =>
+        btn.classList.remove("active")
+    );
+
 
     document
-    .getElementById("btn-" + className)
+    .getElementById(
+        "btn-" + className
+    )
     .classList.add("active");
 
-    document.getElementById("classTitle").innerText =
+
+    document.getElementById(
+        "classTitle"
+    ).innerText =
     "Class " + className;
+
 
     render();
 
 }
 
 
-/* RENDER */
+/* =====================================================
+   RENDER
+===================================================== */
 
 function render(){
 
     const container =
     document.getElementById("content");
 
+
     const classData =
     allData.filter(item =>
-        String(item.Class) === String(selectedClass)
+
+        String(item.Class) ===
+        String(selectedClass)
+
     );
+
 
     if(classData.length === 0){
 
         container.innerHTML =
+
         `<div class="empty">
+
             अभी इस class में कोई subject नहीं है।
+
         </div>`;
 
         return;
@@ -490,14 +663,19 @@ function render(){
 
     const subjects = {};
 
+
     classData.forEach(item => {
 
         const subject =
         item.Subject || "Unknown";
 
+
         if(!subjects[subject]){
+
             subjects[subject] = [];
+
         }
+
 
         subjects[subject].push(item);
 
@@ -509,7 +687,9 @@ function render(){
 
     Object.keys(subjects).forEach(subject => {
 
-        const chapters = subjects[subject];
+        const chapters =
+        subjects[subject];
+
 
         html += `
 
@@ -518,37 +698,50 @@ function render(){
             <div class="subject-head">
 
                 <div class="subject-name">
+
                     📘 ${escapeHtml(subject)}
+
                 </div>
 
                 <div class="actions">
 
                     <button
                     onclick="addChapter('${escapeAttr(subject)}')">
-                    + अध्याय
+
+                        + अध्याय
+
                     </button>
+
 
                     <button
                     onclick="editSubject('${escapeAttr(subject)}')">
-                    ✏️ Edit
+
+                        ✏️ Edit
+
                     </button>
+
 
                     <button
                     class="danger"
                     onclick="deleteSubject('${escapeAttr(subject)}')">
-                    🗑️ Delete
+
+                        🗑️ Delete
+
                     </button>
 
                 </div>
 
             </div>
+
         `;
 
 
         chapters.forEach(chapter => {
 
             const hidden =
-            String(chapter.Status).toLowerCase() === "hidden";
+            String(chapter.Status).toLowerCase()
+            === "hidden";
+
 
             html += `
 
@@ -559,16 +752,29 @@ function render(){
                     <div>
 
                         <div class="chapter-name">
-                            📖 ${escapeHtml(chapter.Chapter)}
+
+                            📖
+                            ${escapeHtml(
+                                chapter.Chapter
+                            )}
+
                         </div>
+
 
                         ${
                             chapter.Teacher
+
                             ?
+
                             `<small>
-                                Teacher: ${escapeHtml(chapter.Teacher)}
+                                Teacher:
+                                ${escapeHtml(
+                                    chapter.Teacher
+                                )}
                             </small>`
+
                             :
+
                             ""
                         }
 
@@ -577,24 +783,48 @@ function render(){
 
                     <div class="actions">
 
-                        <span class="status ${hidden ? "hidden" : ""}">
-                            ${hidden ? "Hidden" : "Published"}
+                        <span
+                        class="status ${hidden ? "hidden" : ""}">
+
+                            ${
+                                hidden
+                                ?
+                                "Hidden"
+                                :
+                                "Published"
+                            }
+
                         </span>
+
 
                         <button
                         onclick="editChapter('${escapeAttr(chapter.ID)}')">
-                        ✏️
+
+                            ✏️
+
                         </button>
+
 
                         <button
                         onclick="toggleStatus('${escapeAttr(chapter.ID)}')">
-                        ${hidden ? "👁️" : "🙈"}
+
+                            ${
+                                hidden
+                                ?
+                                "👁️"
+                                :
+                                "🙈"
+                            }
+
                         </button>
+
 
                         <button
                         class="danger"
                         onclick="deleteChapter('${escapeAttr(chapter.ID)}')">
-                        🗑️
+
+                            🗑️
+
                         </button>
 
                     </div>
@@ -618,18 +848,29 @@ function render(){
 }
 
 
-/* SUBJECT MODAL */
+/* =====================================================
+   SUBJECT MODAL
+===================================================== */
 
 function openSubjectModal(){
 
     editingSubject = null;
 
-    document.getElementById("subjectModalTitle").innerText =
+
+    document.getElementById(
+        "subjectModalTitle"
+    ).innerText =
     "नया विषय";
 
-    document.getElementById("subjectName").value = "";
 
-    document.getElementById("subjectModal").style.display =
+    document.getElementById(
+        "subjectName"
+    ).value = "";
+
+
+    document.getElementById(
+        "subjectModal"
+    ).style.display =
     "block";
 
 }
@@ -637,20 +878,31 @@ function openSubjectModal(){
 
 function closeSubjectModal(){
 
-    document.getElementById("subjectModal").style.display =
+    document.getElementById(
+        "subjectModal"
+    ).style.display =
     "none";
 
 }
 
 
+/* =====================================================
+   SAVE SUBJECT
+===================================================== */
+
 function saveSubject(){
 
     const name =
-    document.getElementById("subjectName").value.trim();
+    document.getElementById(
+        "subjectName"
+    ).value.trim();
+
 
     if(!name){
 
-        alert("विषय का नाम लिखिए।");
+        alert(
+            "विषय का नाम लिखिए।"
+        );
 
         return;
 
@@ -659,32 +911,50 @@ function saveSubject(){
 
     if(editingSubject){
 
-        const oldName = editingSubject;
+        const oldName =
+        editingSubject;
+
 
         const chapters =
         allData.filter(item =>
-            String(item.Class) === String(selectedClass) &&
-            String(item.Subject) === String(oldName)
+
+            String(item.Class)
+            ===
+            String(selectedClass)
+
+            &&
+
+            String(item.Subject)
+            ===
+            String(oldName)
+
         );
+
 
         if(chapters.length === 0){
 
-            alert("Subject में कोई chapter नहीं मिला।");
+            alert(
+                "Subject में कोई chapter नहीं मिला।"
+            );
 
             return;
 
         }
+
 
         updateSubjectChapters(
             chapters,
             name
         );
 
+
     }else{
 
-        alert(
-            "Subject बनाने के लिए कम से कम एक chapter जोड़ना होगा।"
-        );
+        /*
+         Subject अपने आप database में
+         row नहीं बनाता।
+         पहला chapter जोड़कर Subject बनेगा।
+        */
 
         closeSubjectModal();
 
@@ -695,221 +965,428 @@ function saveSubject(){
 }
 
 
-async function updateSubjectChapters(chapters,newName){
+/* =====================================================
+   UPDATE SUBJECT
+===================================================== */
+
+async function updateSubjectChapters(
+    chapters,
+    newName
+){
 
     closeSubjectModal();
 
+
     for(const item of chapters){
 
-        item.Subject = newName;
+        item.Subject =
+        newName;
 
-        await apiRequest("update",item);
+
+        /*
+         Safe Class code भेजें
+        */
+
+        item.Class =
+        classToStorage(
+            classFromStorage(
+                item.Class
+            )
+        );
+
+
+        await apiRequest(
+            "update",
+            item
+        );
 
     }
+
 
     await loadData();
 
 }
 
 
-/* EDIT SUBJECT */
+/* =====================================================
+   EDIT SUBJECT
+===================================================== */
 
 function editSubject(subject){
 
-    editingSubject = subject;
-
-    document.getElementById("subjectModalTitle").innerText =
-    "विषय Edit करें";
-
-    document.getElementById("subjectName").value =
+    editingSubject =
     subject;
 
-    document.getElementById("subjectModal").style.display =
+
+    document.getElementById(
+        "subjectModalTitle"
+    ).innerText =
+    "विषय Edit करें";
+
+
+    document.getElementById(
+        "subjectName"
+    ).value =
+    subject;
+
+
+    document.getElementById(
+        "subjectModal"
+    ).style.display =
     "block";
 
 }
 
 
-/* DELETE SUBJECT */
+/* =====================================================
+   DELETE SUBJECT
+===================================================== */
 
 async function deleteSubject(subject){
 
     const chapters =
     allData.filter(item =>
-        String(item.Class) === String(selectedClass) &&
-        String(item.Subject) === String(subject)
+
+        String(item.Class)
+        ===
+        String(selectedClass)
+
+        &&
+
+        String(item.Subject)
+        ===
+        String(subject)
+
     );
 
+
     if(!chapters.length){
+
         return;
+
     }
 
 
     if(!confirm(
+
         `"${subject}" और उसके सभी chapters delete करें?`
+
     )){
+
         return;
+
     }
 
 
     for(const item of chapters){
 
         await apiRequest(
+
             "delete",
+
             {
                 ID:item.ID
             }
+
         );
 
     }
+
 
     await loadData();
 
 }
 
 
-/* ADD CHAPTER */
+/* =====================================================
+   ADD CHAPTER
+===================================================== */
 
 function addChapter(subject){
 
-    currentSubject = subject;
+    currentSubject =
+    subject;
 
-    editingChapter = null;
 
-    document.getElementById("chapterModalTitle").innerText =
+    editingChapter =
+    null;
+
+
+    document.getElementById(
+        "chapterModalTitle"
+    ).innerText =
     "नया अध्याय — " + subject;
 
-    document.getElementById("chapterName").value = "";
 
-    document.getElementById("teacherName").value = "";
+    document.getElementById(
+        "chapterName"
+    ).value = "";
 
-    document.getElementById("videoLink").value = "";
 
-    document.getElementById("notesLink").value = "";
+    document.getElementById(
+        "teacherName"
+    ).value = "";
 
-    document.getElementById("questionsLink").value = "";
 
-    document.getElementById("testLink").value = "";
+    document.getElementById(
+        "videoLink"
+    ).value = "";
 
-    document.getElementById("chapterModal").style.display =
+
+    document.getElementById(
+        "notesLink"
+    ).value = "";
+
+
+    document.getElementById(
+        "questionsLink"
+    ).value = "";
+
+
+    document.getElementById(
+        "testLink"
+    ).value = "";
+
+
+    document.getElementById(
+        "chapterModal"
+    ).style.display =
     "block";
 
 }
 
 
-/* EDIT CHAPTER */
+/* =====================================================
+   EDIT CHAPTER
+===================================================== */
 
 function editChapter(id){
 
     const item =
     allData.find(x =>
-        String(x.ID) === String(id)
+
+        String(x.ID)
+        ===
+        String(id)
+
     );
 
+
     if(!item){
+
         return;
+
     }
 
-    editingChapter = item;
 
-    currentSubject = item.Subject;
+    editingChapter =
+    item;
 
-    document.getElementById("chapterModalTitle").innerText =
+
+    /*
+     Class को हमेशा normal format में रखें
+    */
+
+    item.Class =
+    classFromStorage(
+        item.Class
+    );
+
+
+    currentSubject =
+    item.Subject;
+
+
+    document.getElementById(
+        "chapterModalTitle"
+    ).innerText =
     "अध्याय Edit करें";
 
-    document.getElementById("chapterName").value =
+
+    document.getElementById(
+        "chapterName"
+    ).value =
     item.Chapter || "";
 
-    document.getElementById("teacherName").value =
+
+    document.getElementById(
+        "teacherName"
+    ).value =
     item.Teacher || "";
 
-    document.getElementById("videoLink").value =
+
+    document.getElementById(
+        "videoLink"
+    ).value =
     item.Video || "";
 
-    document.getElementById("notesLink").value =
+
+    document.getElementById(
+        "notesLink"
+    ).value =
     item.Notes || "";
 
-    document.getElementById("questionsLink").value =
+
+    document.getElementById(
+        "questionsLink"
+    ).value =
     item.Questions || "";
 
-    document.getElementById("testLink").value =
+
+    document.getElementById(
+        "testLink"
+    ).value =
     item.Test || "";
 
-    document.getElementById("chapterModal").style.display =
+
+    document.getElementById(
+        "chapterModal"
+    ).style.display =
     "block";
 
 }
 
 
+/* =====================================================
+   CLOSE CHAPTER MODAL
+===================================================== */
+
 function closeChapterModal(){
 
-    document.getElementById("chapterModal").style.display =
+    document.getElementById(
+        "chapterModal"
+    ).style.display =
     "none";
 
 }
 
 
-/* SAVE CHAPTER */
+/* =====================================================
+   SAVE CHAPTER
+===================================================== */
 
 async function saveChapter(){
 
     const chapter =
-    document.getElementById("chapterName").value.trim();
+    document.getElementById(
+        "chapterName"
+    ).value.trim();
+
 
     if(!chapter){
 
-        alert("अध्याय का नाम लिखिए।");
+        alert(
+            "अध्याय का नाम लिखिए।"
+        );
 
         return;
 
     }
 
 
+    /*
+     IMPORTANT:
+     Class को safe storage code में बदलना
+    */
+
+    const safeClass =
+    classToStorage(
+        selectedClass
+    );
+
+
     const item = {
 
         ID:
+
         editingChapter
+
         ?
+
         editingChapter.ID
+
         :
+
         "",
 
-        Class:selectedClass,
 
-        Subject:currentSubject,
+        Class:
 
-        Chapter:chapter,
+        safeClass,
+
+
+        Subject:
+
+        currentSubject,
+
+
+        Chapter:
+
+        chapter,
+
 
         Teacher:
-        document.getElementById("teacherName").value.trim(),
+
+        document.getElementById(
+            "teacherName"
+        ).value.trim(),
+
 
         Video:
-        document.getElementById("videoLink").value.trim(),
+
+        document.getElementById(
+            "videoLink"
+        ).value.trim(),
+
 
         Notes:
-        document.getElementById("notesLink").value.trim(),
+
+        document.getElementById(
+            "notesLink"
+        ).value.trim(),
+
 
         Questions:
-        document.getElementById("questionsLink").value.trim(),
+
+        document.getElementById(
+            "questionsLink"
+        ).value.trim(),
+
 
         Test:
-        document.getElementById("testLink").value.trim(),
+
+        document.getElementById(
+            "testLink"
+        ).value.trim(),
+
 
         Status:
+
         editingChapter
+
         ?
-        editingChapter.Status || "published"
+
+        editingChapter.Status
+        ||
+        "published"
+
         :
+
         "published"
 
     };
 
 
     const action =
+
     editingChapter
+
     ?
+
     "update"
+
     :
+
     "add";
 
 
@@ -924,14 +1401,20 @@ async function saveChapter(){
 
         closeChapterModal();
 
+
         await loadData();
 
-        alert("✅ Successfully saved!");
+
+        alert(
+            "✅ Successfully saved!"
+        );
+
 
     }else{
 
         alert(
-            "❌ Error: " +
+            "❌ Error: "
+            +
             result.message
         );
 
@@ -940,23 +1423,32 @@ async function saveChapter(){
 }
 
 
-/* DELETE CHAPTER */
+/* =====================================================
+   DELETE CHAPTER
+===================================================== */
 
 async function deleteChapter(id){
 
     if(!confirm(
+
         "क्या आप यह chapter delete करना चाहते हैं?"
+
     )){
+
         return;
+
     }
 
 
     const result =
     await apiRequest(
+
         "delete",
+
         {
             ID:id
         }
+
     );
 
 
@@ -967,7 +1459,9 @@ async function deleteChapter(id){
     }else{
 
         alert(
-            "❌ " + result.message
+            "❌ "
+            +
+            result.message
         );
 
     }
@@ -975,32 +1469,63 @@ async function deleteChapter(id){
 }
 
 
-/* HIDE / PUBLISH */
+/* =====================================================
+   HIDE / PUBLISH
+===================================================== */
 
 async function toggleStatus(id){
 
     const item =
     allData.find(x =>
-        String(x.ID) === String(id)
+
+        String(x.ID)
+        ===
+        String(id)
+
     );
 
+
     if(!item){
+
         return;
+
     }
 
 
     item.Status =
-    String(item.Status).toLowerCase() === "hidden"
+
+    String(item.Status).toLowerCase()
+    ===
+    "hidden"
+
     ?
+
     "published"
+
     :
+
     "hidden";
+
+
+    /*
+     हमेशा safe Class code भेजें
+    */
+
+    item.Class =
+    classToStorage(
+        classFromStorage(
+            item.Class
+        )
+    );
 
 
     const result =
     await apiRequest(
+
         "update",
+
         item
+
     );
 
 
@@ -1011,7 +1536,9 @@ async function toggleStatus(id){
     }else{
 
         alert(
-            "❌ " + result.message
+            "❌ "
+            +
+            result.message
         );
 
     }
@@ -1019,37 +1546,81 @@ async function toggleStatus(id){
 }
 
 
-/* API */
+/* =====================================================
+   API REQUEST
+===================================================== */
 
-async function apiRequest(action,data){
+async function apiRequest(
+    action,
+    data
+){
 
     try{
 
+        /*
+         Data की copy बनाकर
+         Class को safe format में भेजना
+        */
+
+        const safeData = {
+
+            ...data,
+
+            Class:
+            classToStorage(
+                classFromStorage(
+                    data.Class ||
+                    selectedClass
+                )
+            )
+
+        };
+
+
         const response =
         await fetch(
+
             API_URL,
+
             {
+
                 method:"POST",
 
                 headers:{
-                    "Content-Type":"text/plain;charset=utf-8"
+
+                    "Content-Type":
+                    "text/plain;charset=utf-8"
+
                 },
 
-                body:JSON.stringify({
-                    action:action,
-                    data:data
+                body:
+                JSON.stringify({
+
+                    action:
+                    action,
+
+                    data:
+                    safeData
+
                 })
+
             }
+
         );
 
 
         return await response.json();
 
+
     }catch(error){
 
         return {
+
             success:false,
-            message:error.toString()
+
+            message:
+            error.toString()
+
         };
 
     }
@@ -1057,31 +1628,71 @@ async function apiRequest(action,data){
 }
 
 
-/* SECURITY HELPERS */
+/* =====================================================
+   SECURITY HELPERS
+===================================================== */
 
 function escapeHtml(text){
 
-    return String(text ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+    return String(
+        text ?? ""
+    )
+
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+
+    .replace(
+        /</g,
+        "&lt;"
+    )
+
+    .replace(
+        />/g,
+        "&gt;"
+    )
+
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+
+    .replace(
+        /'/g,
+        "&#039;"
+    );
 
 }
 
 
 function escapeAttr(text){
 
-    return String(text ?? "")
-    .replace(/\\/g,"\\\\")
-    .replace(/'/g,"\\'")
-    .replace(/"/g,'&quot;');
+    return String(
+        text ?? ""
+    )
+
+    .replace(
+        /\\/g,
+        "\\\\"
+    )
+
+    .replace(
+        /'/g,
+        "\\'"
+    )
+
+    .replace(
+        /"/g,
+        "&quot;"
+    );
 
 }
 
 
-/* START */
+/* =====================================================
+   START
+===================================================== */
 
 selectClass("6-8");
 
@@ -1091,3 +1702,4 @@ loadData();
 
 </body>
 </html>
+```
