@@ -1,10 +1,16 @@
+```html
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Free Education Hub | Mala Devi Gurukul</title>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>
+    Free Education Hub | Mala Devi Gurukul
+  </title>
 
   <meta name="description"
         content="Mala Devi Gurukul का Free Education Hub — कक्षा, विषय और अध्याय के अनुसार अच्छी पढ़ाई की सामग्री।">
@@ -390,6 +396,8 @@
       font-size: 13px;
       color: var(--text);
       transition: 0.2s;
+      background: transparent;
+      cursor: pointer;
     }
 
     .resource-btn:hover {
@@ -583,6 +591,7 @@
       .study-btn {
         padding: 8px 11px;
       }
+
     }
 
 
@@ -603,6 +612,7 @@
     }
 
   </style>
+
 </head>
 
 
@@ -615,9 +625,11 @@
 
   <div class="nav-container">
 
-    <a href="index.html" class="logo-area">
+    <a href="index.html"
+       class="logo-area">
 
-      <img src="logo.png" alt="Mala Devi Gurukul">
+      <img src="logo.png"
+           alt="Mala Devi Gurukul">
 
       <div class="logo-text">
         Mala Devi <span>Gurukul</span>
@@ -626,8 +638,11 @@
     </a>
 
 
-    <div class="menu-btn" onclick="toggleMenu()">
+    <div class="menu-btn"
+         onclick="toggleMenu()">
+
       ☰
+
     </div>
 
 
@@ -641,8 +656,11 @@
         About
       </a>
 
-      <a href="free-education.html" class="active">
+      <a href="free-education.html"
+         class="active">
+
         Free Education
+
       </a>
 
       <a href="live-classes.html">
@@ -684,8 +702,11 @@
 
 
   <p>
+
     अपनी कक्षा चुनिए, फिर विषय और अध्याय चुनिए।
-    हमारी कोशिश है कि अच्छी पढ़ाई की सामग्री आपको एक ही जगह आसानी से मिल जाए।
+    हमारी कोशिश है कि अच्छी पढ़ाई की सामग्री आपको
+    एक ही जगह आसानी से मिल जाए।
+
   </p>
 
 </section>
@@ -916,9 +937,11 @@
     </h3>
 
     <p>
+
       हर बच्चे के पास अलग-अलग जगह जाकर पढ़ने की सुविधा नहीं होती।
       इसलिए हम अच्छी पढ़ाई की सामग्री को कक्षा और अध्याय के अनुसार
       एक जगह उपलब्ध कराने की कोशिश कर रहे हैं।
+
     </p>
 
   </div>
@@ -944,8 +967,6 @@
 
 
 
-<!-- ================= JAVASCRIPT ================= -->
-
 <script>
 
 
@@ -969,13 +990,105 @@ let selectedSubject = "";
 
 
 /* ==================================================
+   CLASS SAFE STORAGE
+================================================== */
+
+/*
+   Admin Panel Google Sheet में
+   इन values को save करता है:
+
+   6-8   → CLASS_6_8
+   9-10  → CLASS_9_10
+   11-12 → CLASS_11_12
+
+   Website उन्हें वापस normal Class
+   में बदलती है।
+*/
+
+function classFromStorage(value) {
+
+  const valueString =
+    String(value || "").trim();
+
+
+  const map = {
+
+    "CLASS_6_8":
+      "6-8",
+
+    "CLASS_9_10":
+      "9-10",
+
+    "CLASS_11_12":
+      "11-12"
+
+  };
+
+
+  /*
+     नया safe format
+  */
+
+  if (map[valueString]) {
+
+    return map[valueString];
+
+  }
+
+
+  /*
+     पुराने records के लिए
+  */
+
+  if (
+    valueString === "6-8" ||
+    valueString === "6 – 8" ||
+    valueString === "6–8"
+  ) {
+
+    return "6-8";
+
+  }
+
+
+  if (
+    valueString === "9-10" ||
+    valueString === "9 – 10" ||
+    valueString === "9–10"
+  ) {
+
+    return "9-10";
+
+  }
+
+
+  if (
+    valueString === "11-12" ||
+    valueString === "11 – 12" ||
+    valueString === "11–12"
+  ) {
+
+    return "11-12";
+
+  }
+
+
+  return valueString;
+
+}
+
+
+/* ==================================================
    LOAD DATA FROM GOOGLE SHEET
 ================================================== */
 
 async function loadEducationData() {
 
   const classSection =
-    document.getElementById("classSection");
+    document.getElementById(
+      "classSection"
+    );
+
 
   classSection.innerHTML = `
 
@@ -995,10 +1108,23 @@ async function loadEducationData() {
   try {
 
     const response =
-      await fetch(API_URL, {
-        method: "GET",
-        cache: "no-store"
-      });
+      await fetch(
+
+        API_URL,
+
+        {
+
+          method: "GET",
+
+          /*
+             Browser cache रोकना
+          */
+
+          cache: "no-store"
+
+        }
+
+      );
 
 
     if (!response.ok) {
@@ -1017,7 +1143,8 @@ async function loadEducationData() {
     if (!result.success) {
 
       throw new Error(
-        result.message || "Data load failed"
+        result.message ||
+        "Data load failed"
       );
 
     }
@@ -1027,92 +1154,127 @@ async function loadEducationData() {
 
 
     /*
-      Google Sheet data को
-      Class → Subject → Chapters
-      structure में बदल रहे हैं
+       API data को
+       Class → Subject → Chapters
+       structure में बदलना
     */
 
-    result.data.forEach(function(item) {
+    (result.data || []).forEach(
+      function(item) {
 
 
-      const className =
-        String(item.Class || "").trim();
+        /*
+           सबसे महत्वपूर्ण:
+           safe Class code को
+           normal Class में बदलना
+        */
+
+        const className =
+          classFromStorage(
+            item.Class
+          );
 
 
-      const subject =
-        String(item.Subject || "").trim();
+        const subject =
+          String(
+            item.Subject || ""
+          ).trim();
 
 
-      const chapter =
-        String(item.Chapter || "").trim();
+        const chapter =
+          String(
+            item.Chapter || ""
+          ).trim();
 
 
-      if (
-        !className ||
-        !subject ||
-        !chapter
-      ) {
+        if (
+          !className ||
+          !subject ||
+          !chapter
+        ) {
 
-        return;
+          return;
 
-      }
+        }
 
 
-      if (
-        String(item.Status || "")
+        /*
+           केवल Published content
+        */
+
+        if (
+
+          String(
+            item.Status || ""
+          )
           .toLowerCase()
-          !== "published"
-      ) {
 
-        return;
+          !==
+
+          "published"
+
+        ) {
+
+          return;
+
+        }
+
+
+        if (
+          !educationData[className]
+        ) {
+
+          educationData[className] = {};
+
+        }
+
+
+        if (
+          !educationData[
+            className
+          ][subject]
+        ) {
+
+          educationData[
+            className
+          ][subject] = [];
+
+        }
+
+
+        educationData[
+          className
+        ][subject].push({
+
+          id:
+            item.ID || "",
+
+          chapter:
+            chapter,
+
+          teacher:
+            item.Teacher || "",
+
+          video:
+            item.Video || "",
+
+          notes:
+            item.Notes || "",
+
+          questions:
+            item.Questions || "",
+
+          test:
+            item.Test || ""
+
+        });
 
       }
-
-
-      if (!educationData[className]) {
-
-        educationData[className] = {};
-
-      }
-
-
-      if (!educationData[className][subject]) {
-
-        educationData[className][subject] = [];
-
-      }
-
-
-      educationData[className][subject].push({
-
-        id:
-          item.ID || "",
-
-        chapter:
-          chapter,
-
-        teacher:
-          item.Teacher || "",
-
-        video:
-          item.Video || "",
-
-        notes:
-          item.Notes || "",
-
-        questions:
-          item.Questions || "",
-
-        test:
-          item.Test || ""
-
-      });
-
-    });
+    );
 
 
     /*
-      Class cards वापस बनाएं
+       Class cards वापस बनाएं
     */
 
     renderClassSection();
@@ -1157,12 +1319,10 @@ async function loadEducationData() {
 function renderClassSection() {
 
   const classSection =
-    document.getElementById("classSection");
+    document.getElementById(
+      "classSection"
+    );
 
-
-  /*
-    हमेशा तीनों classes दिखाएँ।
-  */
 
   classSection.innerHTML = `
 
@@ -1173,7 +1333,8 @@ function renderClassSection() {
       </h2>
 
       <p>
-        जिस कक्षा में आप पढ़ रहे हैं, उसे चुनिए
+        जिस कक्षा में आप पढ़ रहे हैं,
+        उसे चुनिए
       </p>
 
     </div>
@@ -1269,23 +1430,27 @@ function selectClass(className) {
 
   document.getElementById(
     "classSection"
-  ).style.display = "none";
+  ).style.display =
+    "none";
 
 
   document.getElementById(
     "subjectSection"
-  ).style.display = "block";
+  ).style.display =
+    "block";
 
 
   document.getElementById(
     "chapterSection"
-  ).style.display = "none";
+  ).style.display =
+    "none";
 
 
   document.getElementById(
     "selectedClassText"
   ).innerText =
-    "आपने चुना: कक्षा " + className;
+    "आपने चुना: कक्षा " +
+    className;
 
 
   const subjectGrid =
@@ -1298,12 +1463,10 @@ function selectClass(className) {
 
 
   const subjects =
-    educationData[className];
+    educationData[
+      className
+    ];
 
-
-  /*
-    इस class में अभी कोई data नहीं
-  */
 
   if (
     !subjects ||
@@ -1319,7 +1482,8 @@ function selectClass(className) {
         </h3>
 
         <p>
-          इस कक्षा के लिए अभी कोई अध्याय प्रकाशित नहीं किया गया है।
+          इस कक्षा के लिए अभी कोई
+          अध्याय प्रकाशित नहीं किया गया है।
         </p>
 
       </div>
@@ -1337,7 +1501,9 @@ function selectClass(className) {
 
 
       const card =
-        document.createElement("div");
+        document.createElement(
+          "div"
+        );
 
 
       card.className =
@@ -1350,7 +1516,8 @@ function selectClass(className) {
 
       if (
         subject.includes("गणित") ||
-        subject.toLowerCase().includes("math")
+        subject.toLowerCase()
+          .includes("math")
       ) {
 
         icon = "📐";
@@ -1360,7 +1527,8 @@ function selectClass(className) {
 
       if (
         subject.includes("विज्ञान") ||
-        subject.toLowerCase().includes("science")
+        subject.toLowerCase()
+          .includes("science")
       ) {
 
         icon = "🔬";
@@ -1370,7 +1538,8 @@ function selectClass(className) {
 
       if (
         subject.includes("भौतिक") ||
-        subject.toLowerCase().includes("physics")
+        subject.toLowerCase()
+          .includes("physics")
       ) {
 
         icon = "⚡";
@@ -1380,7 +1549,8 @@ function selectClass(className) {
 
       if (
         subject.includes("रसायन") ||
-        subject.toLowerCase().includes("chemistry")
+        subject.toLowerCase()
+          .includes("chemistry")
       ) {
 
         icon = "🧪";
@@ -1390,7 +1560,8 @@ function selectClass(className) {
 
       if (
         subject.includes("हिंदी") ||
-        subject.toLowerCase().includes("hindi")
+        subject.toLowerCase()
+          .includes("hindi")
       ) {
 
         icon = "📖";
@@ -1400,7 +1571,8 @@ function selectClass(className) {
 
       if (
         subject.includes("सामाजिक") ||
-        subject.toLowerCase().includes("social")
+        subject.toLowerCase()
+          .includes("social")
       ) {
 
         icon = "🌍";
@@ -1429,7 +1601,9 @@ function selectClass(className) {
       card.onclick =
         function () {
 
-          selectSubject(subject);
+          selectSubject(
+            subject
+          );
 
         };
 
@@ -1470,17 +1644,20 @@ function selectSubject(subject) {
 
   document.getElementById(
     "subjectSection"
-  ).style.display = "none";
+  ).style.display =
+    "none";
 
 
   document.getElementById(
     "chapterSection"
-  ).style.display = "block";
+  ).style.display =
+    "block";
 
 
   document.getElementById(
     "selectedSubjectText"
   ).innerText =
+
     "कक्षा " +
     selectedClass +
     "  •  " +
@@ -1496,12 +1673,20 @@ function selectSubject(subject) {
   chapterList.innerHTML = "";
 
 
-  const chapters =
+  const classData =
     educationData[
       selectedClass
-    ][
-      selectedSubject
     ];
+
+
+  const chapters =
+    classData
+    ?
+    classData[
+      selectedSubject
+    ]
+    :
+    [];
 
 
   if (
@@ -1518,7 +1703,8 @@ function selectSubject(subject) {
         </h3>
 
         <p>
-          इस विषय में अभी कोई अध्याय प्रकाशित नहीं किया गया है।
+          इस विषय में अभी कोई अध्याय
+          प्रकाशित नहीं किया गया है।
         </p>
 
       </div>
@@ -1535,7 +1721,9 @@ function selectSubject(subject) {
 
 
       const card =
-        document.createElement("div");
+        document.createElement(
+          "div"
+        );
 
 
       card.className =
@@ -1544,17 +1732,24 @@ function selectSubject(subject) {
 
       const teacherText =
         item.teacher
-          ? "👨‍🏫 " +
-            escapeHtml(item.teacher)
-          : "Lecture";
+
+        ?
+
+        "👨‍🏫 " +
+        escapeHtml(
+          item.teacher
+        )
+
+        :
+
+        "Lecture";
 
 
-      /*
-        Resource buttons
-      */
+      let resourceButtons =
+        "";
 
-      let resourceButtons = "";
 
+      /* VIDEO */
 
       if (item.video) {
 
@@ -1562,7 +1757,10 @@ function selectSubject(subject) {
 
           <button
             class="resource-btn video"
-            onclick="openLecture('${escapeJs(item.video)}','${escapeJs(item.chapter)}')">
+            onclick="openLecture(
+              '${escapeJs(item.video)}',
+              '${escapeJs(item.chapter)}'
+            )">
 
             🎥 Video
 
@@ -1572,6 +1770,8 @@ function selectSubject(subject) {
 
       }
 
+
+      /* NOTES */
 
       if (item.notes) {
 
@@ -1592,6 +1792,8 @@ function selectSubject(subject) {
       }
 
 
+      /* QUESTIONS */
+
       if (item.questions) {
 
         resourceButtons += `
@@ -1610,6 +1812,8 @@ function selectSubject(subject) {
 
       }
 
+
+      /* TEST */
 
       if (item.test) {
 
@@ -1634,8 +1838,14 @@ function selectSubject(subject) {
 
         resourceButtons = `
 
-          <span style="color:var(--muted);font-size:13px;">
+          <span
+            style="
+              color:var(--muted);
+              font-size:13px;
+            ">
+
             सामग्री जल्द उपलब्ध होगी
+
           </span>
 
         `;
@@ -1657,7 +1867,9 @@ function selectSubject(subject) {
             <div class="chapter-info">
 
               <h3>
-                ${escapeHtml(item.chapter)}
+                ${escapeHtml(
+                  item.chapter
+                )}
               </h3>
 
               <p>
@@ -1669,8 +1881,9 @@ function selectSubject(subject) {
           </div>
 
 
-          <div class="resource-box"
-               style="display:block;">
+          <div
+            class="resource-box"
+            style="display:block;">
 
             <div class="resource-buttons">
 
@@ -1733,15 +1946,12 @@ function openLecture(
 
 
   const videoId =
-    getYouTubeVideoId(url);
+    getYouTubeVideoId(
+      url
+    );
 
 
   if (!videoId) {
-
-    /*
-      अगर YouTube link नहीं है
-      तो normal link खोलेंगे
-    */
 
     window.open(
       url,
@@ -1845,10 +2055,6 @@ function getYouTubeVideoId(url) {
       new URL(url);
 
 
-    /*
-      youtube.com/watch?v=XXXX
-    */
-
     if (
       parsed.hostname.includes(
         "youtube.com"
@@ -1863,10 +2069,6 @@ function getYouTubeVideoId(url) {
     }
 
 
-    /*
-      youtu.be/XXXX
-    */
-
     if (
       parsed.hostname.includes(
         "youtu.be"
@@ -1880,10 +2082,6 @@ function getYouTubeVideoId(url) {
     }
 
 
-    /*
-      youtube.com/shorts/XXXX
-    */
-
     if (
       parsed.pathname.startsWith(
         "/shorts/"
@@ -1896,10 +2094,6 @@ function getYouTubeVideoId(url) {
     }
 
 
-    /*
-      youtube.com/embed/XXXX
-    */
-
     if (
       parsed.pathname.startsWith(
         "/embed/"
@@ -1910,7 +2104,6 @@ function getYouTubeVideoId(url) {
         .split("/")[2];
 
     }
-
 
   }
 
@@ -1939,17 +2132,20 @@ function backToClasses() {
 
   document.getElementById(
     "subjectSection"
-  ).style.display = "none";
+  ).style.display =
+    "none";
 
 
   document.getElementById(
     "chapterSection"
-  ).style.display = "none";
+  ).style.display =
+    "none";
 
 
   document.getElementById(
     "classSection"
-  ).style.display = "block";
+  ).style.display =
+    "block";
 
 
   window.scrollTo({
@@ -1978,12 +2174,14 @@ function backToSubjects() {
 
   document.getElementById(
     "chapterSection"
-  ).style.display = "none";
+  ).style.display =
+    "none";
 
 
   document.getElementById(
     "subjectSection"
-  ).style.display = "block";
+  ).style.display =
+    "block";
 
 
   window.scrollTo({
@@ -2008,9 +2206,13 @@ function backToSubjects() {
 function toggleMenu() {
 
   document
-    .getElementById("mainNav")
+    .getElementById(
+      "mainNav"
+    )
     .classList
-    .toggle("show");
+    .toggle(
+      "show"
+    );
 
 }
 
@@ -2021,12 +2223,34 @@ function toggleMenu() {
 
 function escapeHtml(value) {
 
-  return String(value || "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
+  return String(
+    value || ""
+  )
+
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+
+  .replace(
+    /</g,
+    "&lt;"
+  )
+
+  .replace(
+    />/g,
+    "&gt;"
+  )
+
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+
+  .replace(
+    /'/g,
+    "&#039;"
+  );
 
 }
 
@@ -2037,12 +2261,34 @@ function escapeHtml(value) {
 
 function escapeJs(value) {
 
-  return String(value || "")
-    .replace(/\\/g, "\\\\")
-    .replace(/'/g, "\\'")
-    .replace(/"/g, '\\"')
-    .replace(/\n/g, "\\n")
-    .replace(/\r/g, "\\r");
+  return String(
+    value || ""
+  )
+
+  .replace(
+    /\\/g,
+    "\\\\"
+  )
+
+  .replace(
+    /'/g,
+    "\\'"
+  )
+
+  .replace(
+    /"/g,
+    '\\"'
+  )
+
+  .replace(
+    /\n/g,
+    "\\n"
+  )
+
+  .replace(
+    /\r/g,
+    "\\r"
+  );
 
 }
 
@@ -2058,3 +2304,4 @@ loadEducationData();
 
 </body>
 </html>
+```
