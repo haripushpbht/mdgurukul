@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Free Education Hub | Mala Devi Gurukul</title>
-  <meta name="description" content="Mala Devi Gurukul का Free Education Hub — कक्षा, विषय और अध्याय के अनुसार अच्छी पढ़ाई की सामग्री।">
+
+  <meta name="description"
+        content="Mala Devi Gurukul का Free Education Hub — कक्षा, विषय और अध्याय के अनुसार अच्छी पढ़ाई की सामग्री।">
 
   <style>
+
     :root {
       --bg: #0d1117;
       --card: #161b22;
@@ -40,6 +43,7 @@
       text-decoration: none;
       color: inherit;
     }
+
 
     /* ================= HEADER ================= */
 
@@ -109,6 +113,7 @@
       cursor: pointer;
     }
 
+
     /* ================= HERO ================= */
 
     .hero {
@@ -147,6 +152,7 @@
       font-size: 16px;
     }
 
+
     /* ================= MAIN ================= */
 
     .container {
@@ -171,7 +177,8 @@
       font-size: 14px;
     }
 
-    /* ================= CLASS CARDS ================= */
+
+    /* ================= CLASS ================= */
 
     .class-grid {
       display: grid;
@@ -220,7 +227,8 @@
       font-size: 22px;
     }
 
-    /* ================= SUBJECT AREA ================= */
+
+    /* ================= SUBJECT ================= */
 
     #subjectSection,
     #chapterSection {
@@ -267,6 +275,7 @@
 
     .subject-card:hover {
       border-color: var(--accent);
+      transform: translateY(-2px);
     }
 
     .subject-icon {
@@ -285,7 +294,8 @@
       font-size: 12px;
     }
 
-    /* ================= CHAPTERS ================= */
+
+    /* ================= CHAPTER ================= */
 
     .chapter-list {
       display: grid;
@@ -349,7 +359,8 @@
       opacity: 0.9;
     }
 
-    /* ================= RESOURCE POPUP ================= */
+
+    /* ================= RESOURCES ================= */
 
     .resource-box {
       display: none;
@@ -390,6 +401,95 @@
       color: var(--accent);
     }
 
+
+    /* ================= VIDEO PLAYER ================= */
+
+    .video-player-box {
+      display: none;
+      margin-top: 25px;
+      background: #000;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .video-header {
+      background: var(--card);
+      padding: 12px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .video-header h3 {
+      color: var(--white);
+      font-size: 15px;
+    }
+
+    .close-video {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .close-video:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .video-frame {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      background: #000;
+    }
+
+    .video-frame iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+
+    /* ================= LOADING ================= */
+
+    .loading-box {
+      text-align: center;
+      padding: 50px 20px;
+      color: var(--muted);
+    }
+
+    .loading-box strong {
+      display: block;
+      color: var(--white);
+      margin-bottom: 5px;
+    }
+
+
+    /* ================= EMPTY ================= */
+
+    .empty-box {
+      text-align: center;
+      padding: 35px 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--muted);
+    }
+
+    .empty-box h3 {
+      color: var(--white);
+      margin-bottom: 5px;
+    }
+
+
     /* ================= NOTE ================= */
 
     .note-box {
@@ -412,6 +512,7 @@
       font-size: 14px;
     }
 
+
     /* ================= FOOTER ================= */
 
     footer {
@@ -426,6 +527,7 @@
     footer strong {
       color: var(--accent);
     }
+
 
     /* ================= MOBILE ================= */
 
@@ -483,7 +585,9 @@
       }
     }
 
+
     @media (max-width: 430px) {
+
       .subject-grid {
         grid-template-columns: 1fr;
       }
@@ -495,38 +599,74 @@
       .study-btn {
         width: 100%;
       }
+
     }
+
   </style>
 </head>
 
+
 <body>
+
 
 <!-- ================= HEADER ================= -->
 
 <header>
+
   <div class="nav-container">
 
     <a href="index.html" class="logo-area">
+
       <img src="logo.png" alt="Mala Devi Gurukul">
+
       <div class="logo-text">
         Mala Devi <span>Gurukul</span>
       </div>
+
     </a>
 
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+    <div class="menu-btn" onclick="toggleMenu()">
+      ☰
+    </div>
+
 
     <nav id="mainNav">
-      <a href="index.html">Home</a>
-      <a href="About-us.html">About</a>
-      <a href="free-education.html" class="active">Free Education</a>
-      <a href="live-classes.html">Live Classes</a>
-      <a href="results.html">Results</a>
-      <a href="Admission.html">Admission</a>
-      <a href="donate.html">Donate</a>
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="About-us.html">
+        About
+      </a>
+
+      <a href="free-education.html" class="active">
+        Free Education
+      </a>
+
+      <a href="live-classes.html">
+        Live Classes
+      </a>
+
+      <a href="results.html">
+        Results
+      </a>
+
+      <a href="Admission.html">
+        Admission
+      </a>
+
+      <a href="donate.html">
+        Donate
+      </a>
+
     </nav>
 
   </div>
+
 </header>
+
 
 
 <!-- ================= HERO ================= -->
@@ -537,9 +677,11 @@
     📚 Free Education Hub
   </div>
 
+
   <h1>
     पढ़ाई को थोड़ा <span>आसान</span> बनाते हैं
   </h1>
+
 
   <p>
     अपनी कक्षा चुनिए, फिर विषय और अध्याय चुनिए।
@@ -549,92 +691,229 @@
 </section>
 
 
+
 <!-- ================= MAIN ================= -->
 
 <main class="container">
 
-  <!-- CLASS -->
+
+  <!-- ================= CLASS ================= -->
 
   <section id="classSection">
 
     <div class="section-title">
-      <h2>अपनी कक्षा चुनें</h2>
-      <p>जिस कक्षा में आप पढ़ रहे हैं, उसे चुनिए</p>
+
+      <h2>
+        अपनी कक्षा चुनें
+      </h2>
+
+      <p>
+        जिस कक्षा में आप पढ़ रहे हैं, उसे चुनिए
+      </p>
+
     </div>
+
 
     <div class="class-grid">
 
-      <div class="class-card" onclick="selectClass('6-8')">
-        <div class="class-number">कक्षा</div>
-        <h3>6 – 8</h3>
-        <p>मिडिल स्कूल की पढ़ाई</p>
-        <div class="arrow">→</div>
+
+      <div class="class-card"
+           onclick="selectClass('6-8')">
+
+        <div class="class-number">
+          कक्षा
+        </div>
+
+        <h3>
+          6 – 8
+        </h3>
+
+        <p>
+          मिडिल स्कूल की पढ़ाई
+        </p>
+
+        <div class="arrow">
+          →
+        </div>
+
       </div>
 
-      <div class="class-card" onclick="selectClass('9-10')">
-        <div class="class-number">कक्षा</div>
-        <h3>9 – 10</h3>
-        <p>बोर्ड परीक्षा की तैयारी</p>
-        <div class="arrow">→</div>
+
+
+      <div class="class-card"
+           onclick="selectClass('9-10')">
+
+        <div class="class-number">
+          कक्षा
+        </div>
+
+        <h3>
+          9 – 10
+        </h3>
+
+        <p>
+          बोर्ड परीक्षा की तैयारी
+        </p>
+
+        <div class="arrow">
+          →
+        </div>
+
       </div>
 
-      <div class="class-card" onclick="selectClass('11-12')">
-        <div class="class-number">कक्षा</div>
-        <h3>11 – 12</h3>
-        <p>इंटरमीडिएट की पढ़ाई</p>
-        <div class="arrow">→</div>
+
+
+      <div class="class-card"
+           onclick="selectClass('11-12')">
+
+        <div class="class-number">
+          कक्षा
+        </div>
+
+        <h3>
+          11 – 12
+        </h3>
+
+        <p>
+          इंटरमीडिएट की पढ़ाई
+        </p>
+
+        <div class="arrow">
+          →
+        </div>
+
       </div>
+
 
     </div>
 
   </section>
 
 
-  <!-- SUBJECT -->
+
+  <!-- ================= SUBJECT ================= -->
 
   <section id="subjectSection">
 
-    <button class="back-btn" onclick="backToClasses()">
+
+    <button class="back-btn"
+            onclick="backToClasses()">
+
       ← कक्षा बदलें
+
     </button>
 
-    <div class="selected-info" id="selectedClassText"></div>
 
-    <div class="section-title">
-      <h2>विषय चुनें</h2>
-      <p>जिस विषय को पढ़ना है, उसे चुनिए</p>
+    <div class="selected-info"
+         id="selectedClassText">
     </div>
 
-    <div class="subject-grid" id="subjectGrid"></div>
+
+    <div class="section-title">
+
+      <h2>
+        विषय चुनें
+      </h2>
+
+      <p>
+        जिस विषय को पढ़ना है, उसे चुनिए
+      </p>
+
+    </div>
+
+
+    <div class="subject-grid"
+         id="subjectGrid">
+    </div>
+
 
   </section>
 
 
-  <!-- CHAPTER -->
+
+  <!-- ================= CHAPTER ================= -->
 
   <section id="chapterSection">
 
-    <button class="back-btn" onclick="backToSubjects()">
+
+    <button class="back-btn"
+            onclick="backToSubjects()">
+
       ← विषय बदलें
+
     </button>
 
-    <div class="selected-info" id="selectedSubjectText"></div>
 
-    <div class="section-title">
-      <h2>अध्याय चुनें</h2>
-      <p>जिस अध्याय को पढ़ना है, उसे चुनिए</p>
+    <div class="selected-info"
+         id="selectedSubjectText">
     </div>
 
-    <div class="chapter-list" id="chapterList"></div>
+
+    <div class="section-title">
+
+      <h2>
+        अध्याय चुनें
+      </h2>
+
+      <p>
+        जिस अध्याय को पढ़ना है, उसे चुनिए
+      </p>
+
+    </div>
+
+
+    <div class="chapter-list"
+         id="chapterList">
+    </div>
+
+
+    <!-- VIDEO PLAYER -->
+
+    <div id="videoPlayerBox"
+         class="video-player-box">
+
+      <div class="video-header">
+
+        <h3 id="videoTitle">
+          Lecture
+        </h3>
+
+        <button class="close-video"
+                onclick="closeVideo()">
+
+          ✕ बंद करें
+
+        </button>
+
+      </div>
+
+
+      <div class="video-frame">
+
+        <iframe
+          id="youtubePlayer"
+          src=""
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+    </div>
+
 
   </section>
 
 
-  <!-- NOTE -->
+
+  <!-- ================= NOTE ================= -->
 
   <div class="note-box">
 
-    <h3>हमारी एक छोटी सी कोशिश</h3>
+    <h3>
+      हमारी एक छोटी सी कोशिश
+    </h3>
 
     <p>
       हर बच्चे के पास अलग-अलग जगह जाकर पढ़ने की सुविधा नहीं होती।
@@ -644,7 +923,9 @@
 
   </div>
 
+
 </main>
+
 
 
 <!-- ================= FOOTER ================= -->
@@ -662,355 +943,1116 @@
 </footer>
 
 
+
 <!-- ================= JAVASCRIPT ================= -->
 
 <script>
 
-  /* ============================================
-     TEMPORARY EDUCATION DATA
 
-     बाद में यही data Google Sheet से आएगा।
-     Admin Panel इसी structure में data manage करेगा।
-  ============================================ */
+/* ==================================================
+   GOOGLE SHEET API
+================================================== */
 
-  const educationData = {
-
-    "6-8": {
-
-      "गणित": [
-        {
-          chapter: "अध्याय 1 — पूर्णांक",
-          teacher: "अच्छा Lecture",
-          video: "https://www.youtube.com/"
-        },
-        {
-          chapter: "अध्याय 2 — भिन्न",
-          teacher: "अच्छा Lecture",
-          video: "https://www.youtube.com/"
-        },
-        {
-          chapter: "अध्याय 3 — दशमलव",
-          teacher: "अच्छा Lecture",
-          video: "https://www.youtube.com/"
-        }
-      ],
-
-      "विज्ञान": [
-        {
-          chapter: "अध्याय 1 — हमारे आसपास के पदार्थ",
-          teacher: "अच्छा Lecture",
-          video: "https://www.youtube.com/"
-        },
-        {
-          chapter: "अध्याय 2 — पदार्थों में परिवर्तन",
-          teacher: "अच्छा Lecture",
-          video: "https://www.youtube.com/"
-        }
-      ],
-
-      "हिंदी": [
-        {
-          chapter: "पाठ 1 — भाषा और साहित्य",
-          teacher: "अच्छा Lecture",
-          video: "https://www.youtube.com/"
-        }
-      ]
-
-    },
+const API_URL =
+"https://script.google.com/macros/s/AKfycbzHLheN3Pirer7F6F9XstSt4qC7i9tBp1zl2ZUS5pg8doy_XzYmYMClfukulCOtye_bAw/exec";
 
 
-    "9-10": {
+/* ==================================================
+   GLOBAL DATA
+================================================== */
 
-      "गणित": [
-        {
-          chapter: "अध्याय 1 — वास्तविक संख्याएँ",
-          teacher: "अच्छा Lecture",
-          video: "https://www.youtube.com/"
-        },
-        {
-          chapter: "अध्याय 2 — बहुपद",
-          teacher: "अच्छा Lecture",
-          video: "https://www.youtube.com/"
-        },
-        {
-          chapter: "अध्याय 3 — दो चर वाले रैखिक समीकरण",
-          teacher: "अच्छा Lecture",
-          video: "https://www.youtube.com/"
-        },
-        {
-          chapter: "अध्याय 4 — द्विघात समीकरण",
-          teacher: "अच्छा Lecture",
-          video: "https://www.youtube.com/"
-        }
-      ],
+let educationData = {};
 
-      "विज्ञान": [
-        {
-          chapter: "अध्याय 1 — रासायनिक अभिक्रियाएँ",
-          teacher: "अच्छा Lecture",
-          video: "https://www.youtube.com/"
-        },
-        {
-          chapter: "अध्याय 2 — अम्ल, क्षार और लवण",
-          teacher: "अच्छा Lecture",
-          video: "https://www.youtube.com/"
-        }
-      ],
+let selectedClass = "";
 
-      "हिंदी": [
-        {
-          chapter: "गद्य खंड",
-          teacher: "अच्छा Lecture",
-          video: "https://www.youtube.com/"
-        },
-        {
-          chapter: "काव्य खंड",
-          teacher: "अच्छा Lecture",
-          video: "https://www.youtube.com/"
-        }
-      ],
-
-      "सामाजिक विज्ञान": [
-        {
-          chapter: "इतिहास — भारत और समकालीन विश्व",
-          teacher: "अच्छा Lecture",
-          video: "https://www.youtube.com/"
-        },
-        {
-          chapter: "भूगोल — भारत: संसाधन एवं उपयोग",
-          teacher: "अच्छा Lecture",
-          video: "https://www.youtube.com/"
-        }
-      ]
-
-    },
+let selectedSubject = "";
 
 
-    "11-12": {
+/* ==================================================
+   LOAD DATA FROM GOOGLE SHEET
+================================================== */
 
-      "गणित": [
-        {
-          chapter: "समुच्चय",
-          teacher: "अच्छा Lecture",
-          video: "https://www.youtube.com/"
-        },
-        {
-          chapter: "संबंध एवं फलन",
-          teacher: "अच्छा Lecture",
-          video: "https://www.youtube.com/"
-        },
-        {
-          chapter: "आव्यूह एवं सारणिक",
-          teacher: "अच्छा Lecture",
-          video: "https://www.youtube.com/"
-        }
-      ],
+async function loadEducationData() {
 
-      "भौतिक विज्ञान": [
-        {
-          chapter: "इकाई एवं मापन",
-          teacher: "अच्छा Lecture",
-          video: "https://www.youtube.com/"
-        },
-        {
-          chapter: "गति",
-          teacher: "अच्छा Lecture",
-          video: "https://www.youtube.com/"
-        },
-        {
-          chapter: "गति के नियम",
-          teacher: "अच्छा Lecture",
-          video: "https://www.youtube.com/"
-        }
-      ],
+  const classSection =
+    document.getElementById("classSection");
 
-      "रसायन विज्ञान": [
-        {
-          chapter: "परमाणु की संरचना",
-          teacher: "अच्छा Lecture",
-          video: "https://www.youtube.com/"
-        }
-      ]
+  classSection.innerHTML = `
+
+    <div class="loading-box">
+
+      <strong>
+        📚 सामग्री लोड हो रही है...
+      </strong>
+
+      कृपया थोड़ी देर प्रतीक्षा करें।
+
+    </div>
+
+  `;
+
+
+  try {
+
+    const response =
+      await fetch(API_URL, {
+        method: "GET",
+        cache: "no-store"
+      });
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        "API response failed"
+      );
 
     }
 
-  };
+
+    const result =
+      await response.json();
 
 
-  let selectedClass = "";
-  let selectedSubject = "";
+    if (!result.success) {
+
+      throw new Error(
+        result.message || "Data load failed"
+      );
+
+    }
 
 
-  /* ================= MENU ================= */
+    educationData = {};
 
-  function toggleMenu() {
-    document.getElementById("mainNav").classList.toggle("show");
+
+    /*
+      Google Sheet data को
+      Class → Subject → Chapters
+      structure में बदल रहे हैं
+    */
+
+    result.data.forEach(function(item) {
+
+
+      const className =
+        String(item.Class || "").trim();
+
+
+      const subject =
+        String(item.Subject || "").trim();
+
+
+      const chapter =
+        String(item.Chapter || "").trim();
+
+
+      if (
+        !className ||
+        !subject ||
+        !chapter
+      ) {
+
+        return;
+
+      }
+
+
+      if (
+        String(item.Status || "")
+          .toLowerCase()
+          !== "published"
+      ) {
+
+        return;
+
+      }
+
+
+      if (!educationData[className]) {
+
+        educationData[className] = {};
+
+      }
+
+
+      if (!educationData[className][subject]) {
+
+        educationData[className][subject] = [];
+
+      }
+
+
+      educationData[className][subject].push({
+
+        id:
+          item.ID || "",
+
+        chapter:
+          chapter,
+
+        teacher:
+          item.Teacher || "",
+
+        video:
+          item.Video || "",
+
+        notes:
+          item.Notes || "",
+
+        questions:
+          item.Questions || "",
+
+        test:
+          item.Test || ""
+
+      });
+
+    });
+
+
+    /*
+      Class cards वापस बनाएं
+    */
+
+    renderClassSection();
+
+
   }
 
+  catch (error) {
 
-  /* ================= SELECT CLASS ================= */
+    console.error(
+      "Education API Error:",
+      error
+    );
 
-  function selectClass(className) {
 
-    selectedClass = className;
+    classSection.innerHTML = `
 
-    document.getElementById("classSection").style.display = "none";
-    document.getElementById("subjectSection").style.display = "block";
-    document.getElementById("chapterSection").style.display = "none";
+      <div class="empty-box">
 
-    document.getElementById("selectedClassText").innerText =
-      "आपने चुना: कक्षा " + className;
+        <h3>
+          ⚠️ सामग्री लोड नहीं हो सकी
+        </h3>
 
-    const subjectGrid =
-      document.getElementById("subjectGrid");
+        <p>
+          अभी कुछ तकनीकी समस्या है।
+          कृपया थोड़ी देर बाद दोबारा प्रयास करें।
+        </p>
 
-    subjectGrid.innerHTML = "";
+      </div>
 
-    const subjects = educationData[className];
+    `;
 
-    for (const subject in subjects) {
+  }
 
-      const card = document.createElement("div");
+}
 
-      card.className = "subject-card";
 
-      let icon = "📘";
+/* ==================================================
+   RENDER CLASS SECTION
+================================================== */
 
-      if (subject.includes("गणित")) icon = "📐";
-      if (subject.includes("विज्ञान")) icon = "🔬";
-      if (subject.includes("भौतिक")) icon = "⚡";
-      if (subject.includes("रसायन")) icon = "🧪";
-      if (subject.includes("हिंदी")) icon = "📖";
-      if (subject.includes("सामाजिक")) icon = "🌍";
+function renderClassSection() {
+
+  const classSection =
+    document.getElementById("classSection");
+
+
+  /*
+    हमेशा तीनों classes दिखाएँ।
+  */
+
+  classSection.innerHTML = `
+
+    <div class="section-title">
+
+      <h2>
+        अपनी कक्षा चुनें
+      </h2>
+
+      <p>
+        जिस कक्षा में आप पढ़ रहे हैं, उसे चुनिए
+      </p>
+
+    </div>
+
+
+    <div class="class-grid">
+
+
+      <div class="class-card"
+           onclick="selectClass('6-8')">
+
+        <div class="class-number">
+          कक्षा
+        </div>
+
+        <h3>
+          6 – 8
+        </h3>
+
+        <p>
+          मिडिल स्कूल की पढ़ाई
+        </p>
+
+        <div class="arrow">
+          →
+        </div>
+
+      </div>
+
+
+
+      <div class="class-card"
+           onclick="selectClass('9-10')">
+
+        <div class="class-number">
+          कक्षा
+        </div>
+
+        <h3>
+          9 – 10
+        </h3>
+
+        <p>
+          बोर्ड परीक्षा की तैयारी
+        </p>
+
+        <div class="arrow">
+          →
+        </div>
+
+      </div>
+
+
+
+      <div class="class-card"
+           onclick="selectClass('11-12')">
+
+        <div class="class-number">
+          कक्षा
+        </div>
+
+        <h3>
+          11 – 12
+        </h3>
+
+        <p>
+          इंटरमीडिएट की पढ़ाई
+        </p>
+
+        <div class="arrow">
+          →
+        </div>
+
+      </div>
+
+
+    </div>
+
+  `;
+
+}
+
+
+/* ==================================================
+   SELECT CLASS
+================================================== */
+
+function selectClass(className) {
+
+  selectedClass =
+    className;
+
+
+  document.getElementById(
+    "classSection"
+  ).style.display = "none";
+
+
+  document.getElementById(
+    "subjectSection"
+  ).style.display = "block";
+
+
+  document.getElementById(
+    "chapterSection"
+  ).style.display = "none";
+
+
+  document.getElementById(
+    "selectedClassText"
+  ).innerText =
+    "आपने चुना: कक्षा " + className;
+
+
+  const subjectGrid =
+    document.getElementById(
+      "subjectGrid"
+    );
+
+
+  subjectGrid.innerHTML = "";
+
+
+  const subjects =
+    educationData[className];
+
+
+  /*
+    इस class में अभी कोई data नहीं
+  */
+
+  if (
+    !subjects ||
+    Object.keys(subjects).length === 0
+  ) {
+
+    subjectGrid.innerHTML = `
+
+      <div class="empty-box">
+
+        <h3>
+          📚 सामग्री जल्द उपलब्ध होगी
+        </h3>
+
+        <p>
+          इस कक्षा के लिए अभी कोई अध्याय प्रकाशित नहीं किया गया है।
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
+  else {
+
+
+    for (
+      const subject in subjects
+    ) {
+
+
+      const card =
+        document.createElement("div");
+
+
+      card.className =
+        "subject-card";
+
+
+      let icon =
+        "📘";
+
+
+      if (
+        subject.includes("गणित") ||
+        subject.toLowerCase().includes("math")
+      ) {
+
+        icon = "📐";
+
+      }
+
+
+      if (
+        subject.includes("विज्ञान") ||
+        subject.toLowerCase().includes("science")
+      ) {
+
+        icon = "🔬";
+
+      }
+
+
+      if (
+        subject.includes("भौतिक") ||
+        subject.toLowerCase().includes("physics")
+      ) {
+
+        icon = "⚡";
+
+      }
+
+
+      if (
+        subject.includes("रसायन") ||
+        subject.toLowerCase().includes("chemistry")
+      ) {
+
+        icon = "🧪";
+
+      }
+
+
+      if (
+        subject.includes("हिंदी") ||
+        subject.toLowerCase().includes("hindi")
+      ) {
+
+        icon = "📖";
+
+      }
+
+
+      if (
+        subject.includes("सामाजिक") ||
+        subject.toLowerCase().includes("social")
+      ) {
+
+        icon = "🌍";
+
+      }
+
 
       card.innerHTML = `
-        <div class="subject-icon">${icon}</div>
-        <h3>${subject}</h3>
-        <p>${subjects[subject].length} अध्याय उपलब्ध</p>
+
+        <div class="subject-icon">
+          ${icon}
+        </div>
+
+        <h3>
+          ${escapeHtml(subject)}
+        </h3>
+
+        <p>
+          ${subjects[subject].length}
+          अध्याय उपलब्ध
+        </p>
+
       `;
 
-      card.onclick = function () {
-        selectSubject(subject);
-      };
 
-      subjectGrid.appendChild(card);
+      card.onclick =
+        function () {
+
+          selectSubject(subject);
+
+        };
+
+
+      subjectGrid.appendChild(
+        card
+      );
+
     }
 
-    window.scrollTo({
-      top: document.getElementById("subjectSection").offsetTop - 80,
-      behavior: "smooth"
-    });
   }
 
 
-  /* ================= SELECT SUBJECT ================= */
+  window.scrollTo({
 
-  function selectSubject(subject) {
+    top:
+      document.getElementById(
+        "subjectSection"
+      ).offsetTop - 80,
 
-    selectedSubject = subject;
+    behavior:
+      "smooth"
 
-    document.getElementById("subjectSection").style.display = "none";
-    document.getElementById("chapterSection").style.display = "block";
+  });
 
-    document.getElementById("selectedSubjectText").innerText =
-      "कक्षा " + selectedClass + "  •  " + selectedSubject;
+}
 
-    const chapterList =
-      document.getElementById("chapterList");
 
-    chapterList.innerHTML = "";
+/* ==================================================
+   SELECT SUBJECT
+================================================== */
 
-    const chapters =
-      educationData[selectedClass][selectedSubject];
+function selectSubject(subject) {
 
-    chapters.forEach((item, index) => {
+  selectedSubject =
+    subject;
 
-      const card = document.createElement("div");
 
-      card.className = "chapter-card";
+  document.getElementById(
+    "subjectSection"
+  ).style.display = "none";
+
+
+  document.getElementById(
+    "chapterSection"
+  ).style.display = "block";
+
+
+  document.getElementById(
+    "selectedSubjectText"
+  ).innerText =
+    "कक्षा " +
+    selectedClass +
+    "  •  " +
+    selectedSubject;
+
+
+  const chapterList =
+    document.getElementById(
+      "chapterList"
+    );
+
+
+  chapterList.innerHTML = "";
+
+
+  const chapters =
+    educationData[
+      selectedClass
+    ][
+      selectedSubject
+    ];
+
+
+  if (
+    !chapters ||
+    chapters.length === 0
+  ) {
+
+    chapterList.innerHTML = `
+
+      <div class="empty-box">
+
+        <h3>
+          अध्याय उपलब्ध नहीं है
+        </h3>
+
+        <p>
+          इस विषय में अभी कोई अध्याय प्रकाशित नहीं किया गया है।
+        </p>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  chapters.forEach(
+    function(item, index) {
+
+
+      const card =
+        document.createElement("div");
+
+
+      card.className =
+        "chapter-card";
+
+
+      const teacherText =
+        item.teacher
+          ? "👨‍🏫 " +
+            escapeHtml(item.teacher)
+          : "Lecture";
+
+
+      /*
+        Resource buttons
+      */
+
+      let resourceButtons = "";
+
+
+      if (item.video) {
+
+        resourceButtons += `
+
+          <button
+            class="resource-btn video"
+            onclick="openLecture('${escapeJs(item.video)}','${escapeJs(item.chapter)}')">
+
+            🎥 Video
+
+          </button>
+
+        `;
+
+      }
+
+
+      if (item.notes) {
+
+        resourceButtons += `
+
+          <a
+            class="resource-btn"
+            href="${escapeHtml(item.notes)}"
+            target="_blank"
+            rel="noopener">
+
+            📄 Notes
+
+          </a>
+
+        `;
+
+      }
+
+
+      if (item.questions) {
+
+        resourceButtons += `
+
+          <a
+            class="resource-btn"
+            href="${escapeHtml(item.questions)}"
+            target="_blank"
+            rel="noopener">
+
+            📝 Questions
+
+          </a>
+
+        `;
+
+      }
+
+
+      if (item.test) {
+
+        resourceButtons += `
+
+          <a
+            class="resource-btn"
+            href="${escapeHtml(item.test)}"
+            target="_blank"
+            rel="noopener">
+
+            🧪 Test
+
+          </a>
+
+        `;
+
+      }
+
+
+      if (!resourceButtons) {
+
+        resourceButtons = `
+
+          <span style="color:var(--muted);font-size:13px;">
+            सामग्री जल्द उपलब्ध होगी
+          </span>
+
+        `;
+
+      }
+
 
       card.innerHTML = `
 
-        <div class="chapter-left">
+        <div style="width:100%;">
 
-          <div class="chapter-number">
-            ${index + 1}
+          <div class="chapter-left">
+
+            <div class="chapter-number">
+              ${index + 1}
+            </div>
+
+
+            <div class="chapter-info">
+
+              <h3>
+                ${escapeHtml(item.chapter)}
+              </h3>
+
+              <p>
+                ${teacherText}
+              </p>
+
+            </div>
+
           </div>
 
-          <div class="chapter-info">
 
-            <h3>${item.chapter}</h3>
+          <div class="resource-box"
+               style="display:block;">
 
-            <p>${item.teacher}</p>
+            <div class="resource-buttons">
+
+              ${resourceButtons}
+
+            </div>
 
           </div>
 
         </div>
 
-        <button class="study-btn"
-          onclick="openLecture('${item.video}')">
-          🎥 पढ़ना शुरू करें
-        </button>
-
       `;
 
-      chapterList.appendChild(card);
 
-    });
-
-    window.scrollTo({
-      top: document.getElementById("chapterSection").offsetTop - 80,
-      behavior: "smooth"
-    });
-
-  }
-
-
-  /* ================= OPEN LECTURE ================= */
-
-  function openLecture(url) {
-
-    if (!url || url === "https://www.youtube.com/") {
-
-      alert(
-        "इस अध्याय का Lecture अभी जोड़ा नहीं गया है।"
+      chapterList.appendChild(
+        card
       );
 
-      return;
+    }
+  );
+
+
+  window.scrollTo({
+
+    top:
+      document.getElementById(
+        "chapterSection"
+      ).offsetTop - 80,
+
+    behavior:
+      "smooth"
+
+  });
+
+}
+
+
+/* ==================================================
+   OPEN YOUTUBE LECTURE
+================================================== */
+
+function openLecture(
+  url,
+  title
+) {
+
+
+  if (
+    !url ||
+    url.trim() === ""
+  ) {
+
+    alert(
+      "इस अध्याय का Lecture अभी जोड़ा नहीं गया है।"
+    );
+
+    return;
+
+  }
+
+
+  const videoId =
+    getYouTubeVideoId(url);
+
+
+  if (!videoId) {
+
+    /*
+      अगर YouTube link नहीं है
+      तो normal link खोलेंगे
+    */
+
+    window.open(
+      url,
+      "_blank",
+      "noopener"
+    );
+
+    return;
+
+  }
+
+
+  const player =
+    document.getElementById(
+      "youtubePlayer"
+    );
+
+
+  const playerBox =
+    document.getElementById(
+      "videoPlayerBox"
+    );
+
+
+  const videoTitle =
+    document.getElementById(
+      "videoTitle"
+    );
+
+
+  videoTitle.innerText =
+    "🎥 " + title;
+
+
+  player.src =
+    "https://www.youtube.com/embed/" +
+    videoId +
+    "?rel=0";
+
+
+  playerBox.style.display =
+    "block";
+
+
+  setTimeout(
+    function () {
+
+      playerBox.scrollIntoView({
+
+        behavior:
+          "smooth",
+
+        block:
+          "start"
+
+      });
+
+    },
+    100
+  );
+
+}
+
+
+/* ==================================================
+   CLOSE VIDEO
+================================================== */
+
+function closeVideo() {
+
+  const player =
+    document.getElementById(
+      "youtubePlayer"
+    );
+
+
+  const playerBox =
+    document.getElementById(
+      "videoPlayerBox"
+    );
+
+
+  player.src = "";
+
+
+  playerBox.style.display =
+    "none";
+
+}
+
+
+/* ==================================================
+   YOUTUBE VIDEO ID
+================================================== */
+
+function getYouTubeVideoId(url) {
+
+  try {
+
+    const parsed =
+      new URL(url);
+
+
+    /*
+      youtube.com/watch?v=XXXX
+    */
+
+    if (
+      parsed.hostname.includes(
+        "youtube.com"
+      ) &&
+      parsed.searchParams.get("v")
+    ) {
+
+      return parsed.searchParams.get(
+        "v"
+      );
+
     }
 
-    window.open(url, "_blank");
+
+    /*
+      youtu.be/XXXX
+    */
+
+    if (
+      parsed.hostname.includes(
+        "youtu.be"
+      )
+    ) {
+
+      return parsed.pathname
+        .substring(1)
+        .split("/")[0];
+
+    }
+
+
+    /*
+      youtube.com/shorts/XXXX
+    */
+
+    if (
+      parsed.pathname.startsWith(
+        "/shorts/"
+      )
+    ) {
+
+      return parsed.pathname
+        .split("/")[2];
+
+    }
+
+
+    /*
+      youtube.com/embed/XXXX
+    */
+
+    if (
+      parsed.pathname.startsWith(
+        "/embed/"
+      )
+    ) {
+
+      return parsed.pathname
+        .split("/")[2];
+
+    }
+
+
+  }
+
+  catch (error) {
+
+    console.log(
+      "Invalid YouTube URL"
+    );
 
   }
 
 
-  /* ================= BACK ================= */
+  return null;
 
-  function backToClasses() {
-
-    document.getElementById("subjectSection").style.display = "none";
-    document.getElementById("chapterSection").style.display = "none";
-    document.getElementById("classSection").style.display = "block";
-
-    window.scrollTo({
-      top: document.getElementById("classSection").offsetTop - 80,
-      behavior: "smooth"
-    });
-
-  }
+}
 
 
-  function backToSubjects() {
+/* ==================================================
+   BACK TO CLASSES
+================================================== */
 
-    document.getElementById("chapterSection").style.display = "none";
-    document.getElementById("subjectSection").style.display = "block";
+function backToClasses() {
 
-    window.scrollTo({
-      top: document.getElementById("subjectSection").offsetTop - 80,
-      behavior: "smooth"
-    });
+  closeVideo();
 
-  }
+
+  document.getElementById(
+    "subjectSection"
+  ).style.display = "none";
+
+
+  document.getElementById(
+    "chapterSection"
+  ).style.display = "none";
+
+
+  document.getElementById(
+    "classSection"
+  ).style.display = "block";
+
+
+  window.scrollTo({
+
+    top:
+      document.getElementById(
+        "classSection"
+      ).offsetTop - 80,
+
+    behavior:
+      "smooth"
+
+  });
+
+}
+
+
+/* ==================================================
+   BACK TO SUBJECTS
+================================================== */
+
+function backToSubjects() {
+
+  closeVideo();
+
+
+  document.getElementById(
+    "chapterSection"
+  ).style.display = "none";
+
+
+  document.getElementById(
+    "subjectSection"
+  ).style.display = "block";
+
+
+  window.scrollTo({
+
+    top:
+      document.getElementById(
+        "subjectSection"
+      ).offsetTop - 80,
+
+    behavior:
+      "smooth"
+
+  });
+
+}
+
+
+/* ==================================================
+   MOBILE MENU
+================================================== */
+
+function toggleMenu() {
+
+  document
+    .getElementById("mainNav")
+    .classList
+    .toggle("show");
+
+}
+
+
+/* ==================================================
+   HTML ESCAPE
+================================================== */
+
+function escapeHtml(value) {
+
+  return String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+
+}
+
+
+/* ==================================================
+   JAVASCRIPT STRING ESCAPE
+================================================== */
+
+function escapeJs(value) {
+
+  return String(value || "")
+    .replace(/\\/g, "\\\\")
+    .replace(/'/g, "\\'")
+    .replace(/"/g, '\\"')
+    .replace(/\n/g, "\\n")
+    .replace(/\r/g, "\\r");
+
+}
+
+
+/* ==================================================
+   START
+================================================== */
+
+loadEducationData();
+
 
 </script>
 
