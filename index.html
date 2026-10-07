@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mala Devi Gurukul | Free Education Hub</title>
+<title>Mala Devi Gurukul | ग्रामीण विद्यार्थियों के लिए शिक्षा</title>
 
 <meta name="description"
-content="Mala Devi Gurukul - ग्रामीण विद्यार्थियों के लिए Free Education Hub. Class 1 से 12 तक अच्छे educational resources और trusted YouTube teachers तक आसान पहुंच।">
+content="Mala Devi Gurukul ग्रामीण और कस्बाई विद्यार्थियों के लिए शिक्षा, अध्ययन सामग्री और अच्छे learning resources तक आसान पहुंच बनाने का प्रयास है।">
+
 
 <style>
+
+/* =========================
+   BASIC
+========================= */
 
 :root{
     --bg:#0d1117;
     --card:#161b22;
-    --card2:#11161d;
     --accent:#ffbf00;
     --text:#c9d1d9;
     --muted:#8b949e;
@@ -32,7 +39,7 @@ body{
     font-family:"Segoe UI",Arial,sans-serif;
     background:var(--bg);
     color:var(--text);
-    line-height:1.6;
+    line-height:1.7;
 }
 
 a{
@@ -45,7 +52,10 @@ img{
     display:block;
 }
 
-/* ================= HEADER ================= */
+
+/* =========================
+   HEADER
+========================= */
 
 header{
     position:sticky;
@@ -53,15 +63,14 @@ header{
     z-index:1000;
 
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
 
     padding:10px 4%;
 
     background:rgba(22,27,34,.97);
-    border-bottom:1px solid var(--border);
 
-    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
 }
 
 .logo{
@@ -92,7 +101,6 @@ nav a{
     color:var(--text);
     font-size:14px;
     font-weight:600;
-    transition:.2s;
 }
 
 nav a:hover{
@@ -103,59 +111,47 @@ nav a:hover{
     display:none;
 
     background:none;
+
     border:1px solid var(--border);
+
     border-radius:7px;
 
     color:var(--accent);
+
     font-size:23px;
 
     padding:4px 10px;
 }
 
-/* ================= HERO ================= */
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
     text-align:center;
 
-    padding:95px 20px 85px;
+    padding:90px 20px 80px;
 
     background:
     radial-gradient(
-        circle at 50% 10%,
-        rgba(255,191,0,.13),
+        circle at 50% 15%,
+        rgba(255,191,0,.10),
         transparent 38%
     ),
     linear-gradient(#0d1117,#090c10);
 }
 
-.badge{
-    display:inline-block;
-
-    padding:7px 15px;
-    margin-bottom:20px;
-
-    border:1px solid rgba(255,191,0,.4);
-    border-radius:30px;
-
-    color:var(--accent);
-
-    background:rgba(255,191,0,.06);
-
-    font-size:12px;
-    font-weight:700;
-    letter-spacing:.7px;
-}
-
 .hero h1{
-    max-width:900px;
+    max-width:850px;
 
-    margin:0 auto 18px;
-
-    font-size:clamp(38px,6vw,62px);
-
-    line-height:1.12;
+    margin:0 auto 20px;
 
     color:var(--white);
+
+    font-size:clamp(37px,6vw,58px);
+
+    line-height:1.2;
 }
 
 .hero h1 span{
@@ -163,7 +159,7 @@ nav a:hover{
 }
 
 .hero p{
-    max-width:720px;
+    max-width:700px;
 
     margin:auto;
 
@@ -172,9 +168,11 @@ nav a:hover{
     font-size:18px;
 }
 
-.buttons{
+.hero-buttons{
     display:flex;
+
     justify-content:center;
+
     flex-wrap:wrap;
 
     gap:13px;
@@ -185,60 +183,60 @@ nav a:hover{
 .btn{
     display:inline-block;
 
-    padding:13px 24px;
+    padding:12px 23px;
 
     border-radius:8px;
 
     font-weight:700;
 
-    transition:.25s;
+    transition:.2s;
 }
 
 .btn-primary{
     background:var(--accent);
+
     color:#000;
 }
 
 .btn-primary:hover{
     transform:translateY(-2px);
-    box-shadow:0 8px 25px rgba(255,191,0,.18);
 }
 
 .btn-outline{
-    border:1px solid var(--border);
     background:var(--card);
+
+    border:1px solid var(--border);
+
     color:var(--text);
 }
 
 .btn-outline:hover{
     border-color:var(--accent);
+
     color:var(--accent);
 }
 
-.hero-note{
-    margin-top:20px !important;
 
-    color:#6e7681 !important;
-
-    font-size:13px !important;
-}
-
-/* ================= COMMON ================= */
+/* =========================
+   COMMON
+========================= */
 
 section{
-    padding:75px 20px;
+    padding:70px 20px;
 }
 
 .container{
     width:92%;
-    max-width:1150px;
+
+    max-width:1100px;
+
     margin:auto;
 }
 
 .heading{
     text-align:center;
 
-    margin-bottom:42px;
+    margin-bottom:40px;
 }
 
 .heading h2{
@@ -246,7 +244,7 @@ section{
 
     color:var(--white);
 
-    font-size:32px;
+    font-size:31px;
 }
 
 .heading h2 span{
@@ -254,21 +252,24 @@ section{
 }
 
 .heading p{
-    max-width:680px;
+    max-width:650px;
 
     margin:auto;
 
     color:var(--muted);
 }
 
-/* ================= FREE EDUCATION ================= */
+
+/* =========================
+   FREE EDUCATION
+========================= */
 
 .education{
     background:var(--card);
 }
 
 .education-box{
-    max-width:1050px;
+    max-width:950px;
 
     margin:auto;
 
@@ -278,100 +279,100 @@ section{
 
     border:1px solid var(--border);
 
-    border-radius:16px;
-
-    display:grid;
-
-    grid-template-columns:1.1fr .9fr;
-
-    gap:35px;
-
-    align-items:center;
+    border-radius:14px;
 }
 
-.education-text h3{
-    margin:0 0 12px;
+.education-box h3{
+    margin-top:0;
 
     color:var(--accent);
 
     font-size:27px;
 }
 
-.education-text p{
+.education-box p{
     color:var(--muted);
+
+    font-size:16px;
 }
 
-.education-points{
+.points{
     display:grid;
 
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(2,1fr);
 
     gap:12px;
 
-    margin:20px 0;
+    margin:25px 0;
 }
 
 .point{
-    padding:13px;
+    padding:14px;
 
     background:var(--card);
 
     border:1px solid var(--border);
 
     border-radius:9px;
-
-    font-size:14px;
 }
 
-.point span{
+.point strong{
     color:var(--accent);
 }
 
-.education-preview{
+
+/* =========================
+   CLASSES
+========================= */
+
+.classes-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+}
+
+.class-card{
     padding:25px;
 
-    border:1px solid var(--border);
-
-    border-radius:14px;
-
-    background:#080b0f;
-}
-
-.search-box{
-    padding:14px;
-
-    border:1px solid var(--border);
-
-    border-radius:8px;
-
-    color:#6e7681;
-
-    margin-bottom:12px;
-}
-
-.class-row{
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:13px;
-
-    margin-top:8px;
-
-    border:1px solid var(--border);
-
-    border-radius:8px;
-
     background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    transition:.2s;
 }
 
-.class-row span:last-child{
-    color:var(--accent);
+.class-card:hover{
+    border-color:var(--accent);
+
+    transform:translateY(-3px);
 }
 
-/* ================= HOW IT WORKS ================= */
+.class-card .icon{
+    font-size:30px;
+}
+
+.class-card h3{
+    color:var(--white);
+
+    margin:12px 0 8px;
+}
+
+.class-card p{
+    color:var(--muted);
+
+    font-size:14px;
+
+    margin-bottom:18px;
+}
+
+
+/* =========================
+   HOW IT WORKS
+========================= */
 
 .steps{
     display:grid;
@@ -379,10 +380,6 @@ section{
     grid-template-columns:repeat(4,1fr);
 
     gap:18px;
-
-    max-width:1000px;
-
-    margin:auto;
 }
 
 .step{
@@ -398,14 +395,16 @@ section{
 }
 
 .number{
-    width:48px;
-    height:48px;
+    width:45px;
+    height:45px;
 
-    margin:0 auto 13px;
+    margin:0 auto 12px;
 
     display:flex;
-    justify-content:center;
+
     align-items:center;
+
+    justify-content:center;
 
     border-radius:50%;
 
@@ -414,25 +413,26 @@ section{
     color:#000;
 
     font-weight:800;
-
-    font-size:19px;
 }
 
 .step h3{
-    margin:0 0 6px;
-
     color:var(--white);
+
+    margin:0 0 6px;
 }
 
 .step p{
-    margin:0;
-
     color:var(--muted);
 
     font-size:13px;
+
+    margin:0;
 }
 
-/* ================= WHY ================= */
+
+/* =========================
+   WHY
+========================= */
 
 .why{
     background:var(--card);
@@ -456,18 +456,10 @@ section{
     border:1px solid var(--border);
 
     border-radius:12px;
-
-    transition:.25s;
 }
 
-.why-card:hover{
-    transform:translateY(-4px);
-
-    border-color:var(--accent);
-}
-
-.icon{
-    font-size:30px;
+.why-card .icon{
+    font-size:29px;
 }
 
 .why-card h3{
@@ -484,7 +476,10 @@ section{
     margin:0;
 }
 
-/* ================= TEACHER ================= */
+
+/* =========================
+   KAPIL SIR
+========================= */
 
 .teacher{
     display:flex;
@@ -493,7 +488,7 @@ section{
 
     justify-content:center;
 
-    gap:55px;
+    gap:50px;
 
     max-width:950px;
 
@@ -509,37 +504,30 @@ section{
     border-radius:50%;
 
     border:4px solid var(--accent);
-
-    box-shadow:0 0 0 8px rgba(255,191,0,.06);
 }
 
 .teacher-text{
     max-width:600px;
 }
 
-.small-title{
-    color:var(--accent);
-
-    font-size:13px;
-
-    font-weight:700;
-
-    letter-spacing:1px;
-}
-
 .teacher-text h2{
-    margin:7px 0 15px;
-
     color:var(--white);
 
-    font-size:31px;
+    font-size:30px;
+
+    margin:0 0 15px;
 }
 
 .teacher-text p{
     color:var(--muted);
+
+    font-size:16px;
 }
 
-/* ================= GALLERY ================= */
+
+/* =========================
+   GALLERY
+========================= */
 
 .gallery{
     background:var(--card);
@@ -560,9 +548,9 @@ section{
 .gallery-item{
     overflow:hidden;
 
-    border:1px solid var(--border);
-
     border-radius:12px;
+
+    border:1px solid var(--border);
 }
 
 .gallery-item img{
@@ -572,14 +560,17 @@ section{
 
     object-fit:cover;
 
-    transition:.4s;
+    transition:.3s;
 }
 
 .gallery-item:hover img{
-    transform:scale(1.04);
+    transform:scale(1.03);
 }
 
-/* ================= SUPPORT ================= */
+
+/* =========================
+   DONATION
+========================= */
 
 .support{
     text-align:center;
@@ -589,7 +580,7 @@ section{
     background:
     radial-gradient(
         circle at center,
-        rgba(255,191,0,.08),
+        rgba(255,191,0,.07),
         transparent 45%
     );
 }
@@ -597,7 +588,7 @@ section{
 .support h2{
     color:var(--white);
 
-    font-size:32px;
+    font-size:31px;
 }
 
 .support p{
@@ -608,12 +599,15 @@ section{
     color:var(--muted);
 }
 
-/* ================= FOOTER ================= */
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-    text-align:center;
-
     padding:35px 20px;
+
+    text-align:center;
 
     background:#080b0f;
 
@@ -656,20 +650,15 @@ footer p{
     font-size:12px;
 }
 
-/* ================= MOBILE ================= */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:900px){
 
-    nav{
-        gap:12px;
-    }
-
-    nav a{
-        font-size:13px;
-    }
-
-    .education-box{
-        grid-template-columns:1fr;
+    .classes-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
     .why-grid{
@@ -680,6 +669,7 @@ footer p{
         grid-template-columns:repeat(2,1fr);
     }
 }
+
 
 @media(max-width:700px){
 
@@ -697,6 +687,7 @@ footer p{
         position:absolute;
 
         top:66px;
+
         left:0;
         right:0;
 
@@ -710,7 +701,7 @@ footer p{
 
         align-items:flex-start;
 
-        gap:14px;
+        gap:13px;
     }
 
     nav.active{
@@ -728,7 +719,7 @@ footer p{
     }
 
     .hero h1{
-        font-size:39px;
+        font-size:38px;
     }
 
     .hero p{
@@ -744,13 +735,14 @@ footer p{
     }
 
     .education-box{
-        padding:22px;
+        padding:23px;
     }
 
-    .education-points{
+    .points{
         grid-template-columns:1fr;
     }
 
+    .classes-grid,
     .why-grid,
     .steps,
     .gallery-grid{
@@ -775,19 +767,22 @@ footer p{
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- ================= HEADER ================= -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
 <div class="logo">
 
-<img src="logo.png" alt="MD Gurukul Logo">
+<img src="logo.png" alt="Mala Devi Gurukul">
 
 <h2>MD GURUKUL</h2>
 
@@ -796,9 +791,10 @@ footer p{
 
 <button
 class="menu-btn"
-onclick="toggleMenu()"
-aria-label="Open menu">
+onclick="toggleMenu()">
+
 ☰
+
 </button>
 
 
@@ -824,39 +820,43 @@ aria-label="Open menu">
 
 
 
-<!-- ================= HERO ================= -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
-<div class="badge">
-MALA DEVI GURUKUL • FREE EDUCATION HUB
-</div>
-
-
 <h1>
-सही शिक्षा तक
-<span>सही रास्ता</span>
+
+गांव और कस्बे के बच्चों के लिए
+<br>
+
+<span>अच्छी पढ़ाई की एक आसान कोशिश</span>
+
 </h1>
 
 
 <p>
-YouTube पर educational videos की कोई कमी नहीं है।
-समस्या है — सही video और सही teacher को ढूँढना।
-MD Gurukul का उद्देश्य विद्यार्थियों को अच्छे learning resources तक आसान पहुँच देना है।
+
+हर बच्चे के पास महंगी coaching या बड़े शहर जैसी सुविधाएं नहीं होतीं।
+इसलिए हमारा प्रयास है कि पढ़ाई के अच्छे साधन उसे आसानी से मिल सकें।
+
 </p>
 
 
-<div class="buttons">
+<div class="hero-buttons">
 
-<a href="free-education.html"
+<a
+href="free-education.html"
 class="btn btn-primary">
 
-🎓 Free Education Hub
+📚 Free Education
 
 </a>
 
 
-<a href="live-classes.html"
+<a
+href="live-classes.html"
 class="btn btn-outline">
 
 ▶ Live Classes
@@ -865,16 +865,13 @@ class="btn btn-outline">
 
 </div>
 
-
-<p class="hero-note">
-Class 1–12 • Chapter-wise Learning • Carefully Selected Resources
-</p>
-
 </section>
 
 
 
-<!-- ================= FREE EDUCATION HUB ================= -->
+<!-- =========================
+     OUR IDEA
+========================= -->
 
 <section class="education">
 
@@ -883,11 +880,11 @@ Class 1–12 • Chapter-wise Learning • Carefully Selected Resources
 <div class="heading">
 
 <h2>
-Welcome to <span>Free Education Hub</span>
+हमारी <span>सोच</span>
 </h2>
 
 <p>
-हमारा उद्देश्य content बनाना ही नहीं, बल्कि विद्यार्थियों को सही content तक पहुँचाना है।
+पढ़ने वाले बच्चे को सही दिशा और अच्छे साधन मिलें — बस यही कोशिश है।
 </p>
 
 </div>
@@ -895,80 +892,161 @@ Welcome to <span>Free Education Hub</span>
 
 <div class="education-box">
 
-
-<div class="education-text">
-
 <h3>
-YouTube का ज्ञान — एक जगह व्यवस्थित
+Free Education Hub
 </h3>
 
+
 <p>
-हम अलग-अलग educational creators के अच्छे videos को
-class, subject और chapter के अनुसार व्यवस्थित करने की दिशा में काम कर रहे हैं।
+
+कई बार बच्चा पढ़ना तो चाहता है, लेकिन उसे समझ नहीं आता कि
+किस chapter को कहाँ से पढ़े, कौन सा lecture उसके लिए ठीक रहेगा
+या किससे मदद मिलेगी।
+
 </p>
 
 
-<div class="education-points">
+<p>
+
+हम अलग-अलग जगह उपलब्ध अच्छे educational resources को
+class और chapter के हिसाब से एक जगह रखने की कोशिश करेंगे,
+ताकि बच्चे को इधर-उधर भटकना न पड़े।
+
+</p>
+
+
+<div class="points">
 
 <div class="point">
-<span>✓</span> Class-wise
+<strong>✓</strong> कक्षा के अनुसार सामग्री
 </div>
 
 <div class="point">
-<span>✓</span> Subject-wise
+<strong>✓</strong> विषय के अनुसार सामग्री
 </div>
 
 <div class="point">
-<span>✓</span> Chapter-wise
+<strong>✓</strong> Chapter के अनुसार पढ़ाई
 </div>
 
 <div class="point">
-<span>✓</span> Teacher-wise
+<strong>✓</strong> अच्छे शिक्षकों तक पहुंच
 </div>
 
 </div>
 
 
-<a href="free-education.html"
+<a
+href="free-education.html"
 class="btn btn-primary">
 
-Open Free Education Hub →
+Free Education Hub देखें →
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     CLASSES
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="heading">
+
+<h2>
+किसके लिए <span>है?</span>
+</h2>
+
+<p>
+अभी शुरुआत इन कक्षाओं से करने का हमारा विचार है।
+</p>
+
+</div>
+
+
+<div class="classes-grid">
+
+
+<div class="class-card">
+
+<div class="icon">
+📚
+</div>
+
+<h3>
+Class 6–8
+</h3>
+
+<p>
+बुनियादी concepts मजबूत करने और आगे की पढ़ाई के लिए तैयारी।
+</p>
+
+<a
+href="free-education.html"
+class="btn btn-outline">
+
+पढ़ाई देखें →
 
 </a>
 
 </div>
 
 
+<div class="class-card">
 
-<div class="education-preview">
+<div class="icon">
+📝
+</div>
 
-<div class="search-box">
-🔎 Search your chapter...
+<h3>
+Class 9–10
+</h3>
+
+<p>
+Board की तैयारी, chapter-wise study और practice material।
+</p>
+
+<a
+href="free-education.html"
+class="btn btn-outline">
+
+पढ़ाई देखें →
+
+</a>
+
 </div>
 
 
-<div class="class-row">
-<span>📘 Class 10 Mathematics</span>
-<span>→</span>
+<div class="class-card">
+
+<div class="icon">
+🎓
 </div>
 
+<h3>
+Class 11–12
+</h3>
 
-<div class="class-row">
-<span>🔬 Class 10 Science</span>
-<span>→</span>
-</div>
+<p>
+Senior classes के subjects और आगे की पढ़ाई के लिए useful resources।
+</p>
 
+<a
+href="free-education.html"
+class="btn btn-outline">
 
-<div class="class-row">
-<span>📐 Class 12 Mathematics</span>
-<span>→</span>
-</div>
+पढ़ाई देखें →
 
-
-<div class="class-row">
-<span>⚡ Class 12 Physics</span>
-<span>→</span>
-</div>
+</a>
 
 </div>
 
@@ -981,20 +1059,22 @@ Open Free Education Hub →
 
 
 
-<!-- ================= HOW IT WORKS ================= -->
+<!-- =========================
+     HOW
+========================= -->
 
-<section>
+<section class="why">
 
 <div class="container">
 
 <div class="heading">
 
 <h2>
-यह कैसे <span>काम करेगा?</span>
+बच्चे को क्या <span>मिलेगा?</span>
 </h2>
 
 <p>
-विद्यार्थी के लिए process बिल्कुल simple रहेगा।
+हम चीजों को जितना हो सके सरल रखना चाहते हैं।
 </p>
 
 </div>
@@ -1005,12 +1085,16 @@ Open Free Education Hub →
 
 <div class="step">
 
-<div class="number">1</div>
+<div class="number">
+1
+</div>
 
-<h3>Class चुनें</h3>
+<h3>
+कक्षा चुनें
+</h3>
 
 <p>
-अपनी class select करें।
+अपनी class चुनें।
 </p>
 
 </div>
@@ -1018,12 +1102,16 @@ Open Free Education Hub →
 
 <div class="step">
 
-<div class="number">2</div>
+<div class="number">
+2
+</div>
 
-<h3>Chapter चुनें</h3>
+<h3>
+विषय चुनें
+</h3>
 
 <p>
-जिस chapter को पढ़ना है उसे चुनें।
+जिस subject में पढ़ना है उसे चुनें।
 </p>
 
 </div>
@@ -1031,12 +1119,16 @@ Open Free Education Hub →
 
 <div class="step">
 
-<div class="number">3</div>
+<div class="number">
+3
+</div>
 
-<h3>Recommended Video</h3>
+<h3>
+Chapter चुनें
+</h3>
 
 <p>
-चुना हुआ अच्छा learning resource देखें।
+जिस chapter को समझना है उसे चुनें।
 </p>
 
 </div>
@@ -1044,12 +1136,16 @@ Open Free Education Hub →
 
 <div class="step">
 
-<div class="number">4</div>
+<div class="number">
+4
+</div>
 
-<h3>Practice करें</h3>
+<h3>
+पढ़ें और अभ्यास करें
+</h3>
 
 <p>
-सीखने के बाद questions और tests से practice करें।
+Lecture देखें और questions हल करें।
 </p>
 
 </div>
@@ -1063,20 +1159,22 @@ Open Free Education Hub →
 
 
 
-<!-- ================= WHY ================= -->
+<!-- =========================
+     WHY
+========================= -->
 
-<section class="why">
+<section>
 
 <div class="container">
 
 <div class="heading">
 
 <h2>
-हमारा <span>उद्देश्य</span>
+हमारी <span>कोशिश</span>
 </h2>
 
 <p>
-हम विद्यार्थी और अच्छे शिक्षक के बीच एक सरल connection बनाना चाहते हैं।
+गांव के बच्चे को वही अवसर मिले जो किसी बड़े शहर के बच्चे को मिलता है।
 </p>
 
 </div>
@@ -1087,12 +1185,16 @@ Open Free Education Hub →
 
 <div class="why-card">
 
-<div class="icon">🎯</div>
+<div class="icon">
+📖
+</div>
 
-<h3>Right Content</h3>
+<h3>
+आसान पढ़ाई
+</h3>
 
 <p>
-अनावश्यक videos में समय बर्बाद न हो।
+मुश्किल चीजों को सरल तरीके से समझने की कोशिश।
 </p>
 
 </div>
@@ -1100,12 +1202,16 @@ Open Free Education Hub →
 
 <div class="why-card">
 
-<div class="icon">👨‍🏫</div>
+<div class="icon">
+💰
+</div>
 
-<h3>Good Teachers</h3>
+<h3>
+कम खर्च
+</h3>
 
 <p>
-अच्छे educational creators तक students पहुँचें।
+जहाँ संभव हो, free resources का इस्तेमाल।
 </p>
 
 </div>
@@ -1113,12 +1219,16 @@ Open Free Education Hub →
 
 <div class="why-card">
 
-<div class="icon">📚</div>
+<div class="icon">
+🏠
+</div>
 
-<h3>Organised Learning</h3>
+<h3>
+घर से पढ़ाई
+</h3>
 
 <p>
-Class और chapter के अनुसार resources।
+मोबाइल से घर बैठे पढ़ने की सुविधा।
 </p>
 
 </div>
@@ -1126,12 +1236,16 @@ Class और chapter के अनुसार resources।
 
 <div class="why-card">
 
-<div class="icon">🆓</div>
+<div class="icon">
+🤝
+</div>
 
-<h3>Free Access</h3>
+<h3>
+साथ और मार्गदर्शन
+</h3>
 
 <p>
-Learning resources तक आसान और free पहुँच।
+बच्चे को सही दिशा दिखाने की कोशिश।
 </p>
 
 </div>
@@ -1145,9 +1259,11 @@ Learning resources तक आसान और free पहुँच।
 
 
 
-<!-- ================= KAPIL SIR ================= -->
+<!-- =========================
+     KAPIL SIR
+========================= -->
 
-<section>
+<section class="education">
 
 <div class="teacher">
 
@@ -1156,44 +1272,45 @@ Learning resources तक आसान और free पहुँच।
 
 <img
 src="kapilsir.png"
-alt="Kapil Sir - Mala Devi Gurukul">
+alt="Kapil Sir">
 
 </div>
 
 
 <div class="teacher-text">
 
-<div class="small-title">
-FOUNDER • TEACHER • EDUCATOR
-</div>
-
-
 <h2>
-एक शिक्षक का छोटा सा प्रयास
+Kapil Sir की ओर से
 </h2>
 
 
 <p>
-YouTube पर आज education का बहुत बड़ा खजाना उपलब्ध है,
-लेकिन एक विद्यार्थी के लिए सही teacher और सही video चुनना आसान नहीं है।
+
+गांव में पढ़ाने के दौरान मैंने महसूस किया कि
+बच्चों में पढ़ने की इच्छा बहुत है, लेकिन हर बच्चे को
+सही resources और guidance नहीं मिल पाती।
+
 </p>
 
 
 <p>
-Mala Devi Gurukul का प्रयास है कि विद्यार्थियों को अच्छे learning resources
-तक पहुँचने में मदद मिले और educational creators का अच्छा content
-ज्यादा से ज्यादा विद्यार्थियों तक पहुँचे।
+
+हम कोई बहुत बड़ा दावा नहीं कर रहे हैं।
+बस एक छोटी सी कोशिश है कि जो अच्छा material
+हमें मिले, उसे बच्चों तक पहुंचाने का रास्ता आसान किया जाए।
+
 </p>
 
 
 <p>
-<strong style="color:#ffbf00;">
-हमारा काम ज्ञान को रोकना नहीं, सही विद्यार्थी तक पहुँचाना है।
-</strong>
+
+अगर इससे किसी एक बच्चे की पढ़ाई भी थोड़ी आसान होती है,
+तो यह प्रयास सफल है।
+
 </p>
 
 
-<p>
+<p style="color:#ffbf00;font-weight:bold;">
 — Kapil Sir
 </p>
 
@@ -1205,7 +1322,9 @@ Mala Devi Gurukul का प्रयास है कि विद्यार�
 
 
 
-<!-- ================= GALLERY ================= -->
+<!-- =========================
+     CLASSROOM
+========================= -->
 
 <section class="gallery">
 
@@ -1214,11 +1333,11 @@ Mala Devi Gurukul का प्रयास है कि विद्यार�
 <div class="heading">
 
 <h2>
-Mala Devi Gurukul के <span>कुछ पल</span>
+हमारी <span>Classroom Journey</span>
 </h2>
 
 <p>
-हमारी journey classroom से digital learning की ओर।
+यहीं से Mala Devi Gurukul की शुरुआत हुई।
 </p>
 
 </div>
@@ -1240,7 +1359,7 @@ alt="Mala Devi Gurukul Classroom">
 
 <img
 src="class2.jpg"
-alt="Students Learning">
+alt="Students in Classroom">
 
 </div>
 
@@ -1262,35 +1381,42 @@ alt="Classroom Activity">
 
 
 
-<!-- ================= SUPPORT ================= -->
+<!-- =========================
+     FINAL CTA
+========================= -->
 
 <section class="support">
 
 <h2>
-क्या आप भी इस mission का हिस्सा बनना चाहते हैं?
+चलो पढ़ाई को थोड़ा आसान बनाते हैं।
 </h2>
 
 
 <p>
-यदि आप teacher, YouTuber, educator या education supporter हैं,
-तो अच्छे educational resources को ज्यादा विद्यार्थियों तक पहुँचाने में हमारा साथ दें।
+
+अगर आप विद्यार्थी हैं तो Free Education Hub देखें।
+अगर आप teacher हैं और अच्छा content बनाते हैं,
+तो आप भी इस प्रयास से जुड़ सकते हैं।
+
 </p>
 
 
-<div class="buttons">
+<div class="hero-buttons">
 
-<a href="free-education.html"
+<a
+href="free-education.html"
 class="btn btn-primary">
 
-🎓 Explore Free Education
+📚 Free Education Hub
 
 </a>
 
 
-<a href="donate.html"
+<a
+href="donate.html"
 class="btn btn-outline">
 
-❤️ Support Mission
+❤️ सहयोग करें
 
 </a>
 
@@ -1300,7 +1426,9 @@ class="btn btn-outline">
 
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -1329,7 +1457,7 @@ MD GURUKUL
 
 
 <p>
-© 2026 Mala Devi Gurukul • Free Education Mission
+© 2026 Mala Devi Gurukul
 </p>
 
 </footer>
@@ -1340,14 +1468,16 @@ MD GURUKUL
 
 function toggleMenu(){
 
-    const nav = document.getElementById("mainNav");
+    const nav =
+    document.getElementById("mainNav");
 
     nav.classList.toggle("active");
 
 }
 
 
-document.querySelectorAll("#mainNav a").forEach(function(link){
+document.querySelectorAll("#mainNav a")
+.forEach(function(link){
 
     link.addEventListener("click",function(){
 
@@ -1364,4 +1494,5 @@ document.querySelectorAll("#mainNav a").forEach(function(link){
 
 
 </body>
+
 </html>
