@@ -1,12 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MD GURUKUL - Results</title>
+<title>MD GURUKUL - Online Examination</title>
 
 <style>
-/* ===== COMMON THEME (SAME AS HOME) ===== */
+/* ===== COMMON THEME ===== */
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -53,91 +54,75 @@ nav a:hover {
     color: #ffbf00;
 }
 
-/* ===== RESULT PAGE STYLES ===== */
-.result-section{
-    max-width: 500px;
+/* ===== EXAMINATION PAGE ===== */
+.exam-section {
+    max-width: 650px;
     margin: 60px auto;
     background: #161b22;
     padding: 30px;
     border-radius: 15px;
     border: 1px solid #30363d;
     box-shadow: 0 0 20px rgba(255,191,0,0.15);
-}
-
-.result-section h2{
     text-align: center;
+}
+
+.exam-section h2 {
     color: #ffbf00;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 
-input{
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    background: #0d1117;
-    border: 1px solid #30363d;
-    border-radius: 8px;
-    color: #c9d1d9;
-    font-size: 15px;
+.exam-section p {
+    line-height: 1.7;
 }
 
-button{
-    width: 100%;
-    padding: 12px;
+.exam-icon {
+    font-size: 55px;
+    margin: 15px 0;
+}
+
+.exam-btn {
+    display: inline-block;
+    width: 85%;
+    max-width: 350px;
+    padding: 15px;
     background: #ffbf00;
     border: none;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: bold;
     cursor: pointer;
     color: #000;
-    margin-top: 10px;
+    margin-top: 20px;
+    text-decoration: none;
+    box-sizing: border-box;
 }
 
-button:hover{
+.exam-btn:hover {
     background: #e6ac00;
 }
 
-.result-box{
+.exam-info {
     margin-top: 25px;
+    padding: 15px;
     background: #0d1117;
-    padding: 20px;
     border-radius: 10px;
     border-left: 4px solid #ffbf00;
+    text-align: left;
 }
 
-.result-box h3{
-    margin-top: 0;
+.exam-info h3 {
     color: #ffbf00;
+}
+
+.exam-info ul {
+    line-height: 2;
+    padding-left: 22px;
+}
+
+.ad-sidebar {
+    margin: 30px auto;
     text-align: center;
-}
-
-.row{
-    display: flex;
-    justify-content: space-between;
-    padding: 6px 0;
-    border-bottom: 1px solid #30363d;
-    font-size: 14px;
-}
-
-.summary{
-    margin-top: 12px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.pass{
-    color: #4caf50;
-}
-
-.fail{
-    color: #ff4d4d;
-}
-
-.error{
-    text-align: center;
-    color: #ff4d4d;
-    margin-top: 15px;
+    overflow: hidden;
 }
 
 footer {
@@ -147,17 +132,48 @@ footer {
     margin-top: 50px;
     color: #8b949e;
 }
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media(max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    header .logo h1 {
+        font-size: 1.4em;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    nav a {
+        margin: 0;
+        font-size: 13px;
+    }
+
+    .exam-section {
+        margin: 30px 15px;
+        padding: 20px;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<!-- ===== HEADER SAME AS HOME ===== -->
+<!-- ===== HEADER ===== -->
 <header>
     <div class="logo">
         <img src="logo.png" alt="MD GURUKUL Logo">
         <h1>MD GURUKUL</h1>
     </div>
+
     <nav>
         <a href="index.html">Home</a>
         <a href="results.html">Results</a>
@@ -169,95 +185,61 @@ footer {
     </nav>
 </header>
 
-<!-- ===== RESULT SECTION ===== -->
-<div class="result-section">
-    <h2>Student Result</h2>
+<!-- ===== ONLINE EXAMINATION ===== -->
+<div class="exam-section">
 
-    <input id="roll" placeholder="Enter Roll Number">
-    <input id="class" placeholder="Enter Class">
+    <div class="exam-icon">📝</div>
 
-    <button onclick="getResult()">View Result</button>
+    <h2>MDG Online Examination</h2>
 
-    <div id="output"></div>
+    <p>
+        Welcome to Mala Devi Gurukul Online Examination System.
+        यहाँ विद्यार्थी अपनी कक्षा और विषय के अनुसार ऑनलाइन परीक्षा दे सकते हैं।
+    </p>
 
-    <div class="ad-sidebar">
-    <script>
-      atOptions = {
-        'key' : 'dcf3785ffd47a42a10eb9b5a1b15ddc8',
-        'format' : 'iframe',
-        'height' : 600,
-        'width' : 160,
-        'params' : {}
-      };
-    </script>
-    <script src="https://www.highperformanceformat.com/dcf3785ffd47a42a10eb9b5a1b15ddc8/invoke.js"></script>
+    <a class="exam-btn"
+       href="https://script.google.com/macros/s/AKfycbywcmDLTlhuUUr_cJCEXSlGcwh73f4PPUSTGrTJ_eMUkDLo0PYtJmDPDHgXfQ_f2CiQ/exec?page=student"
+       target="_blank">
+       START ONLINE EXAMINATION
+    </a>
 
-    <div class="ad-sidebar">
-    <script>
-      atOptions = {
-        'key' : 'dcf3785ffd47a42a10eb9b5a1b15ddc8',
-        'format' : 'iframe',
-        'height' : 600,
-        'width' : 160,
-        'params' : {}
-      };
-    </script>
-    <script src="https://www.highperformanceformat.com/dcf3785ffd47a42a10eb9b5a1b15ddc8/invoke.js"></script>
+    <div class="exam-info">
+
+        <h3>📌 परीक्षा संबंधी निर्देश</h3>
+
+        <ul>
+            <li>परीक्षा शुरू करने से पहले अपनी जानकारी सही भरें।</li>
+            <li>सभी प्रश्नों को ध्यानपूर्वक पढ़ें।</li>
+            <li>परीक्षा निर्धारित समय के अंदर पूरी करें।</li>
+            <li>एक परीक्षा केवल एक बार दे सकते हैं।</li>
+            <li>परीक्षा पूरी होने पर अपना परिणाम देखें।</li>
+        </ul>
+
+    </div>
+
 </div>
 
+<!-- ===== ADVERTISEMENT ===== -->
+<div class="ad-sidebar">
+
+    <script>
+      atOptions = {
+        'key' : 'dcf3785ffd47a42a10eb9b5a1b15ddc8',
+        'format' : 'iframe',
+        'height' : 600,
+        'width' : 160,
+        'params' : {}
+      };
+    </script>
+
+    <script src="https://www.highperformanceformat.com/dcf3785ffd47a42a10eb9b5a1b15ddc8/invoke.js"></script>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
 <footer>
     © 2026 MD GURUKUL | All Rights Reserved
 </footer>
 
-<script>
-function getResult(){
-
-    let roll = document.getElementById("roll").value.trim();
-    let cls  = document.getElementById("class").value.trim();
-    let out  = document.getElementById("output");
-
-    if(!roll || !cls){
-        out.innerHTML = "<p class='error'>Please enter Roll Number and Class</p>";
-        return;
-    }
-
-    fetch(`https://script.google.com/macros/s/AKfycbytLRrJJ71UBff7vF2QMocOHiHRk0SY8aA4G0T8MIt4Rbf8mwQj5i1ExvFGo-0Tm9BAcA/exec?roll=${roll}&class=${cls}`)
-    .then(res => res.json())
-    .then(data => {
-
-        if(data.status === "success"){
-
-            let statusClass = data.percentage >= 33 ? "pass" : "fail";
-            let statusText  = data.percentage >= 33 ? "PASS" : "FAIL";
-
-            out.innerHTML = `
-            <div class="result-box">
-                <h3>${data.name} (Class ${data.class})</h3>
-
-                <div class="row"><span>Hindi</span><span>${data.hindi}</span></div>
-                <div class="row"><span>English</span><span>${data.english}</span></div>
-                <div class="row"><span>Maths</span><span>${data.maths}</span></div>
-                <div class="row"><span>Science</span><span>${data.science}</span></div>
-                <div class="row"><span>Reasoning</span><span>${data.reasoning}</span></div>
-                <div class="row"><span>G.K & G.S</span><span>${data.gk}</span></div>
-                <div class="row"><span>Writing</span><span>${data.writing}</span></div>
-
-                <div class="summary ${statusClass}">
-                    Total: ${data.obtained} / ${data.maxMarks}<br>
-                    Percentage: ${data.percentage}%<br>
-                    Result: ${statusText}
-                </div>
-            </div>`;
-        }
-        else{
-            out.innerHTML = "<p class='error'>Result not found</p>";
-        }
-    });
-}
-</script>
-
 </body>
 </html>
-
-
-
